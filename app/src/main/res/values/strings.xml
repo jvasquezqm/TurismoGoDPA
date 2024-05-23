@@ -7,5 +7,6 @@
     <string name="INICIO">INICIO</string>
     <string name="et_name">¿Qué haremos hoy?</string>
     <string name="btn_search">Buscar</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
 
