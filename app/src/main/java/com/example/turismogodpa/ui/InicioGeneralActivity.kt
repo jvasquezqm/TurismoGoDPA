@@ -1,6 +1,8 @@
 package com.example.turismogodpa.ui
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -12,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.turismogodpa.R
 import com.example.turismogodpa.adapter.ActividadHomeAdapter
 import com.example.turismogodpa.data.model.ActividadesHomeModel
+import com.example.turismogodpa.ui.autentication.LoginActivity
 
 class InicioGeneralActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,9 +26,22 @@ class InicioGeneralActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        val btBuscar: Button = findViewById(R.id.btBuscar)
+        var anuncioToast = Toast.makeText(this, "Por favor Inicie Sesion", Toast.LENGTH_LONG)
+
+
+        btBuscar.setOnClickListener {
+            anuncioToast.show()
+            val intent = Intent(this@InicioGeneralActivity, LoginActivity::class.java)
+            startActivity(intent)
+        }
+
+
         val ActividadHomeAdapter = ActividadHomeAdapter(ListActividades(), object : ActividadHomeAdapter.OnItemClickListener {
             override fun onItemClick(actividad: ActividadesHomeModel) {
-                Toast.makeText(this@InicioGeneralActivity, "Seleccionado", Toast.LENGTH_SHORT).show()
+                anuncioToast.show()
+                val intent = Intent(this@InicioGeneralActivity, LoginActivity::class.java)
+                startActivity(intent)
             }
         })
         val recyclerView: RecyclerView = findViewById(R.id.rvActividadesH)
