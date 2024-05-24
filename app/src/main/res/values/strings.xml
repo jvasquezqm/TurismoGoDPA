@@ -8,5 +8,13 @@
     <string name="et_name">¿Qué haremos hoy?</string>
     <string name="btn_search">Buscar</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="btn_confirmar_name">CONFIRMAR</string>
+    <string name="tvVolver_name">VOLVER</string>
+    <string name="tvResumenReserva_title">RESUMEN RESERVA</string>
+    <string name="tvNombreContacto">Nombre Contacto:</string>
+    <string name="tvIDCuenta">ID Usuario:</string>
+    <string name="tvNombreActividad_form">Nombre Actividad:</string>
+    <string name="tvEmpresa_form">Empresa:</string>
+    <string name="tvFecha_form">Fecha Reservada:</string>
 </resources>
 
