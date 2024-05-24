@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_empresa"
+    app:startDestination="@id/publicacionFragment">
+
+    <fragment
+        android:id="@+id/historyeFragment"
+        android:name="com.example.turismogodpa.ui.company.historial.HistoryeFragment"
+        android:label="fragment_historye"
+        tools:layout="@layout/fragment_historye" />
+    <fragment
+        android:id="@+id/cuenteFragment"
+        android:name="com.example.turismogodpa.ui.company.cuenta.CuenteFragment"
+        android:label="fragment_cuente"
+        tools:layout="@layout/fragment_cuente" />
+    <fragment
+        android:id="@+id/publicacionFragment"
+        android:name="com.example.turismogodpa.ui.company.publicacion.PublicacionFragment"
+        android:label="fragment_publicacion"
+        tools:layout="@layout/fragment_publicacion" />
+</navigation>
