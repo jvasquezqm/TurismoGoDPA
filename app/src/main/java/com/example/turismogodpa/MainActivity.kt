@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.inicioFragment, R.id.reservasFragment, R.id.cuentaFragment, // Para cliente
-                R.id.publicacionFragment, R.id.historyeFragment, R.id.cuenteFragment
+                R.id.publicacionFragment, R.id.historyeFragment, R.id.cuentaFragment2 // Para empresa
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

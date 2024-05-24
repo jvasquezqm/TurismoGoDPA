@@ -11,13 +11,13 @@
         android:label="fragment_historye"
         tools:layout="@layout/fragment_historye" />
     <fragment
-        android:id="@+id/cuenteFragment"
-        android:name="com.example.turismogodpa.ui.company.cuenta.CuenteFragment"
-        android:label="fragment_cuente"
-        tools:layout="@layout/fragment_cuente" />
-    <fragment
         android:id="@+id/publicacionFragment"
         android:name="com.example.turismogodpa.ui.company.publicacion.PublicacionFragment"
         android:label="fragment_publicacion"
         tools:layout="@layout/fragment_publicacion" />
+    <fragment
+        android:id="@+id/cuentaFragment2"
+        android:name="com.example.turismogodpa.ui.user.cuenta.CuentaFragment"
+        android:label="fragment_cuenta"
+        tools:layout="@layout/fragment_cuenta" />
 </navigation>
