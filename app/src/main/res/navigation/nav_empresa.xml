@@ -16,8 +16,9 @@
         android:label="fragment_publicacion"
         tools:layout="@layout/fragment_publicacion" />
     <fragment
-        android:id="@+id/cuentaFragment2"
-        android:name="com.example.turismogodpa.ui.user.cuenta.CuentaFragment"
-        android:label="fragment_cuenta"
-        tools:layout="@layout/fragment_cuenta" />
+        android:id="@+id/cuentaCFragment"
+        android:name="com.example.turismogodpa.ui.company.cuenta.CuentaCFragment"
+        android:label="fragment_cuenta_c"
+        tools:layout="@layout/fragment_cuenta_c" />
+
 </navigation>

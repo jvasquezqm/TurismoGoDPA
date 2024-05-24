@@ -11,7 +11,7 @@
         android:title="Historial" />
 
     <item
-        android:id="@+id/cuentaFragment"
+        android:id="@+id/cuentaCFragment"
         android:icon="@drawable/ic_account_circ"
         android:title="Cuenta" />
 </menu>
