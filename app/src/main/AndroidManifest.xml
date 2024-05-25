@@ -12,22 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TurismoGoDPA"
         tools:targetApi="31">
-        <!-- Reservar -->
-        <activity
-            android:name=".ui.user.reservas.ReservarActivity"
-            android:exported="false">
-        </activity>
+        <!-- Reservar Elimiando-->
 
         <!-- Confirmar Reserva -->
-        <activity
-            android:name=".ui.user.reservas.ConfirmaReservaActivity"
-            android:exported="false">
-        </activity>
 
         <activity
             android:name=".ui.InicioGeneralActivity"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
