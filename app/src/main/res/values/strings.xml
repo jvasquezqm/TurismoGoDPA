@@ -76,5 +76,30 @@
         <item>21:00</item>
         <item>22:00</item>
     </string-array>
+
+
+    <string name="IniciarComoEmpresa">Iniciar como empresa</string>
+    <string name="TituloRegistroEmpresa">Hazte socio de TurismoGo</string>
+    <string name="Ruc">RUC</string>
+    <string name="RazonSocial">Razón Social</string>
+    <string name="NombreContacto">Nombre de contacto</string>
+    <string name="Telefono">Teléfono</string>
+    <string name="Correo">Correo</string>
+    <string name="Direccion">Dirección</string>
+    <string name="Password">Password</string>
+    <string name="Registro">REGISTRO</string>
+    <string name="TituloRegistroUsuario">Hazte miembro de TurismoGo</string>
+    <string name="Nombre">Nombre</string>
+    <string name="Apellido">Apellido</string>
+    <string name="Dni">DNI</string>
+    <string name="FechaNacimiento">" / /  Fech. Nac."</string>
+    <string name="CorreoContacto">Correo Contacto</string>
+    <string name="Estado">Estado</string>
+    <string name="MiPerfil">Mi Perfil</string>
+    <string name="Actualizar">Actualizar</string>
+    <string name="DesactivarPerfil">Desactivar mi perfil</string>
+    <string name="Apellidos">Apellidos</string>
+
+
 </resources>
 
