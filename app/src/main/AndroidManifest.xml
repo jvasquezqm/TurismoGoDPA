@@ -25,9 +25,21 @@
             android:exported="false"></activity>
 
         <activity
+            android:name=".ui.user.reservas.ConfirmaReservaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.user.reservas.ReservarActivity"
+            android:exported="false" >
+            <!--
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter> -->
+        </activity>
+        <activity
             android:name=".ui.user.cuenta.PerfilUsuario"
             android:exported="false" />
-
         <activity
             android:name=".ui.user.cuenta.RegistroUsuario"
             android:exported="false" />
@@ -36,16 +48,7 @@
             android:exported="false" />
         <activity
             android:name=".ui.company.cuenta.RegistroEmpresa"
-            android:exported="false" /> <!-- Reservar -->
-        <activity
-            android:name=".ui.user.reservas.ReservarActivity"
-            android:exported="true" /> <!-- Confirmar Reserva -->
-        <activity
-            android:name=".ui.user.reservas.ConfirmaReservaActivity"
-            android:exported="false" />
-
-        <!-- Reservar Elimiando-->
-
+            android:exported="false" /> <!-- Reservar Elimiando -->
         <!-- Confirmar Reserva -->
 
         <activity
@@ -60,8 +63,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="false"
-            android:label="@string/app_name">
-        </activity>
+            android:label="@string/app_name" />
         <activity
             android:name=".ui.autentication.LoginActivity"
             android:exported="false" />
