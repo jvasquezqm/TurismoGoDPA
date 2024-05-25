@@ -12,24 +12,42 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TurismoGoDPA"
         tools:targetApi="31">
+        <!-- Reservar -->
+        <activity
+            android:name=".ui.user.reservas.ReservarActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Confirmar Reserva -->
+        <activity
+            android:name=".ui.user.reservas.ConfirmaReservaActivity"
+            android:exported="false">
+        </activity>
+
         <activity
             android:name=".ui.InicioGeneralActivity"
-            android:exported="true">
-                <intent-filter>
-                    <action android:name="android.intent.action.MAIN" />
+            android:exported="false">
 
-                    <category android:name="android.intent.category.LAUNCHER" />
-                </intent-filter></activity>
+            <!--
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            -->
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="false"
             android:label="@string/app_name" />
-
         <activity
             android:name=".ui.autentication.LoginActivity"
-            android:exported="false" >
-        </activity>
-        
+            android:exported="false" />
     </application>
 
 </manifest>
