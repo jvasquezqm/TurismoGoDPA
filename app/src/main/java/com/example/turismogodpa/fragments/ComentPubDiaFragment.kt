@@ -30,9 +30,34 @@ class ComentPubDiaFragment : DialogFragment() {
     private fun getData(): List<ComentPubData> {
         // Aquí puedes obtener y devolver tu lista de datos
         return listOf(
-            ComentPubData("¡Increíble experiencia! Los caballos eran dóciles y los paisajes impresionantes. Repetiría sin dudarlo."),
-            ComentPubData("Gran paseo a caballo. El guía fue amable y el recorrido espectacular. Muy recomendado."),
-            ComentPubData("Gran paseo a caballo. El guía fue amable y el recorrido espectacular. Muy recomendado.")
+            ComentPubData("¡Increíble experiencia! Los caballos eran dóciles y los paisajes impresionantes. Repetiría sin dudarlo."
+            , "Alvaro Díaz"
+            , "2024/02/01"),
+            ComentPubData("Gran paseo a caballo. El guía fue amable y el recorrido espectacular. Muy recomendado."
+            ,"Maria Salas"
+                ,"2024/02/11"),
+            ComentPubData("Gran paseo a caballo. El guía fue amable y el recorrido espectacular. Muy recomendado."
+            ,"Juan Perez"
+            , "2024/02/13"),
+            ComentPubData("Gran paseo a caballo. El guía fue amable y el recorrido espectacular. Muy recomendado."
+                ,"Juan Perez"
+                , "2024/02/13"),
+            ComentPubData("Gran paseo a caballo. El guía fue amable y el recorrido espectacular. Muy recomendado."
+                ,"Juan Perez"
+                , "2024/02/13"),
+            ComentPubData("Gran paseo a caballo. El guía fue amable y el recorrido espectacular. Muy recomendado."
+                ,"Juan Perez"
+                , "2024/02/13"),
+            ComentPubData("Gran paseo a caballo. El guía fue amable y el recorrido espectacular. Muy recomendado."
+                ,"Juan Perez"
+                , "2024/02/13"),
+            ComentPubData("Gran paseo a caballo. El guía fue amable y el recorrido espectacular. Muy recomendado."
+                ,"Juan Perez"
+                , "2024/02/13"),
+            ComentPubData("Gran paseo a caballo. El guía fue amable y el recorrido espectacular. Muy recomendado."
+                ,"Juan Perez"
+                , "2024/02/13")
+
         )
     }
 }
