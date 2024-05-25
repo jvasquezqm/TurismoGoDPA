@@ -25,19 +25,6 @@
             android:exported="false"></activity>
 
         <activity
-            android:name=".ui.user.reservas.ConfirmaReservaActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.user.reservas.ReservarActivity"
-            android:exported="false" >
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter> -->
-        </activity>
-        <activity
             android:name=".ui.user.cuenta.PerfilUsuario"
             android:exported="false" />
         <activity
