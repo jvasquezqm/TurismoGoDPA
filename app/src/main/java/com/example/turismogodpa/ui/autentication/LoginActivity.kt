@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -29,6 +30,7 @@ class LoginActivity : AppCompatActivity() {
         val etEMail: EditText = findViewById(R.id.etEmail)
         val etPass: EditText = findViewById(R.id.etPassword)
         val btnLogin: Button = findViewById(R.id.btnLogin)
+        val tvRegister: TextView = findViewById(R.id.tvRegister)
 
         btnLogin.setOnClickListener {
             val email = etEMail.text.toString()
@@ -43,6 +45,17 @@ class LoginActivity : AppCompatActivity() {
                 finish()
             } else {
                 Toast.makeText(this, "Credenciales inválidas", Toast.LENGTH_SHORT).show()
+            }
+        }
+        tvRegister.setOnClickListener {
+            if(typeUser.isChecked){
+                //val intent = Intent(this,RegistroEmpresa::class.java)
+                val intent = Intent(this,InicioGeneralActivity::class.java)
+                startActivity(intent)
+            }else{
+                //val intent = Intent(this,RegistroERegistroUsuario::class.java)
+                val intent = Intent(this, InicioGeneralActivity::class.java)
+                startActivity(intent)
             }
         }
     }

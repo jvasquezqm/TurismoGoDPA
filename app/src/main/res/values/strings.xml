@@ -3,17 +3,78 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    //Nuevo cambio
     <string name="INICIO">INICIO</string>
     <string name="et_name">¿Qué haremos hoy?</string>
     <string name="btn_search">Buscar</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- Tipo de Actividades -->
     <string name="et_date">dd/mm/aaaa</string>
     <string-array name="actividades_array">
         <item></item>
         <item>Tipo de actividad 1</item>
         <item>Tipo de actividad 2</item>
         <item>Tipo de actividad 3</item>
+    </string-array>
+
+    <!-- Confirmar Reservar -->
+    <string name="btn_confirmar_name">CONFIRMAR</string>
+    <string name="tvVolver_name">VOLVER</string>
+    <string name="tvResumenReserva_title">RESUMEN RESERVA</string>
+    <string name="tvNombreContacto">Nombre Contacto:</string>
+    <string name="tvIDCuenta">ID Usuario:</string>
+    <string name="tvNombreActividad_form">Nombre Actividad:</string>
+    <string name="tvEmpresa_form">Empresa:</string>
+    <string name="tvFecha_form">Fecha Reservada:</string>
+
+    <!-- Reservar -->
+    <string name="tvReserva_tittle">RESERVA</string>
+    <string name="tvRNombreContacto">Nombre Contacto:</string>
+    <string name="tvRTelefonoContacto">Teléfono:</string>
+    <string name="tvRCantidadPersonas">Cant Personas:</string>
+    <string name="tvRFechaReserva">Fecha Reservada:</string>
+    <string name="tvRHoraReserva">Hora Reservada:</string>
+    <string name="tvRbtnReservar_name">RESERVAR</string>
+    <string-array name="NumPersonas_array">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+
+    <string-array name="FechaReservas_array">
+        <item>01-10-2022</item>
+        <item>02-10-2022</item>
+        <item>03-10-2022</item>
+        <item>04-10-2022</item>
+        <item>05-10-2022</item>
+        <item>06-10-2022</item>
+        <item>07-10-2022</item>
+        <item>08-10-2022</item>
+        <item>09-10-2022</item>
+        <item>10-10-2022</item>
+    </string-array>
+    <string-array name="HoraReservas_array">
+        <item>08:00</item>
+        <item>09:00</item>
+        <item>10:00</item>
+        <item>11:00</item>
+        <item>12:00</item>
+        <item>13:00</item>
+        <item>14:00</item>
+        <item>15:00</item>
+        <item>16:00</item>
+        <item>17:00</item>
+        <item>18:00</item>
+        <item>19:00</item>
+        <item>20:00</item>
+        <item>21:00</item>
+        <item>22:00</item>
     </string-array>
 </resources>
 
