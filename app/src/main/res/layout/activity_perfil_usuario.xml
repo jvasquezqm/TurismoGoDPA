@@ -191,4 +191,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btActualizarPerfilUsuario" />
 
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="45dp"
+        android:layout_height="39dp"
+        app:srcCompat="@drawable/back1"
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="36dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

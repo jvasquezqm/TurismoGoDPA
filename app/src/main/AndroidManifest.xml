@@ -21,15 +21,12 @@
         <activity
             android:name=".ui.user.cuenta.RegistroUsuario"
             android:exported="false" />
+
         <activity
             android:name=".ui.company.cuenta.RegistroEmpresa"
             android:exported="false" />
-        <activity
-            android:name=".ui.company.cuenta.RegistroEmpres"
-            android:exported="false" />
-        <activity
-            android:name=".ui.autentication.InicioActivity"
-            android:exported="false" />
+
+
         <activity
             android:name=".ui.InicioGeneralActivity"
             android:exported="true">
