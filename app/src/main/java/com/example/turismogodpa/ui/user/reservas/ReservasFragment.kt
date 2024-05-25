@@ -29,6 +29,7 @@ class ReservasFragment : Fragment() {
         //accede directamente a las vistas  definidad en el xml
         binding = FragmentReservasBinding.bind(view)
 
+
         events()
     }
 

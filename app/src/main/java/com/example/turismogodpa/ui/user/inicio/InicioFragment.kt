@@ -141,6 +141,8 @@ class InicioFragment : Fragment() {
             recyclerView.addItemDecoration(deco)
         }
 
+
+
     }
 
 

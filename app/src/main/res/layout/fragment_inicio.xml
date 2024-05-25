@@ -6,81 +6,295 @@
     android:layout_height="match_parent"
     tools:context=".ui.user.inicio.InicioFragment">
 
-
-    <EditText
-        android:id="@+id/etBuscar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:backgroundTint="#263C55"
-        android:ems="10"
-        android:hint="@string/et_name"
-        android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/etFechaFiltrada"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/etFechaFiltrada"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
-
-        android:backgroundTint="#263C55"
-        android:ems="10"
-        android:hint="@string/et_date"
-        android:inputType="date"
-        app:layout_constraintBottom_toTopOf="@+id/spTipoActividad"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etBuscar" />
-
-    <Spinner
-        android:id="@+id/spTipoActividad"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/btBuscarF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etFechaFiltrada" />
-
-    <Button
-        android:id="@+id/btBuscarF"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="11dp"
-        android:backgroundTint="#263C55"
-        android:text="@string/btn_search"
-        app:cornerRadius="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/rvActividadesFiltradas"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spTipoActividad" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvActividadesFiltradas"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/containerActividadesFiltradas"
+        android:visibility="visible"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginBottom="7dp"
-        android:backgroundTint="#263C55"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btBuscarF" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/etBuscar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:backgroundTint="#263C55"
+            android:ems="10"
+            android:hint="@string/et_name"
+            android:inputType="text"
+            app:layout_constraintBottom_toTopOf="@+id/etFechaFiltrada"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/etFechaFiltrada"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
+
+            android:backgroundTint="#263C55"
+            android:ems="10"
+            android:hint="@string/et_date"
+            android:inputType="date"
+            app:layout_constraintBottom_toTopOf="@+id/spTipoActividad"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etBuscar" />
+
+        <Spinner
+            android:id="@+id/spTipoActividad"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/btBuscarF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etFechaFiltrada" />
+
+        <Button
+            android:id="@+id/btBuscarF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="11dp"
+            android:backgroundTint="#263C55"
+            android:text="@string/btn_search"
+            app:cornerRadius="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/rvActividadesFiltradas"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spTipoActividad" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvActividadesFiltradas"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="7dp"
+            android:backgroundTint="#263C55"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btBuscarF" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/containerMostrarActividad"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/ivImgActividad"
+            android:layout_width="0dp"
+            android:layout_height="224dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/img_actividad02" />
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="23dp"
+            android:layout_marginEnd="64dp"
+            android:numStars="5"
+            android:rating="4"
+            android:scaleX="0.7"
+            android:scaleY="0.7"
+            android:stepSize="1.0"
+            app:layout_constraintEnd_toStartOf="@+id/container1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivImgActividad" />
+
+
+        <LinearLayout
+            android:id="@+id/container1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:layout_marginEnd="5dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ratingBar"
+            app:layout_constraintTop_toBottomOf="@+id/ivImgActividad">
+
+            <ImageButton
+                android:id="@+id/btnReview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@android:color/transparent"
+                android:contextClickable="true"
+                android:scaleX="1.8"
+                android:scaleY="1.8"
+                app:srcCompat="@drawable/ic_reviews" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Reseñas"
+                android:textColor="#020202"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvNameActividad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:textColor="#020202"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ratingBar"
+            tools:text="Descubre Cusco" />
+
+        <TextView
+            android:id="@+id/tvNameEmpresa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:layout_marginEnd="17dp"
+            android:textColor="#020202"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/tvTipoActividad"
+            app:layout_constraintTop_toBottomOf="@+id/tvNameActividad"
+            tools:text="Trujillo Tours" />
+
+        <TextView
+            android:id="@+id/tvTipoActividad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="9dp"
+            android:layout_marginEnd="26dp"
+            android:textColor="#020202"
+            app:layout_constraintEnd_toEndOf="@+id/ratingBar"
+            app:layout_constraintStart_toEndOf="@+id/tvTipoActividadT"
+            app:layout_constraintTop_toBottomOf="@+id/tvNameEmpresa"
+            tools:text="Trekking" />
+
+        <TextView
+            android:id="@+id/tvTipoActividadT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="9dp"
+            android:text="Tipo de actividad:"
+            android:textColor="#020202"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvNameEmpresaT" />
+
+        <TextView
+            android:id="@+id/tvNameEmpresaT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="9dp"
+            android:text="Empresa:"
+            android:textColor="#020202"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvNameActividad" />
+
+        <TextView
+            android:id="@+id/tvDescActividad"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="17dp"
+            android:textAlignment="textStart"
+            android:textColor="#020202"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTipoActividadT"
+            tools:text="Explora el centro histórico de la ciudad en bicicleta con un guía experto. Visita la Plaza Mayor, la Catedral, y otros lugares emblemáticos mientras conoces su historia." />
+
+        <TextView
+            android:id="@+id/tvDuracionActividad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="7dp"
+            android:textColor="#020202"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvDescActividad"
+            tools:text="6:00 AM - 12:00 PM" />
+
+        <TextView
+            android:id="@+id/tvUbicacionActividadT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="10dp"
+            android:textColor="#020202"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvDuracionActividad"
+            tools:text="Explora la zona" />
+
+        <ImageView
+            android:id="@+id/ivMapa"
+            android:layout_width="160dp"
+            android:layout_height="103dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="55dp"
+            android:layout_marginBottom="56dp"
+            app:layout_constraintBottom_toBottomOf="@+id/btnReservar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvDescActividad"
+            app:srcCompat="@drawable/mapscusco" />
+
+        <TextView
+            android:id="@+id/tvPrecio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="24dp"
+            android:textColor="#020202"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ratingBar"
+            tools:text=" Precio: s/. 506" />
+
+        <Button
+            android:id="@+id/btnReservar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="28dp"
+            android:text="RESERVAR"
+            app:cornerRadius="17dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
