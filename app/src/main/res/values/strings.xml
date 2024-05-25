@@ -3,4 +3,29 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="TituloPublicaciones">Actividades Activas</string>
+    <string name="HistoPub">Historial Publicaciones</string>
+    <string name="tituloPubHist">Titulo:</string>
+    <string name="fechaPubHist">Fecha:</string>
+    <string name="tipoPubHist">Tipo:</string>
+    <string name="estadoPubHist">Estado:</string>
+    <string name="CrearPubEmpTitulo">Crear Publicación</string>
+    <string name="formAddPub">Título:*</string>
+    <string name="formAddDesc">Descripción:*</string>
+    <string name="formPubLugar">Lugar:*</string>
+    <string name="formAddHorario">Horario:*</string>
+    <string name="formAddFecha">Fecha:*</string>
+    <string name="formAddTipo">Tipo:*</string>
+    <string name="formAddPrecio">Precio:*</string>
+    <string name="formAddImg">Imagenes:*</string>
+    <string name="formAddHastFech">a</string>
+    <string name="CrearPub">Crear</string>
+    <string name="SubirImagenesPub">Subir Imagenes</string>
+    <string name="UsuariosParticipantesEvent">Usuarios Participantes</string>
+    <string name="histUserNombre">Nombre</string>
+    <string name="histUserApellido">Apellido</string>
+    <string name="histoUserDNI">DNI</string>
+    <string name="histUserCorreo">Correo</string>
 </resources>
