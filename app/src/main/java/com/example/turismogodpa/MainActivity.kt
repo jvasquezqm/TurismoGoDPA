@@ -40,6 +40,7 @@ class MainActivity : AppCompatActivity() {
             setOf(
                 R.id.inicioFragment, R.id.reservasFragment, R.id.cuentaFragment, // Para cliente
                 R.id.publicacionFragment, R.id.historyeFragment, R.id.cuentaCFragment // Para empresa
+                R.id.navpubemp, R.id.navhistorialemp, R.id.navcuentaemp
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
