@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.Spinner
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -31,7 +32,7 @@ class ReservarActivity : AppCompatActivity() {
         val spRFecha: Spinner = findViewById(R.id.spRFecha)
         val spRHora: Spinner = findViewById(R.id.spRHora)
         val btReservar: Button = findViewById(R.id.btReservar)
-        val ivVolverR: TextView = findViewById(R.id.ivVolverR)
+        val ivVolverR: ImageView = findViewById(R.id.ivVolverR)
         val tvVolverR: TextView = findViewById(R.id.tvVolverR)
 
         //Spinner Numero Personas

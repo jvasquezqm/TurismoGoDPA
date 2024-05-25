@@ -3,7 +3,6 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    //Nuevo cambio
     <string name="INICIO">INICIO</string>
     <string name="et_name">¿Qué haremos hoy?</string>
     <string name="btn_search">Buscar</string>
@@ -15,6 +14,7 @@
         <item>Tipo de actividad 1</item>
         <item>Tipo de actividad 2</item>
         <item>Tipo de actividad 3</item>
+    </string-array>
 
     <!-- Confirmar Reservar -->
     <string name="btn_confirmar_name">CONFIRMAR</string>

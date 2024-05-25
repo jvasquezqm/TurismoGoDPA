@@ -16,11 +16,7 @@
         <activity
             android:name=".ui.user.reservas.ReservarActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <!-- Confirmar Reserva -->
@@ -31,15 +27,13 @@
 
         <activity
             android:name=".ui.InicioGeneralActivity"
-            android:exported="false">
-
-            <!--
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            -->
+
         </activity>
         <activity
             android:name=".MainActivity"
