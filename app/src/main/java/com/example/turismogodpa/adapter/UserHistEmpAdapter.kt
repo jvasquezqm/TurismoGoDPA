@@ -29,8 +29,8 @@ class UserHistEmpAdapter(private var lstUserEmpHist: List<UserHistEmpData>): Rec
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val itemUserHist = lstUserEmpHist[position]
-        holder.tvNomHistUser.text = itemUserHist.nombUserHist
-        holder.tvApeHistUser.text = itemUserHist.apellUserHist
+        holder.tvNomHistUser.text = itemUserHist.noUserHist
+        holder.tvApeHistUser.text = itemUserHist.apeUserHist
         holder.tvDniHistUser.text = itemUserHist.dniUserHist
         holder.tvMailHistUser.text = itemUserHist.mailUserHist
 

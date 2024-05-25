@@ -1,8 +1,8 @@
 package com.example.turismogodpa.data
 
 data class UserHistEmpData(
-    val nombUserHist: String,
-    val apellUserHist: String,
+    val noUserHist: String,
+    val apeUserHist: String,
     val dniUserHist: String,
     val mailUserHist: String
 )

@@ -1,20 +1,22 @@
 package com.example.turismogodpa.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.turismogodpa.PubDetalleEmpActivity
 import com.example.turismogodpa.R
 import com.example.turismogodpa.adapter.PubHistAdapter
-import com.example.turismogodpa.adapter.UserHistEmpAdapter
 import com.example.turismogodpa.data.PubHistData
-import com.example.turismogodpa.data.UserHistEmpData
 
 
-class HistorialFragment : Fragment() {
+
+class HistorialFragment : Fragment(), PubHistAdapter.OnImageButtonClickListener  {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -22,11 +24,11 @@ class HistorialFragment : Fragment() {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_historial, container, false)
         val rvPubHist: RecyclerView = view.findViewById(R.id.rvPubHist)
-        //val rvHistUser: RecyclerView = view.findViewById(R.id.rvHistUser)
+
 
         rvPubHist.layoutManager = LinearLayoutManager(requireContext())
-        rvPubHist.adapter = PubHistAdapter(PubHistList())
-        //rvHistUser.adapter = UserHistEmpAdapter(HistUserEmpList())
+        rvPubHist.adapter = PubHistAdapter(PubHistList(), this)
+
 
         return view
     }
@@ -60,37 +62,11 @@ class HistorialFragment : Fragment() {
         return lstPubHist
 
     }
-/*
-    private fun HistUserEmpList(): List<UserHistEmpData>{
-        val lstHistUser: ArrayList<UserHistEmpData> = ArrayList()
-
-        lstHistUser.add(
-            UserHistEmpData( "Paseo Playa"
-                , "01/02/20204"
-                , "Actividad"
-                , "Finalizado"
-            )
-        )
-
-        lstHistUser.add(
-            UserHistEmpData("Visita Ruinas"
-                , "28/05/2024"
-                , "Excursión"
-                , "Activo"
-            )
-        )
-
-        lstHistUser.add(
-            UserHistEmpData("Museo Lima"
-                , "01/06/2024"
-                , "Actividad"
-                , "Cancelado"
-            )
-        )
-
-        return lstHistUser
-
+    // Implementar el método onImageButtonClick en HistorialFragment
+    override fun onImageButtonClick(position: Int) {
+        // Código para abrir PubDetalleEmpActivity
+        val intent = Intent(requireContext(), PubDetalleEmpActivity::class.java)
+        startActivity(intent)
     }
-*/
 
 }

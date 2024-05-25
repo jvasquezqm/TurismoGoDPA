@@ -7,7 +7,6 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.example.turismogodpa.R
 import com.example.turismogodpa.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

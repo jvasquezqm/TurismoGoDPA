@@ -3,18 +3,20 @@ package com.example.turismogodpa.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.turismogodpa.R
 import com.example.turismogodpa.data.PubHistData
 
-class PubHistAdapter(private var lstPubHist: List<PubHistData>): RecyclerView.Adapter<PubHistAdapter.ViewHolder>() {
+class PubHistAdapter(private var lstPubHist: List<PubHistData>, private val listener: PubHistAdapter.OnImageButtonClickListener): RecyclerView.Adapter<PubHistAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val tvTituloHis: TextView = itemView.findViewById(R.id.tvTituloHis)
         val tvFechaHist: TextView = itemView.findViewById(R.id.tvFechaHist)
         val tvTipoHist: TextView = itemView.findViewById(R.id.tvTipoHist)
         val tvEstadoHist: TextView = itemView.findViewById(R.id.tvEstadoHist)
+        val btOpenPubHist: ImageButton = itemView.findViewById(R.id.btOpenPubHist)
 
     }
 
@@ -34,5 +36,14 @@ class PubHistAdapter(private var lstPubHist: List<PubHistData>): RecyclerView.Ad
         holder.tvTipoHist.text = itemPubHist.tipoPubHist
         holder.tvEstadoHist.text = itemPubHist.estadoPubHist
 
+
+        holder.btOpenPubHist.setOnClickListener {
+            listener.onImageButtonClick(position)
+        }
+
+    }
+
+    interface OnImageButtonClickListener {
+        fun onImageButtonClick(position: Int)
     }
 }
