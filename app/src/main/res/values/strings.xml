@@ -103,3 +103,37 @@
 
 </resources>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="TituloPublicaciones">Actividades Activas</string>
+    <string name="HistoPub">Historial Publicaciones</string>
+    <string name="tituloPubHist">Titulo:</string>
+    <string name="fechaPubHist">Fecha:</string>
+    <string name="tipoPubHist">Tipo:</string>
+    <string name="estadoPubHist">Estado:</string>
+    <string name="CrearPubEmpTitulo">Crear Publicación</string>
+    <string name="formAddPub">Título:*</string>
+    <string name="formAddDesc">Descripción:*</string>
+    <string name="formPubLugar">Lugar:*</string>
+    <string name="formAddHorario">Horario:*</string>
+    <string name="formAddFecha">Fecha:*</string>
+    <string name="formAddTipo">Tipo:*</string>
+    <string name="formAddPrecio">Precio:*</string>
+    <string name="formAddImg">Imagenes:*</string>
+    <string name="formAddHastFech">a</string>
+    <string name="CrearPub">Crear</string>
+    <string name="SubirImagenesPub">Subir Imagenes</string>
+    <string name="UsuariosParticipantesEvent">Usuarios Participantes</string>
+    <string name="histUserNombre">Nombre</string>
+    <string name="histUserApellido">Apellido</string>
+    <string name="histoUserDNI">DNI</string>
+    <string name="histUserCorreo">Correo</string>
+    <string name="TituloPubEjemplo">Tour a Caballo - Casa Hacienda</string>
+    <string name="TipoActividadDetallePub">"Tipo actividad: "</string>
+    <string name="PubDetallActividadEjem">Paseo</string>
+    <string name="DetallePubEjemplo">Disfruta de una emocionante aventura explorando los hermosos paisajes naturales mientras cabalgas a través de senderos escénicos en compañía de majestuosos caballos. Nuestra actividad de \"Paseo en Caballo\" te brinda la oportunidad de experimentar la naturaleza de una manera única y emocionante.</string>
+    <string name="ExploraZona">Explora la zona:</string>
+    <string name="DuraPubDetalle">Duración:</string>
+    <string name="HoraIniFinPubDetEjem">6:00 AM a 3:00 PM</string>
+    <string name="tituloComentariosPubEmp">Comentarios</string>
+</resources>
