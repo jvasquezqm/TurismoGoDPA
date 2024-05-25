@@ -14,15 +14,19 @@ class ReservasFragment : Fragment() {
     private lateinit var binding: FragmentReservasBinding
 
     override fun onCreateView(
+        // Inflate the layout for this fragment
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_reservas, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        //Se usa para vincular las vistas del fragmento, permite acceder a ellas sin necesidad de usar findViewById
+        //accede directamente a las vistas  definidad en el xml
         binding = FragmentReservasBinding.bind(view)
 
         events()
