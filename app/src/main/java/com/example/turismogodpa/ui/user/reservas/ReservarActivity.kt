@@ -104,5 +104,18 @@ class ReservarActivity : AppCompatActivity() {
             val intent = Intent(this, ConfirmaReservaActivity::class.java)
             startActivity(intent)
         }
+
+        //Boton Volver
+        ivVolverR.setOnClickListener {
+            btVolver()
+        }
+        tvVolverR.setOnClickListener {
+            btVolver()
+        }
+    }
+
+    //Boton Volver
+    private fun btVolver() {
+        onBackPressed()
     }
 }
