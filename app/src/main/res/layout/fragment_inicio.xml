@@ -160,7 +160,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/tvNameActividad"
+            android:id="@+id/tvNameActividadA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -181,7 +181,7 @@
             android:textColor="#020202"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/tvTipoActividad"
-            app:layout_constraintTop_toBottomOf="@+id/tvNameActividad"
+            app:layout_constraintTop_toBottomOf="@+id/tvNameActividadA"
             tools:text="Trujillo Tours" />
 
         <TextView
@@ -218,7 +218,7 @@
             android:textColor="#020202"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvNameActividad" />
+            app:layout_constraintTop_toBottomOf="@+id/tvNameActividadA" />
 
         <TextView
             android:id="@+id/tvDescActividad"

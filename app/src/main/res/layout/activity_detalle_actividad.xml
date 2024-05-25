@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-   android:id="@+id/ConsDetalleActividad">
+    android:id="@+id/DetalleActividad">
 
     <ImageView
         android:id="@+id/ivImgActividad"
@@ -63,7 +63,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/tvNameActividadF"
+        android:id="@+id/tvNameActividad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -84,7 +84,7 @@
         android:textColor="#020202"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/tvTipoActividad"
-        app:layout_constraintTop_toBottomOf="@+id/tvNameActividadF"
+        app:layout_constraintTop_toBottomOf="@+id/tvNameActividad"
         tools:text="Trujillo Tours" />
 
     <TextView
@@ -106,7 +106,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="9dp"
-        android:text="Tipo de actividad:"
+        android:text="Tipo de actividad: "
         android:textColor="#020202"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvNameEmpresaT" />
@@ -121,7 +121,7 @@
         android:textColor="#020202"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvNameActividadF" />
+        app:layout_constraintTop_toBottomOf="@+id/tvNameActividad" />
 
     <TextView
         android:id="@+id/tvDescActividad"
@@ -144,7 +144,7 @@
         android:textColor="#020202"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvDescActividad"
-        tools:text="6:00 AM - 12:00 PM" />
+        android:text="6:00 AM - 12:00 PM" />
 
     <TextView
         android:id="@+id/tvUbicacionActividadT"
@@ -157,7 +157,7 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvDuracionActividad"
-        tools:text="Explora la zona" />
+        android:text="Explora la zona" />
 
     <ImageView
         android:id="@+id/ivMapa"
