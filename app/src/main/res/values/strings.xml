@@ -8,6 +8,13 @@
     <string name="et_name">¿Qué haremos hoy?</string>
     <string name="btn_search">Buscar</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- Tipo de Actividades -->
+    <string name="et_date">dd/mm/aaaa</string>
+    <string-array name="actividades_array">
+        <item></item>
+        <item>Tipo de actividad 1</item>
+        <item>Tipo de actividad 2</item>
+        <item>Tipo de actividad 3</item>
 
     <!-- Confirmar Reservar -->
     <string name="btn_confirmar_name">CONFIRMAR</string>
