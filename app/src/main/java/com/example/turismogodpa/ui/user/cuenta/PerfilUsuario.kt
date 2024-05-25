@@ -1,11 +1,14 @@
 package com.example.turismogodpa.ui.user.cuenta
 
 import android.os.Bundle
+import android.view.View
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.turismogodpa.R
+import com.google.android.material.snackbar.Snackbar
 
 class PerfilUsuario : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,7 +21,18 @@ class PerfilUsuario : AppCompatActivity() {
             insets
         }
 
+        val btActualizarPerfilUsuario : Button = findViewById(R.id.btActualizarPerfilUsuario)
+        val btDesactivarPerfilUsuario : Button = findViewById(R.id.btDesactivarPerfilUsuario)
 
+        btActualizarPerfilUsuario.setOnClickListener{
+            val  rootView : View = findViewById(android.R.id.content)
+            Snackbar.make(rootView,"Perfil Actualizado", Snackbar.LENGTH_LONG).show()
+        }
+
+        btDesactivarPerfilUsuario.setOnClickListener{
+            val  rootView : View = findViewById(android.R.id.content)
+            Snackbar.make(rootView,"Perfil Dado de Baja", Snackbar.LENGTH_LONG).show()
+        }
 
 
 
