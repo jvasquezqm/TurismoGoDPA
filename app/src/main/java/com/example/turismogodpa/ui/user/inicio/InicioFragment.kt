@@ -19,6 +19,7 @@ import com.example.turismogodpa.data.model.ActividadesHomeModel
 import com.example.turismogodpa.databinding.ActivityInicioGeneralBinding
 import com.example.turismogodpa.databinding.FragmentInicioBinding
 import com.example.turismogodpa.ui.autentication.LoginActivity
+import com.example.turismogodpa.ui.user.reservas.ReservarActivity
 
 class InicioFragment : Fragment() {
     private lateinit var binding: FragmentInicioBinding
@@ -60,7 +61,7 @@ class InicioFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = ActividadHomeAdapter(listActividXades(), object : ActividadHomeAdapter.OnItemClickListener {
             override fun onItemClick(actividad: ActividadesHomeModel) {
-                val intent = Intent(requireContext(), LoginActivity::class.java)
+                val intent = Intent(requireContext(), ReservarActivity::class.java)
                 requireContext().startActivity(intent)
             }
         })
