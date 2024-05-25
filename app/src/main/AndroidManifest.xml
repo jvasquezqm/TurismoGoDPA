@@ -12,6 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TurismoGoDPA"
         tools:targetApi="31">
+
+        <activity
+            android:name=".ui.actividadTu.DetalleActividadActivity"
+            android:exported="false" />
+        <!-- Reservar -->
+        <activity
+            android:name=".ui.user.reservas.ReservarActivity"
+            android:exported="true"></activity> <!-- Confirmar Reserva -->
+        <activity
+            android:name=".ui.user.reservas.ConfirmaReservaActivity"
+            android:exported="false"></activity>
+
         <activity
             android:name=".ui.user.reservas.ConfirmaReservaActivity"
             android:exported="false" />
@@ -38,6 +50,7 @@
             android:name=".ui.company.cuenta.RegistroEmpresa"
             android:exported="false" /> <!-- Reservar Elimiando -->
         <!-- Confirmar Reserva -->
+
         <activity
             android:name=".ui.InicioGeneralActivity"
             android:exported="true">
