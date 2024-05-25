@@ -1,7 +1,9 @@
 package com.example.turismogodpa.ui.user.reservas
 
+import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -29,12 +31,29 @@ class ConfirmaReservaActivity : AppCompatActivity() {
         val tvRRActividad: TextView = findViewById(R.id.tvRRActvidad)
         val tvRREmpresa: TextView = findViewById(R.id.tvRREmpresa)
         val tvRRFecha: TextView = findViewById(R.id.tvRRFecha)
+        val btConfirmarRR: Button = findViewById(R.id.btConfirmarRR)
+
+
+        btConfirmarRR.setOnClickListener {
+            val dialog = Dialog(this)
+            dialog.setContentView(R.layout.dialog_reserva_ok) // Use the correct layout for the dialog
+
+            val btDialogR: Button = dialog.findViewById(R.id.btnOkDialogReserva)
+            dialog.show()
+
+            btDialogR.setOnClickListener {
+                dialog.dismiss()
+                val intent = Intent(this@ConfirmaReservaActivity, ReservarActivity::class.java)
+                startActivity(intent)
+            }
+        }
+
 
         ivVolver.setOnClickListener {
-            BackMenu()
+            btVolver()
         }
         tvVolver.setOnClickListener {
-            BackMenu()
+            btVolver()
         }
 
         tvRRIdUsuario.text = "pguerrero@peru.com"
@@ -45,8 +64,7 @@ class ConfirmaReservaActivity : AppCompatActivity() {
 
     }
 
-    private fun BackMenu() {
-        val  intent = Intent(this, LoginActivity::class.java)
-        startActivity(intent)
+    private fun btVolver() {
+        onBackPressed()
     }
 }
