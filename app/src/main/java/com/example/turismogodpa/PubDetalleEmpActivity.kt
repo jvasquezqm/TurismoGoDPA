@@ -24,11 +24,11 @@ class PubDetalleEmpActivity : AppCompatActivity() {
 
         val imbUserPubDet: ImageButton = findViewById(R.id.imbUserPubDet)
 
-        /*imbUserPubDet.setOnClickListener {
+        imbUserPubDet.setOnClickListener {
             // Aquí defines la lógica para abrir el otro Activity
-            val intent = Intent(this, OtroActivity::class.java)
+            val intent = Intent(this, PubHistUsuariosEmpActivity::class.java)
             startActivity(intent)
-        }*/
+        }
 
     }
 }
