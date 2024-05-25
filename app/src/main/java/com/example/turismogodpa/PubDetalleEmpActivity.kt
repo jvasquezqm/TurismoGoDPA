@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.turismogodpa.fragments.ComentPubDiaFragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class PubDetalleEmpActivity : AppCompatActivity() {
@@ -28,6 +29,11 @@ class PubDetalleEmpActivity : AppCompatActivity() {
             // Aquí defines la lógica para abrir el otro Activity
             val intent = Intent(this, PubHistUsuariosEmpActivity::class.java)
             startActivity(intent)
+        }
+        val imbComentPubDet: ImageButton = findViewById(R.id.imbComentPubDet)
+        imbComentPubDet.setOnClickListener {
+            val dialog = ComentPubDiaFragment()
+            dialog.show(supportFragmentManager, "CommentDialogFragment")
         }
 
     }

@@ -35,4 +35,5 @@
     <string name="ExploraZona">Explora la zona:</string>
     <string name="DuraPubDetalle">Duración:</string>
     <string name="HoraIniFinPubDetEjem">6:00 AM a 3:00 PM</string>
+    <string name="tituloComentariosPubEmp">Comentarios</string>
 </resources>
