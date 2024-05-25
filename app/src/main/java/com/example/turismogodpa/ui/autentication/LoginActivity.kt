@@ -13,6 +13,8 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.turismogodpa.MainActivity
 import com.example.turismogodpa.R
 import com.example.turismogodpa.ui.InicioGeneralActivity
+import com.example.turismogodpa.ui.company.cuenta.RegistroEmpresa
+import com.example.turismogodpa.ui.user.cuenta.RegistroUsuario
 
 
 class LoginActivity : AppCompatActivity() {
@@ -49,12 +51,12 @@ class LoginActivity : AppCompatActivity() {
         }
         tvRegister.setOnClickListener {
             if(typeUser.isChecked){
-                //val intent = Intent(this,RegistroEmpresa::class.java)
-                val intent = Intent(this,InicioGeneralActivity::class.java)
+                val intent = Intent(this, RegistroEmpresa::class.java)
+
                 startActivity(intent)
             }else{
-                //val intent = Intent(this,RegistroERegistroUsuario::class.java)
-                val intent = Intent(this, InicioGeneralActivity::class.java)
+                val intent = Intent(this,RegistroUsuario::class.java)
+
                 startActivity(intent)
             }
         }
