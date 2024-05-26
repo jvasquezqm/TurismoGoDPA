@@ -137,6 +137,13 @@ class InicioFragment : Fragment() {
             recyclerView.layoutManager = LinearLayoutManager(requireContext())
             recyclerView.adapter = ActividadHomeAdapter(lstActividadesFiltradas, object : ActividadHomeAdapter.OnItemClickListener {
                 override fun onItemClick(actividad: ActividadesHomeModel) {
+                    val intent = Intent(requireContext(), DetalleActividadActivity::class.java)
+                    intent.putExtra("imageActivity", actividad.image)
+                    intent.putExtra("nameActivity", actividad.name)
+                    intent.putExtra("descriptionActivity", actividad.description)
+                    intent.putExtra("typeActivity", actividad.type)
+                    intent.putExtra("dateActivity", actividad.date)
+                    requireContext().startActivity(intent)
 
                 }
             })

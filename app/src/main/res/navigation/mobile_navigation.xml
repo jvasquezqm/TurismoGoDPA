@@ -19,4 +19,19 @@
         android:name="com.example.turismogodpa.ui.user.reservas.ReservasFragment"
         android:label="fragment_reservas"
         tools:layout="@layout/fragment_reservas" />
+    <fragment
+        android:id="@+id/navpubemp"
+        android:name="com.example.turismogodpa.fragments.PubFragment"
+        android:label="fragment_pub"
+        tools:layout="@layout/fragment_pub" />
+    <fragment
+        android:id="@+id/navhistorialemp"
+        android:name="com.example.turismogodpa.fragments.HistorialFragment"
+        android:label="fragment_historial"
+        tools:layout="@layout/fragment_historial" />
+    <fragment
+        android:id="@+id/navcuentaemp"
+        android:name="com.example.turismogodpa.fragments.CuentaEmpFragment"
+        android:label="fragment_cuenta_emp"
+        tools:layout="@layout/fragment_cuenta_emp" />
 </navigation>
