@@ -38,6 +38,9 @@ class DetalleActividadActivity : AppCompatActivity() {
         val ivRecImag: Int = intent.extras?.getInt("imageActivity") ?: 0
         ivImagActividad.setImageResource(ivRecImag)
 
+        val ivVolverDA: ImageView = findViewById(R.id.ivVolverDA)
+        val tvVolverDA: TextView = findViewById(R.id.tvVolverDA)
+
         //val tvRecDate: String = intent.extras?.getString("dateActivity").orEmpty()
         //tvDateActivity.text = "$tvRecDate"
 
@@ -50,9 +53,12 @@ class DetalleActividadActivity : AppCompatActivity() {
 
         }
 
-
-
-
+        ivVolverDA.setOnClickListener {
+            onBackPressed()
+        }
+        tvVolverDA.setOnClickListener {
+            onBackPressed()
+        }
 
     }
 }

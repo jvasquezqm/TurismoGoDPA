@@ -18,6 +18,7 @@ import com.example.turismogodpa.data.model.ActividadesHomeModel
 import com.example.turismogodpa.data.model.MisReservasModel
 import com.example.turismogodpa.databinding.FragmentReservasBinding
 import com.example.turismogodpa.ui.actividadTu.DetalleActividadActivity
+import com.example.turismogodpa.ui.review.AddReviewActivity
 
 
 class ReservasFragment : Fragment() {
@@ -57,6 +58,17 @@ class ReservasFragment : Fragment() {
         binding.tvDREmpresa.text = "Empresa 1"
         binding.tvDRHora.text = "12:00"
 
+        binding.btDRComentario.setOnClickListener {
+            val intent = Intent(requireContext(), AddReviewActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.ivVolverDR.setOnClickListener {
+            requireActivity().onBackPressedDispatcher.onBackPressed()
+        }
+        binding.tvVolverDR.setOnClickListener {
+            requireActivity().onBackPressedDispatcher.onBackPressed()
+        }
 
 
 
