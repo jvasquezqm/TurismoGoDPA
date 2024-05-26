@@ -18,6 +18,7 @@ class DetalleActividadActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_detalle_actividad)
+        supportActionBar?.hide()
         val btnReservar= findViewById<Button>(R.id.btnReservar)
         val tvNameActividad= findViewById<TextView>(R.id.tvNameActividad)
         val tvDescActividad= findViewById<TextView>(R.id.tvDescActividad)
