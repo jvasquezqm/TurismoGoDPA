@@ -55,6 +55,27 @@
         app:layout_constraintVertical_bias="0.0">
 
         <ImageView
+            android:id="@+id/ivVolverDR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/arrow_back_ios" />
+
+        <TextView
+            android:id="@+id/tvVolverDR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:text="@string/tvVolver_name"
+            android:textColor="@color/azul_app"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/ivVolverDR"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
             android:id="@+id/ivDetalleReserva"
             android:layout_width="0dp"
             android:layout_height="224dp"
@@ -163,6 +184,7 @@
             android:text="DETALLE DE ACTIVIDAD"
             android:textColor="@color/azul_app"
             android:textSize="20sp"
+            android:layout_marginTop="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

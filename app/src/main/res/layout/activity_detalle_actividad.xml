@@ -7,12 +7,32 @@
     android:id="@+id/DetalleActividad">
 
     <ImageView
+        android:id="@+id/ivVolverDA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/arrow_back_ios" />
+
+    <TextView
+        android:id="@+id/tvVolverDA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/tvVolver_name"
+        android:textColor="@color/azul_app"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/ivVolverDA"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/ivImgActividad"/>
+    <ImageView
         android:id="@+id/ivImgActividad"
         android:layout_width="0dp"
         android:layout_height="224dp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvVolverDA"
         app:srcCompat="@drawable/img_actividad02" />
 
     <RatingBar
