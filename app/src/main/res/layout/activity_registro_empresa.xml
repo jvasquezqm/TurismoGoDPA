@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/etRuc"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="32dp"
@@ -33,7 +33,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <EditText
-        android:id="@+id/editTextText3"
+        android:id="@+id/etNameContacto"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="15dp"
@@ -43,10 +43,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText2" />
+        app:layout_constraintTop_toBottomOf="@+id/etRazonSocial" />
 
     <EditText
-        android:id="@+id/editTextText6"
+        android:id="@+id/etDireccionComp"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="15dp"
@@ -56,10 +56,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText5" />
+        app:layout_constraintTop_toBottomOf="@+id/etCorreoComp" />
 
     <EditText
-        android:id="@+id/editTextText5"
+        android:id="@+id/etCorreoComp"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="15dp"
@@ -69,10 +69,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText4" />
+        app:layout_constraintTop_toBottomOf="@+id/etPhone" />
 
     <EditText
-        android:id="@+id/editTextText4"
+        android:id="@+id/etPhone"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="15dp"
@@ -82,10 +82,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText3" />
+        app:layout_constraintTop_toBottomOf="@+id/etNameContacto" />
 
     <EditText
-        android:id="@+id/editTextText8"
+        android:id="@+id/etPassComp2"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="15dp"
@@ -95,10 +95,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText7" />
+        app:layout_constraintTop_toBottomOf="@+id/etPassComp1" />
 
     <EditText
-        android:id="@+id/editTextText7"
+        android:id="@+id/etPassComp1"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="15dp"
@@ -108,10 +108,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText6" />
+        app:layout_constraintTop_toBottomOf="@+id/etDireccionComp" />
 
     <EditText
-        android:id="@+id/editTextText2"
+        android:id="@+id/etRazonSocial"
+        android:enabled="false"
+        android:cursorVisible="false"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="15dp"
@@ -121,7 +123,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText" />
+        app:layout_constraintTop_toBottomOf="@+id/etRuc" />
 
     <Button
         android:id="@+id/btRegistroEmpresa"
@@ -131,6 +133,6 @@
         android:text="@string/Registro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText8" />
+        app:layout_constraintTop_toBottomOf="@+id/etPassComp2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "355132183903",
+    "project_id": "turismogobd",
+    "storage_bucket": "turismogobd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:355132183903:android:ed0ef61061a4aee57792ea",
+        "android_client_info": {
+          "package_name": "com.example.turismogodpa"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpOBxA_3qmzbiakKCyrmAlqq8GlKXNzS8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

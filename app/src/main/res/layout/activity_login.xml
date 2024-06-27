@@ -71,9 +71,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="20dp"
-                android:backgroundTint="#263C55"
+                android:backgroundTint="@color/verde_app"
                 android:text="LOGIN"
-                android:textColor="@color/white"
+                android:textColor="@color/azul_app"
+                android:textSize="17dp"
+                android:textStyle="bold"
                 app:cornerRadius="16dp" />
             <TextView
                 android:id="@+id/tvRegister"

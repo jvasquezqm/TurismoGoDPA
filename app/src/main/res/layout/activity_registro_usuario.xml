@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextText9"
+        android:id="@+id/etNameComp"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="32dp"
@@ -33,7 +33,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <EditText
-        android:id="@+id/editTextText10"
+        android:id="@+id/etLastnameComp"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="15dp"
@@ -42,10 +42,10 @@
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText9" />
+        app:layout_constraintTop_toBottomOf="@+id/etNameComp" />
 
     <EditText
-        android:id="@+id/editTextText11"
+        android:id="@+id/etDNIComp"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="15dp"
@@ -54,10 +54,10 @@
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText10" />
+        app:layout_constraintTop_toBottomOf="@+id/etLastnameComp" />
 
     <EditText
-        android:id="@+id/editTextText12"
+        android:id="@+id/etEmailComp"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="15dp"
@@ -66,7 +66,7 @@
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText11" />
+        app:layout_constraintTop_toBottomOf="@+id/etDNIComp" />
 
     <EditText
         android:id="@+id/editTextText13"
@@ -78,7 +78,7 @@
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText12" />
+        app:layout_constraintTop_toBottomOf="@+id/etEmailComp" />
 
     <EditText
         android:id="@+id/editTextText14"
