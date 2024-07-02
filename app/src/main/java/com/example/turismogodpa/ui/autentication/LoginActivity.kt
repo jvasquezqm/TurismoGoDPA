@@ -19,6 +19,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
 class LoginActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -34,17 +35,21 @@ class LoginActivity : AppCompatActivity() {
         val etPass: EditText = findViewById(R.id.etPassword)
         val btnLogin: Button = findViewById(R.id.btnLogin)
         val tvRegister: TextView = findViewById(R.id.tvRegister)
+        val tvRegisterEmp: TextView = findViewById(R.id.tvRegisterEmp)
         val auth = FirebaseAuth.getInstance()
         val firestore = FirebaseFirestore.getInstance()
 
         btnLogin.setOnClickListener {
             val email = etEMail.text.toString()
             val pass = etPass.text.toString()
+            var result = ""
+
 
             if (email.isEmpty() || pass.isEmpty()) {
                 Toast.makeText(this, "Los campos email y contraseña no pueden estar vacíos",
                     Toast.LENGTH_SHORT).show()
-            } else {
+            }
+            else {
                 auth.signInWithEmailAndPassword(email, pass)
                     .addOnCompleteListener(this) { task ->
                         if (task.isSuccessful) {
@@ -54,13 +59,14 @@ class LoginActivity : AppCompatActivity() {
                                 userDocRef.get().addOnSuccessListener { document ->
                                     if (document != null && document.exists()) {
                                         val userType = document.getString("typeuser") ?: "user"
-                                        val name = document.getString("name")
-                                        val lastname = document.getString("lastname")
-
+                                        val name = document.getString("name")?:document.getString("razonsocial")
+                                        //val lastname = document.getString("lastname") ?: document.getString("razonsocial")
 
                                         val firstname = name?.split(" ")?.get(0)?.capitalize()
-                                        val oneLetter = lastname?.get(0)?.uppercaseChar()
-                                        val result = "$firstname $oneLetter."
+                                        //val oneLetter = lastname?.get(0)?.uppercaseChar()
+                                        //var result = "$firstname $oneLetter."
+                                         result = result.plus(firstname)
+
                                         Log.d("USERNAME", result)
 
                                         Snackbar.make(
@@ -71,10 +77,10 @@ class LoginActivity : AppCompatActivity() {
 
                                             val intent = Intent(this, MainActivity::class.java).apply {
                                             putExtra("USER_TYPE", userType)
-                                            putExtra("USER_NAME", result)
                                         }
                                         startActivity(intent)
-                                    } else {
+                                    }
+                                    else {
                                         Snackbar.make(
                                             findViewById(android.R.id.content),
                                             "No se encontró el tipo de usuario",
@@ -104,11 +110,21 @@ class LoginActivity : AppCompatActivity() {
                         }
                     }
             }
+            Log.i("RESULTADOFINAL", result.plus(result))
+
+
+
         }
+
 
         tvRegister.setOnClickListener {
             // Registro de usuarios o empresas
             val intent = Intent(this, RegistroUsuario::class.java)
+            startActivity(intent)
+        }
+        tvRegisterEmp.setOnClickListener {
+            // Registro de usuarios o empresas
+            val intent = Intent(this, RegistroEmpresa::class.java)
             startActivity(intent)
         }
     }
