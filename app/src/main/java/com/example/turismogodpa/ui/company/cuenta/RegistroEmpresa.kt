@@ -117,13 +117,17 @@ class RegistroEmpresa : AppCompatActivity() {
                     Toast.makeText(this, "El correo electrónico no tiene un formato válido", Toast.LENGTH_SHORT).show()
                     return@setOnClickListener
                 }
+
+
                 auth.createUserWithEmailAndPassword(email, pass1)
                     .addOnCompleteListener(this) { task ->
+
                         if (task.isSuccessful) {
                             val user: FirebaseUser? = auth.currentUser
                             val uid = user?.uid
+
                             val companyModel =
-                                CompanyModel(ruc,razonSocial,phone,email,direccion,pass1,typeuser)
+                                CompanyModel(ruc,razonSocial,name,phone,email,direccion,typeuser)
 
                             db.collection("users").document(uid!!)
                                 .set(companyModel)
@@ -202,5 +206,6 @@ class RegistroEmpresa : AppCompatActivity() {
     fun isValidEmail(target: CharSequence?): Boolean {
         return if (target == null) false else android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches()
     }
+
 
 }
