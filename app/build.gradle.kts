@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -49,7 +50,25 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.activity)
+    implementation(libs.firebase.auth.ktx)
+    implementation(libs.firebase.database.ktx)
+    implementation(libs.firebase.firestore.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    //Firebase
+    implementation(platform("com.google.firebase:firebase-bom:33.1.1"))
+    //Picasso
+    implementation("com.squareup.picasso:picasso:2.71828")
+    //Retrofit para consumir API
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    //datastore
+    implementation("androidx.datastore:datastore-preferences:1.1.1")
+
+    //Lifecycle
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.2")
+
 }

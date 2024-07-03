@@ -1,153 +1,94 @@
 package com.example.turismogodpa.ui.user.reservas
 
-import android.app.Dialog
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Button
+import android.widget.TextView
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.turismogodpa.R
+import com.example.turismogodpa.adapter.MisReservasAdapter
+import com.example.turismogodpa.data.model.ActividadesHomeModel
+import com.example.turismogodpa.data.model.MisReservasModel
 import com.example.turismogodpa.databinding.FragmentReservasBinding
+import com.example.turismogodpa.ui.actividadTu.DetalleActividadActivity
+import com.example.turismogodpa.ui.review.AddReviewActivity
 
 
 class ReservasFragment : Fragment() {
 
     private lateinit var binding: FragmentReservasBinding
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         // Inflate the layout for this fragment
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-        return inflater.inflate(R.layout.fragment_reservas, container, false)
+        //return inflater.inflate(R.layout.fragment_reservas, container, false)
+        //val view: View = inflater.inflate(R.layout.fragment_reservas, container, false)
+        //val rvMisReservas: RecyclerView = view.findViewById(R.id.rvMR)
+        binding = FragmentReservasBinding.inflate(inflater, container, false)
+        val view = binding.root
+        val rvMisReservas: RecyclerView = binding.rvMR
+
+
+        rvMisReservas.layoutManager = LinearLayoutManager(requireContext())
+        //rvMisReservas.adapter = MisReservasAdapter(this.misReservasList())
+        rvMisReservas.adapter = MisReservasAdapter(misReservasList(), object : MisReservasAdapter.OnItemClickListener {
+            override fun onItemClick(currentItem: MisReservasModel) {
+                binding.ListaRerserva.visibility = View.GONE
+                binding.DetalleReserva.visibility = View.VISIBLE
+            }
+        })
+
+        val deco = DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL)
+        deco.setDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.divider) ?: requireContext().resources.getDrawable(R.drawable.divider, requireContext().theme))
+        rvMisReservas.addItemDecoration(deco)
+
+        binding.tvDRNombre.text = "Actividad 1"
+        binding.tvDRFecha.text = "12/12/2021"
+        binding.tvDREmpresa.text = "Empresa 1"
+        binding.tvDRHora.text = "12:00"
+
+        binding.btDRComentario.setOnClickListener {
+            val intent = Intent(requireContext(), AddReviewActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.ivVolverDR.setOnClickListener {
+            requireActivity().onBackPressedDispatcher.onBackPressed()
+        }
+        binding.tvVolverDR.setOnClickListener {
+            requireActivity().onBackPressedDispatcher.onBackPressed()
+        }
+
+
+
+        return view
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    private fun misReservasList(): List<MisReservasModel>{
+        val misReservasList = ArrayList<MisReservasModel>()
+        misReservasList.add(MisReservasModel(R.drawable.img_actvidad01, "Actividad 1", "12/12/2021", "Pendiente"))
+        misReservasList.add(MisReservasModel(R.drawable.img_actividad02, "Actividad 2", "12/12/2021", "Pendiente"))
+        misReservasList.add(MisReservasModel(R.drawable.img_actividad03, "Actividad 3", "12/12/2021", "Completo"))
+        misReservasList.add(MisReservasModel(R.drawable.img_actvidad01, "Actividad 4", "12/12/2021", "Pendiente"))
+        misReservasList.add(MisReservasModel(R.drawable.img_actividad02, "Actividad 5", "12/12/2021", "Completo"))
+        misReservasList.add(MisReservasModel(R.drawable.img_actividad03, "Actividad 6", "12/12/2021", "Pendiente"))
+        misReservasList.add(MisReservasModel(R.drawable.img_actividad02, "Actividad 7", "12/12/2021", "Completo"))
+        misReservasList.add(MisReservasModel(R.drawable.img_actividad03, "Actividad 8", "12/12/2021", "Pendiente"))
+        misReservasList.add(MisReservasModel(R.drawable.img_actividad02, "Actividad 9", "12/12/2021", "Completo"))
+        misReservasList.add(MisReservasModel(R.drawable.img_actividad03, "Actividad 10", "12/12/2021", "Pendiente"))
 
-        //Se usa para vincular las vistas del fragmento, permite acceder a ellas sin necesidad de usar findViewById
-        //accede directamente a las vistas  definidad en el xml
-        binding = FragmentReservasBinding.bind(view)
-
-
-        events()
-    }
-
-    private fun events() = with(binding) {
-
-        //Spinner Numero Personas
-        ArrayAdapter.createFromResource(
-            requireContext(),
-            R.array.NumPersonas_array,
-            android.R.layout.simple_spinner_item
-        ).also { adapter ->
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            spRNumPersonas.adapter = adapter
-        }
-
-        //Spinner Fecha
-        ArrayAdapter.createFromResource(
-            requireContext(),
-            R.array.FechaReservas_array,
-            android.R.layout.simple_spinner_item
-        ).also { adapter ->
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            spRFecha.adapter = adapter
-        }
-
-        //Spinner Hora
-        ArrayAdapter.createFromResource(
-            requireContext(),
-            R.array.HoraReservas_array,
-            android.R.layout.simple_spinner_item
-        ).also { adapter ->
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            spRHora.adapter = adapter
-        }
-
-        var spRNumPersonasValue: String = ""
-        var spRFechaValue: String = ""
-        var spRHoraValue: String = ""
-
-        //Llenar Spinner Numero Personas
-        spRNumPersonas.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
-            override fun onItemSelected(parent: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
-                spRNumPersonasValue = parent?.getItemAtPosition(position).toString()
-            }
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-
-            }
-        }
-
-        //Llenar Spinner Fecha
-        spRFecha.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
-            override fun onItemSelected(parent: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
-                spRFechaValue = parent?.getItemAtPosition(position).toString()
-            }
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-
-            }
-        }
-
-        //Llenar Spinner Hora
-        spRHora.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
-            override fun onItemSelected(parent: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
-                spRHoraValue = parent?.getItemAtPosition(position).toString()
-            }
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-
-            }
-        }
-
-
-        btReservar.setOnClickListener{
-            containerReservar.visibility = View.GONE
-            ResumenReserva.visibility = View.VISIBLE
-
-        }
-        tvVolverR.setOnClickListener{
-            //val transaction = requireActivity().supportFragmentManager.beginTransaction()
-            //transaction.replace(R.id.container, ReservasFragment())
-            //transaction.commit()
-            containerReservar.visibility = View.VISIBLE
-            ResumenReserva.visibility = View.GONE
-        }
-        ivVolverR.setOnClickListener{
-            containerReservar.visibility = View.VISIBLE
-            ResumenReserva.visibility = View.GONE
-        }
-
-
-        //Confirmar Reserva
-
-        tvRRIdUsuario.text = "pguerrero@peru.com"
-        tvRRNombreContacto.text = "Paolo Guerrero"
-        tvRRActvidad.text = "Caminata"
-        tvRREmpresa.text = "Turismo Peru"
-        tvRRFecha.text = "2021-09-30"
-
-        btConfirmarRR.setOnClickListener {
-            val dialog = Dialog(requireContext())
-            dialog.setContentView(R.layout.dialog_reserva_ok) // Use the correct layout for the dialog
-
-            val btDialogR: Button = dialog.findViewById(R.id.btnOkDialogReserva)
-            dialog.show()
-
-            btDialogR.setOnClickListener {
-                dialog.dismiss()
-                etRNombreContacto.setText("")
-                etRTelefono.setText("")
-                containerReservar.visibility = View.VISIBLE
-                ResumenReserva.visibility = View.GONE
-            }
-        }
-
-
+        return misReservasList
     }
 
 

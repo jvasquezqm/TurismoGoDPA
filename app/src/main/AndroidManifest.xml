@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -16,11 +17,16 @@
             android:name=".ui.review.AddReviewActivity"
             android:exported="false" />
         <activity
+            android:name=".ui.user.reservas.DetalleReservaActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.actividadTu.DetalleActividadActivity"
-            android:exported="false" /> <!-- Reservar -->
+            android:exported="false" />
+      <!-- Reservar -->
         <activity
             android:name=".ui.user.reservas.ReservarActivity"
-            android:exported="true" /> <!-- Confirmar Reserva -->
+            android:exported="true" /> 
+      <!-- Confirmar Reserva -->
         <activity
             android:name=".ui.user.reservas.ConfirmaReservaActivity"
             android:exported="false" />
@@ -46,6 +52,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".PubHistUsuariosEmpActivity"
+            android:exported="false"
+            />
         <activity
             android:name=".PubDetalleEmpActivity"
             android:exported="false" />

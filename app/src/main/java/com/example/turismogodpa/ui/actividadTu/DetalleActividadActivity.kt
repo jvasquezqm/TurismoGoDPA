@@ -18,6 +18,7 @@ class DetalleActividadActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_detalle_actividad)
+        supportActionBar?.hide()
         val btnReservar= findViewById<Button>(R.id.btnReservar)
         val tvNameActividad= findViewById<TextView>(R.id.tvNameActividad)
         val tvDescActividad= findViewById<TextView>(R.id.tvDescActividad)
@@ -38,6 +39,9 @@ class DetalleActividadActivity : AppCompatActivity() {
         val ivRecImag: Int = intent.extras?.getInt("imageActivity") ?: 0
         ivImagActividad.setImageResource(ivRecImag)
 
+        val ivVolverDA: ImageView = findViewById(R.id.ivVolverDA)
+        val tvVolverDA: TextView = findViewById(R.id.tvVolverDA)
+
         //val tvRecDate: String = intent.extras?.getString("dateActivity").orEmpty()
         //tvDateActivity.text = "$tvRecDate"
 
@@ -50,9 +54,12 @@ class DetalleActividadActivity : AppCompatActivity() {
 
         }
 
-
-
-
+        ivVolverDA.setOnClickListener {
+            onBackPressed()
+        }
+        tvVolverDA.setOnClickListener {
+            onBackPressed()
+        }
 
     }
 }

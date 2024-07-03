@@ -6,7 +6,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.review.AddReviewActivity">
+    <ImageView
+        android:id="@+id/ivVolverReview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/arrow_back_ios" />
 
+    <TextView
+        android:id="@+id/tvVolverReview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:text="@string/tvVolver_name"
+        android:textColor="@color/azul_app"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/ivVolverReview"
+        app:layout_constraintTop_toTopOf="parent" />
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
