@@ -2,6 +2,7 @@ package com.example.turismogodpa.ui.company.historial
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +13,11 @@ import com.example.turismogodpa.PubDetalleEmpActivity
 import com.example.turismogodpa.R
 import com.example.turismogodpa.adapter.PubHistAdapter
 import com.example.turismogodpa.data.PubHistData
-
+import com.example.turismogodpa.data.PubResumData
+import com.google.firebase.firestore.FirebaseFirestore
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class HistoryeFragment : Fragment(), PubHistAdapter.OnImageButtonClickListener  {
     override fun onCreateView(
@@ -21,16 +26,42 @@ class HistoryeFragment : Fragment(), PubHistAdapter.OnImageButtonClickListener  
     ): View? {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_historial, container, false)
+        val db = FirebaseFirestore.getInstance()
         val rvPubHist: RecyclerView = view.findViewById(R.id.rvPubHist)
+        var pubHistList: List<PubHistData>
 
 
-        rvPubHist.layoutManager = LinearLayoutManager(requireContext())
-        rvPubHist.adapter = PubHistAdapter(PubHistList(), this)
+        db.collection("activities")
+            .addSnapshotListener{ snap, error ->
+                if (error!=null){
+                    Log.e("ERROR-FIREBASE", "Detalle del error: ${error.message}")
+                    return@addSnapshotListener
+                }
+
+                val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+
+                pubHistList = snap!!.documents.map{document ->
+                    val timestamp = document.getTimestamp("time")
+                    val formattedDate = timestamp?.toDate()?.let { dateFormat.format(it) } ?: ""
+                    PubHistData(
+                        document["titulo"].toString(),
+                        //document["time"].toString(),
+                        formattedDate,
+                        document["type"].toString(),
+                        document["state"].toString()
+
+                    )
+                }
+
+                rvPubHist.adapter = PubHistAdapter(pubHistList, this)
+                rvPubHist.layoutManager = LinearLayoutManager(requireContext())
+                }
+
 
 
         return view
     }
-    private fun PubHistList(): List<PubHistData>{
+    /*private fun PubHistList(): List<PubHistData>{
         val lstPubHist: ArrayList<PubHistData> = ArrayList()
 
         lstPubHist.add(
@@ -59,7 +90,7 @@ class HistoryeFragment : Fragment(), PubHistAdapter.OnImageButtonClickListener  
 
         return lstPubHist
 
-    }
+    }*/
     // Implementar el método onImageButtonClick en HistorialFragment
     override fun onImageButtonClick(position: Int) {
         // Código para abrir PubDetalleEmpActivity

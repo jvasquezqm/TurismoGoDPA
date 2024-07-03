@@ -31,10 +31,10 @@ class PubHistAdapter(private var lstPubHist: List<PubHistData>, private val list
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val itemPubHist = lstPubHist[position]
-        holder.tvTituloHis.text = itemPubHist.tituloPubHist
-        holder.tvFechaHist.text = itemPubHist.fechaPubHist
-        holder.tvTipoHist.text = itemPubHist.tipoPubHist
-        holder.tvEstadoHist.text = itemPubHist.estadoPubHist
+        holder.tvTituloHis.text = itemPubHist.titulo
+        holder.tvFechaHist.text = itemPubHist.time
+        holder.tvTipoHist.text = itemPubHist.type
+        holder.tvEstadoHist.text = itemPubHist.state
 
 
         holder.btOpenPubHist.setOnClickListener {
