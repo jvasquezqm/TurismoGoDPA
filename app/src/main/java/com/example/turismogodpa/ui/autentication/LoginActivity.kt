@@ -1,5 +1,6 @@
 package com.example.turismogodpa.ui.autentication
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -10,6 +11,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.stringPreferencesKey
+import androidx.datastore.preferences.preferencesDataStore
+import androidx.lifecycle.lifecycleScope
 import com.example.turismogodpa.MainActivity
 import com.example.turismogodpa.R
 import com.example.turismogodpa.ui.company.cuenta.RegistroEmpresa
@@ -17,7 +22,10 @@ import com.example.turismogodpa.ui.user.cuenta.RegistroUsuario
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
+val Context.dataStore by preferencesDataStore(name = "USER PREFERENCES_EMAIL_NAME")
 class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -68,6 +76,10 @@ class LoginActivity : AppCompatActivity() {
                                          result = result.plus(firstname)
 
                                         Log.d("USERNAME", result)
+                                        lifecycleScope.launch(Dispatchers.IO) {
+                                            saveValues(email, result)
+                                        }
+
 
                                         Snackbar.make(
                                             findViewById(android.R.id.content),
@@ -126,6 +138,12 @@ class LoginActivity : AppCompatActivity() {
             // Registro de usuarios o empresas
             val intent = Intent(this, RegistroEmpresa::class.java)
             startActivity(intent)
+        }
+    }
+    private suspend fun saveValues(email: String, result: String) {
+       dataStore.edit { preferences ->
+            preferences[stringPreferencesKey("email")] = email
+            preferences[stringPreferencesKey("name")] = result
         }
     }
 }
