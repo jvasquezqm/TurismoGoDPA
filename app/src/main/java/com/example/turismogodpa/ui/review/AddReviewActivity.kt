@@ -2,6 +2,7 @@ package com.example.turismogodpa.ui.review
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -16,6 +17,7 @@ import com.example.turismogodpa.ui.autentication.dataStore
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class AddReviewActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
@@ -41,11 +43,13 @@ class AddReviewActivity : AppCompatActivity() {
         }*/
         //Obtener name y email del usuario a partir de getUserProfile
         lifecycleScope.launch(Dispatchers.IO) {
-            getUserProfile().map { userProfile ->
-                val nameD = userProfile.name
-                val emailD = userProfile.email
-                println(nameD)
-                println(emailD)
+            getUserProfile().collect {
+                withContext(Dispatchers.Main) {
+
+                    Log.i("User Profile", "${it.name} - ${it.email}")
+//                    findViewById<TextView>(R.id.tvNombreUsuario).text = it.name
+//                    findViewById<TextView>(R.id.tvCorreoUsuario).text = it.email
+                }
             }
         }
 
