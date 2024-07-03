@@ -34,8 +34,8 @@
 
             <TextView
                 android:id="@+id/tvPubTituloEmp"
-                android:layout_width="119dp"
-                android:layout_height="21dp"
+                android:layout_width="193dp"
+                android:layout_height="20dp"
                 android:layout_marginStart="11dp"
                 android:layout_marginTop="2dp"
                 android:text="TextView"
@@ -47,8 +47,8 @@
 
             <TextView
                 android:id="@+id/tvResumPub"
-                android:layout_width="178dp"
-                android:layout_height="42dp"
+                android:layout_width="193dp"
+                android:layout_height="50dp"
                 android:layout_marginStart="11dp"
                 android:layout_marginTop="12dp"
                 android:text="TextView"

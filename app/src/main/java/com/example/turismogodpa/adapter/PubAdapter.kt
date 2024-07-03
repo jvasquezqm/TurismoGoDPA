@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.turismogodpa.R
 import com.example.turismogodpa.data.PubResumData
+import com.squareup.picasso.Picasso
 
 class PubAdapter(private var lstPub: List<PubResumData>): RecyclerView.Adapter<PubAdapter.ViewHolder>() {
 
@@ -29,9 +30,13 @@ class PubAdapter(private var lstPub: List<PubResumData>): RecyclerView.Adapter<P
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val itemPub = lstPub[position]
-        holder.ivPubEmp.setImageResource(itemPub.imagePub)
-        holder.tvPubTituloEmp.text = itemPub.tituloPub
-        holder.tvResumPub.text = itemPub.resumPub
+        Picasso
+            .get()
+            .load(itemPub.image)
+            .into(holder.ivPubEmp)
+        holder.tvPubTituloEmp.text = itemPub.titulo
+        holder.tvResumPub.text = itemPub.description
+
 
     }
 }

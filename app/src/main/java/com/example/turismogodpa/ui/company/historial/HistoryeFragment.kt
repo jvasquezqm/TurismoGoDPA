@@ -37,7 +37,7 @@ class HistoryeFragment : Fragment(), PubHistAdapter.OnImageButtonClickListener  
             PubHistData( "Paseo Playa"
                 , "01/02/20204"
                 , "Actividad"
-                , "Finalizado"
+                , "Activo"
             )
         )
 
