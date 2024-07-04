@@ -26,6 +26,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
+import com.google.firebase.firestore.FirebaseFirestore
 
 class InicioGeneralActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -107,7 +108,7 @@ class InicioGeneralActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-
+/*
         val ActividadHomeAdapter = ActividadHomeAdapter(ListActividades(), object : ActividadHomeAdapter.OnItemClickListener {
             override fun onItemClick(actividad: ActividadesHomeModel) {
                 anuncioToast.show()
@@ -119,18 +120,48 @@ class InicioGeneralActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = ActividadHomeAdapter
 
+        */
+
+        val db = FirebaseFirestore.getInstance()
+        var lstActividadesH: List<ActividadesHomeModel>
+        val rvActividadesH: RecyclerView = findViewById(R.id.rvActividadesH)
+
+        db.collection("activitieshome")
+            .addSnapshotListener{ snap, errror ->
+                if (errror != null){
+                    Log.e("ERROR-FIREBASE", "Ocurrio error: ${errror.message}")
+                    return@addSnapshotListener
+                }
+                lstActividadesH = snap!!.documents.map{document ->
+                    ActividadesHomeModel(
+                        document["image"].toString(),
+                        document["name"].toString(),
+                        document["description"].toString(),
+                        document["date"].toString(),
+                        document["type"].toString()
+                    )}
+                rvActividadesH.adapter = ActividadHomeAdapter(lstActividadesH, object : ActividadHomeAdapter.OnItemClickListener {
+                    override fun onItemClick(actividad: ActividadesHomeModel) {
+                        anuncioToast.show()
+                        val intent = Intent(this@InicioGeneralActivity, LoginActivity::class.java)
+                        startActivity(intent)
+                    }
+                })
+                rvActividadesH.layoutManager = LinearLayoutManager(this)
+            }
         //Añadir linea de división de los elementos de la lista del recycler view
         var deco = DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
         deco.setDrawable(getDrawable(R.drawable.divider) ?: resources.getDrawable(R.drawable.divider, theme))
-        recyclerView.addItemDecoration(deco)
+        rvActividadesH.addItemDecoration(deco)
 
     }
 
+/*
     private fun ListActividades(): List<ActividadesHomeModel> {
         val lstActividades = ArrayList<ActividadesHomeModel>()
         lstActividades.add(
             ActividadesHomeModel(
-                R.drawable.img_actvidad01,
+                "//R.drawable.img_actvidad01",
                 "Actividad 1",
                 " Deporte de riesgo que consiste en tirarse al vacío desde un puente u " +
                         "otro lugar elevado, sujetándose con una cuerda elástica",
@@ -140,7 +171,7 @@ class InicioGeneralActivity : AppCompatActivity() {
 
         lstActividades.add(
             ActividadesHomeModel(
-                R.drawable.img_actividad02,
+                "R.drawable.img_actividad02",
                 "Actividad 2",
                 "Machu Picchu es una de las 7 maravillas del mundo más visitadas por los " +
                         "turistas, posee hermosas construcciones a base de piedras, que fueron " +
@@ -154,7 +185,7 @@ class InicioGeneralActivity : AppCompatActivity() {
 
         lstActividades.add(
             ActividadesHomeModel(
-                R.drawable.img_actividad03,
+                "R.drawable.img_actividad03",
                 "Actividad 3",
                 "El Parque Nacional de Huascarán es un área natural protegida del Perú, " +
                         "ubicada en la Cordillera Blanca, en la región de Áncash. Fue creado el 1 de " +
@@ -167,6 +198,7 @@ class InicioGeneralActivity : AppCompatActivity() {
         return lstActividades
 
     }
+*/
     private fun getUserProfile() = dataStore.data.map{preferences ->
         UserProfile(
             name = preferences[stringPreferencesKey("name")].orEmpty(),
@@ -174,4 +206,6 @@ class InicioGeneralActivity : AppCompatActivity() {
         )
 
     }
+
+
 }
