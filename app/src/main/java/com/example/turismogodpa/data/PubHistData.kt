@@ -4,5 +4,6 @@ data class PubHistData(
                        val titulo: String,
                        val time: String,
                        val type: String,
-                       val state: String
+                       val state: String,
+                       val uid: String
 )

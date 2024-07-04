@@ -41,7 +41,7 @@ class PublicacionFragment : Fragment() {
                     PubResumData(
                         document["image"].toString(),
                         document["titulo"].toString(),
-                        document["Description"].toString()
+                        document["description"].toString()
 
                     )
                 }

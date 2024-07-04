@@ -1,11 +1,13 @@
 package com.example.turismogodpa.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.turismogodpa.PubDetalleEmpActivity
 import com.example.turismogodpa.R
 import com.example.turismogodpa.data.PubHistData
 
@@ -37,13 +39,18 @@ class PubHistAdapter(private var lstPubHist: List<PubHistData>, private val list
         holder.tvEstadoHist.text = itemPubHist.state
 
 
+       /* holder.btOpenPubHist.setOnClickListener {
+            listener.onImageButtonClick(itemPubHist.uid)
+        }*/
         holder.btOpenPubHist.setOnClickListener {
-            listener.onImageButtonClick(position)
+            val intent = Intent(holder.itemView.context, PubDetalleEmpActivity::class.java)
+            intent.putExtra("UID", itemPubHist.uid)
+            holder.itemView.context.startActivity(intent)
         }
 
     }
 
     interface OnImageButtonClickListener {
-        fun onImageButtonClick(position: Int)
+        fun onImageButtonClick(uid: String)
     }
 }

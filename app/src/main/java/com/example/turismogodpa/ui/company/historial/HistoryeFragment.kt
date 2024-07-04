@@ -43,12 +43,14 @@ class HistoryeFragment : Fragment(), PubHistAdapter.OnImageButtonClickListener  
                 pubHistList = snap!!.documents.map{document ->
                     val timestamp = document.getTimestamp("time")
                     val formattedDate = timestamp?.toDate()?.let { dateFormat.format(it) } ?: ""
+                    val uid = document.id
                     PubHistData(
                         document["titulo"].toString(),
                         //document["time"].toString(),
                         formattedDate,
                         document["type"].toString(),
-                        document["state"].toString()
+                        document["state"].toString(),
+                        uid
 
                     )
                 }
@@ -61,40 +63,15 @@ class HistoryeFragment : Fragment(), PubHistAdapter.OnImageButtonClickListener  
 
         return view
     }
-    /*private fun PubHistList(): List<PubHistData>{
-        val lstPubHist: ArrayList<PubHistData> = ArrayList()
 
-        lstPubHist.add(
-            PubHistData( "Paseo Playa"
-                , "01/02/20204"
-                , "Actividad"
-                , "Activo"
-            )
-        )
-
-        lstPubHist.add(
-            PubHistData("Visita Ruinas"
-                , "28/05/2024"
-                , "Excursión"
-                , "Activo"
-            )
-        )
-
-        lstPubHist.add(
-            PubHistData("Museo Lima"
-                , "01/06/2024"
-                , "Actividad"
-                , "Cancelado"
-            )
-        )
-
-        return lstPubHist
-
-    }*/
     // Implementar el método onImageButtonClick en HistorialFragment
-    override fun onImageButtonClick(position: Int) {
+    override fun onImageButtonClick(uid: String) {
+        // Log para verificar el UID capturado
+        Log.d("HistoryeFragment", "Clicked UID: $uid")
+
         // Código para abrir PubDetalleEmpActivity
         val intent = Intent(requireContext(), PubDetalleEmpActivity::class.java)
+        intent.putExtra("UID", uid)
         startActivity(intent)
     }
 
