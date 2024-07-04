@@ -26,7 +26,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
-import com.google.firebase.firestore.FirebaseFirestore
+
 
 class InicioGeneralActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
