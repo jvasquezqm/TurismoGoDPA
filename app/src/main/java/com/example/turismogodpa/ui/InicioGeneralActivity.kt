@@ -9,13 +9,23 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.datastore.preferences.core.stringPreferencesKey
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.turismogodpa.R
 import com.example.turismogodpa.adapter.ActividadHomeAdapter
 import com.example.turismogodpa.data.model.ActividadesHomeModel
+import com.example.turismogodpa.data.model.UserProfile
 import com.example.turismogodpa.ui.autentication.LoginActivity
+import com.example.turismogodpa.ui.autentication.dataStore
+import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
+import kotlinx.coroutines.withContext
 import com.google.firebase.firestore.FirebaseFirestore
 
 class InicioGeneralActivity : AppCompatActivity() {
@@ -31,6 +41,65 @@ class InicioGeneralActivity : AppCompatActivity() {
         }
         val btBuscar: Button = findViewById(R.id.btBuscar)
         var anuncioToast = Toast.makeText(this, "Por favor Inicie Sesion", Toast.LENGTH_LONG)
+
+        lifecycleScope.launch(Dispatchers.IO) {
+
+            getUserProfile().collect {
+                withContext(Dispatchers.Main) {
+
+                    Log.i("User Profile", "${it.name} - ${it.email}")
+                    //etName.setText(it.name)
+                    //etEmail.setText(it.email)
+                }
+
+            }
+        }
+
+
+        val firestore = FirebaseFirestore.getInstance()
+        //Traer datos de la base de datos
+        firestore.collection("bookings").document("7eEVWWr2ffQF9CTXEwRw")
+            .get()
+            .addOnSuccessListener {
+            document ->
+            if(document != null) {
+               val reference = document.getDocumentReference("idUser")
+                if(reference!=null)
+                {
+                    reference.get().addOnSuccessListener {
+                        userDoc ->
+                        if(userDoc!=null)
+                        {
+                            Log.i("User Document", "Usuario: ${userDoc.data}")
+                           val maild=userDoc.getString("email")
+                            println(maild)
+                        }
+                        else
+                        {
+                            Log.i("User Document", "No se encontro el usuario")
+                        }
+                    }
+                }
+
+            }
+        }
+
+        //Registrar
+        val collectionDB=firestore.collection("bookings")
+        val newBookingData = hashMapOf(
+            "name" to "Nombre del nuevo booking",
+            "iduser" to FirebaseFirestore.getInstance().document("users/77LhqWOUhXgB1FYz9tUnDoupCO73")  // Reemplaza "userId" con el ID del usuario correspondiente
+        )
+        collectionDB.add(newBookingData)
+            .addOnSuccessListener { documentReference ->
+                Log.i("Booking", "DocumentSnapshot added with ID: ${documentReference.id}")
+            }
+            .addOnFailureListener { e ->
+                Log.e("Booking", "Error adding document", e)
+            }
+
+
+
 
 
         btBuscar.setOnClickListener {
@@ -130,5 +199,13 @@ class InicioGeneralActivity : AppCompatActivity() {
 
     }
 */
+    private fun getUserProfile() = dataStore.data.map{preferences ->
+        UserProfile(
+            name = preferences[stringPreferencesKey("name")].orEmpty(),
+            email = preferences[stringPreferencesKey("email")].orEmpty()
+        )
+
+    }
+
 
 }
