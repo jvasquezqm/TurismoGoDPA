@@ -20,59 +20,62 @@ import java.util.Date
 import java.util.Locale
 
 class HistoryeFragment : Fragment(), PubHistAdapter.OnImageButtonClickListener  {
+    private lateinit var rvPubHist: RecyclerView
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_historial, container, false)
-        val db = FirebaseFirestore.getInstance()
-        val rvPubHist: RecyclerView = view.findViewById(R.id.rvPubHist)
-        var pubHistList: List<PubHistData>
 
+        // Inicializar RecyclerView
+        rvPubHist = view.findViewById(R.id.rvPubHist)
+        rvPubHist.layoutManager = LinearLayoutManager(requireContext())
+
+        // Cargar datos desde Firestore
+        loadActivitiesFromFirestore()
+
+        return view
+    }
+
+    private fun loadActivitiesFromFirestore() {
+        val db = FirebaseFirestore.getInstance()
 
         db.collection("activities")
-            .addSnapshotListener{ snap, error ->
-                if (error!=null){
+            .addSnapshotListener { snap, error ->
+                if (error != null) {
                     Log.e("ERROR-FIREBASE", "Detalle del error: ${error.message}")
                     return@addSnapshotListener
                 }
 
                 val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
 
-                pubHistList = snap!!.documents.map{document ->
+                val pubHistList = snap?.documents?.mapNotNull { document ->
                     val timestamp = document.getTimestamp("time")
                     val formattedDate = timestamp?.toDate()?.let { dateFormat.format(it) } ?: ""
                     val uid = document.id
+
+                    // Crear objeto PubHistData
                     PubHistData(
-                        document["titulo"].toString(),
-                        //document["time"].toString(),
+                        document.getString("titulo") ?: "",
                         formattedDate,
-                        document["type"].toString(),
-                        document["state"].toString(),
+                        document.getString("type") ?: "",
+                        document.getString("state") ?: "",
                         uid
-
                     )
-                }
+                } ?: emptyList()
 
+                // Configurar adaptador para RecyclerView
                 rvPubHist.adapter = PubHistAdapter(pubHistList, this)
-                rvPubHist.layoutManager = LinearLayoutManager(requireContext())
-                }
-
-
-
-        return view
+            }
     }
 
-    // Implementar el método onImageButtonClick en HistorialFragment
     override fun onImageButtonClick(uid: String) {
-        // Log para verificar el UID capturado
         Log.d("HistoryeFragment", "Clicked UID: $uid")
 
-        // Código para abrir PubDetalleEmpActivity
+        // Abrir PubDetalleEmpActivity
         val intent = Intent(requireContext(), PubDetalleEmpActivity::class.java)
         intent.putExtra("UID", uid)
         startActivity(intent)
     }
-
 }
