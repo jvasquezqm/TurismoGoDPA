@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.turismogodpa.R
 import com.example.turismogodpa.data.model.ActividadesHomeModel
+import com.squareup.picasso.Picasso
 
 class ActividadHomeAdapter (
     private var lstActividadesH: List<ActividadesHomeModel>,
@@ -38,7 +39,11 @@ class ActividadHomeAdapter (
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val actividad = lstActividadesH[position]
-        holder.ivImage.setImageResource(actividad.image)
+        //Importar a Picasso
+        Picasso.get()
+            .load(actividad.image)
+            .resize(550, 350)
+            .into(holder.ivImage)
         holder.tvName.text = actividad.name
         holder.tvDescription.text = actividad.description
         holder.tvDate.text = actividad.date
