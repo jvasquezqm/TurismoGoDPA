@@ -31,6 +31,7 @@ class PublicacionFragment : Fragment(), PubAdapter.OnImageButtonClickListener {
         var pubList: List<PubResumData>
 
         db.collection("activities")
+            .whereEqualTo("state", "Activo")
             .addSnapshotListener{ snap, error ->
                 if (error!=null){
                     Log.e("ERROR-FIREBASE", "Detalle del error: ${error.message}")
@@ -42,7 +43,8 @@ class PublicacionFragment : Fragment(), PubAdapter.OnImageButtonClickListener {
                         document["image"].toString(),
                         document["titulo"].toString(),
                         document["description"].toString(),
-                        document.id
+                        document.id,
+                        document["state"].toString()
 
                     )
                 }

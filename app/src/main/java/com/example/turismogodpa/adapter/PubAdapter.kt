@@ -1,5 +1,6 @@
 package com.example.turismogodpa.adapter
 
+import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
@@ -13,6 +14,7 @@ import com.example.turismogodpa.PubDetalleEmpActivity
 import com.example.turismogodpa.R
 import com.example.turismogodpa.data.PubResumData
 import com.example.turismogodpa.ui.company.publicacion.UpdatePubEmpActivity
+import com.google.firebase.firestore.FirebaseFirestore
 import com.squareup.picasso.Picasso
 
 class PubAdapter(private var lstPub: List<PubResumData>, private val listener: PubAdapter.OnImageButtonClickListener): RecyclerView.Adapter<PubAdapter.ViewHolder>() {
@@ -22,6 +24,7 @@ class PubAdapter(private var lstPub: List<PubResumData>, private val listener: P
         val tvPubTituloEmp: TextView = itemView.findViewById(R.id.tvPubTituloEmp)
         val tvResumPub: TextView = itemView.findViewById(R.id.tvResumPub)
         val btEditPub: ImageButton = itemView.findViewById(R.id.btEditPub) // Añadir el botón
+        val btDeletePub: ImageButton = itemView.findViewById(R.id.btDeletePub) // Añadir el botón de eliminación
 
     }
 
@@ -46,6 +49,43 @@ class PubAdapter(private var lstPub: List<PubResumData>, private val listener: P
         holder.btEditPub.setOnClickListener {
             listener.onImageButtonClick(itemPub.documentId)
         }
+        holder.btDeletePub.setOnClickListener {
+            showDeleteConfirmationDialog(holder.itemView.context, itemPub.documentId)
+        }
+    }
+
+    private fun showDeleteConfirmationDialog(context: Context, documentId: String) {
+        AlertDialog.Builder(context)
+            .setTitle("Cancelar Publicación")
+            .setMessage("¿Está seguro de que desea cancelar esta publicación?")
+            .setPositiveButton("Sí") { dialog, _ ->
+                updateStateToCancelled(documentId)
+                dialog.dismiss()
+            }
+            .setNegativeButton("No") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .create()
+            .show()
+    }
+    private fun updateStateToCancelled(documentId: String) {
+        val db = FirebaseFirestore.getInstance()
+        db.collection("activities").document(documentId)
+            .update("state", "Cancelado")
+            .addOnSuccessListener {
+                // Actualizar la lista local y notificar cambios
+                lstPub = lstPub.map { pub ->
+                    if (pub.documentId == documentId) {
+                        pub.copy(state = "Cancelado")
+                    } else {
+                        pub
+                    }
+                }
+                notifyDataSetChanged()
+            }
+            .addOnFailureListener { exception ->
+                // Manejar error
+            }
     }
 
     interface OnImageButtonClickListener {

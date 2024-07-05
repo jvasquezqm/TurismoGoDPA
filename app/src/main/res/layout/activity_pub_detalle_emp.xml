@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="280dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.887"
+        app:layout_constraintHorizontal_bias="0.953"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivActDetImagen"
         app:srcCompat="@android:drawable/stat_notify_chat" />
@@ -70,8 +70,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="@string/PubDetallActividadEjem"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.068"
         app:layout_constraintStart_toEndOf="@+id/textView23"
         app:layout_constraintTop_toBottomOf="@+id/tvActDetTitulo" />
 
@@ -114,7 +112,7 @@
         android:layout_width="50dp"
         android:layout_height="46dp"
         android:layout_marginTop="12dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imbComentPubDet"
@@ -126,7 +124,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="@string/DuraPubDetalle"
+        android:text="@string/dateDetPub"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.05"
@@ -137,7 +135,6 @@
         android:id="@+id/tvActDetTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
         android:text="@string/HoraIniFinPubDetEjem"
         app:layout_constraintEnd_toEndOf="parent"
@@ -149,21 +146,20 @@
         android:id="@+id/textView22"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="206dp"
         android:layout_marginTop="8dp"
-        android:text="@string/precio"
-        app:layout_constraintStart_toEndOf="@+id/tvActDetTime"
+        android:text="@string/PriceDetPub"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textView27"
         app:layout_constraintTop_toBottomOf="@+id/tvActDetDescription" />
 
     <TextView
         android:id="@+id/tvActDetPrecio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="7dp"
         android:layout_marginTop="8dp"
         android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.118"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/textView22"
         app:layout_constraintTop_toBottomOf="@+id/tvActDetDescription" />
 
@@ -171,21 +167,19 @@
         android:id="@+id/textView25"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
+        android:layout_marginStart="120dp"
         android:layout_marginTop="8dp"
         android:text="@string/direccion"
-        app:layout_constraintStart_toEndOf="@+id/tvActDetType"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textView23"
         app:layout_constraintTop_toBottomOf="@+id/tvActDetTitulo" />
 
     <TextView
         android:id="@+id/tvActDetLugar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_width="104dp"
+        android:layout_height="18dp"
         android:layout_marginTop="8dp"
         android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView25"
         app:layout_constraintTop_toBottomOf="@+id/tvActDetTitulo" />
 

@@ -64,7 +64,7 @@ class PubDetalleEmpActivity : AppCompatActivity() {
                     val precio = document.getDouble("price")
 
                     // Formatear el timestamp a una fecha legible
-                    val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+                    val dateFormat = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
                     val formattedDate = time?.toDate()?.let { dateFormat.format(it) }
 
                     // Actualizar la UI con los datos obtenidos
