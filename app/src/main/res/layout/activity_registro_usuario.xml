@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/etNombreUsuarioReg"
+        android:id="@+id/etNameComp"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="32dp"
@@ -33,7 +33,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <EditText
-        android:id="@+id/etApellidoUsuarioReg"
+        android:id="@+id/etLastnameComp"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="15dp"
@@ -42,10 +42,10 @@
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etNombreUsuarioReg" />
+        app:layout_constraintTop_toBottomOf="@+id/etNameComp" />
 
     <EditText
-        android:id="@+id/etDniUsuarioReg"
+        android:id="@+id/etDNIComp"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="15dp"
@@ -54,10 +54,10 @@
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etApellidoUsuarioReg" />
+        app:layout_constraintTop_toBottomOf="@+id/etLastnameComp" />
 
     <EditText
-        android:id="@+id/etCorreoUsuarioReg"
+        android:id="@+id/etEmailComp"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="15dp"
@@ -66,10 +66,10 @@
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etDniUsuarioReg" />
+        app:layout_constraintTop_toBottomOf="@+id/etDNIComp" />
 
     <EditText
-        android:id="@+id/etTelefonoUsuarioReg"
+        android:id="@+id/editTextText13"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="15dp"
@@ -78,10 +78,10 @@
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etCorreoUsuarioReg" />
+        app:layout_constraintTop_toBottomOf="@+id/etEmailComp" />
 
     <EditText
-        android:id="@+id/etFechaNacimientoUsuarioReg"
+        android:id="@+id/editTextText14"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="15dp"
@@ -90,10 +90,10 @@
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etTelefonoUsuarioReg" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextText13" />
 
     <EditText
-        android:id="@+id/etPasswordUsuarioReg"
+        android:id="@+id/editTextText15"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="15dp"
@@ -102,10 +102,10 @@
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etFechaNacimientoUsuarioReg" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextText14" />
 
     <EditText
-        android:id="@+id/etPassword2UsuarioReg"
+        android:id="@+id/editTextText16"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="15dp"
@@ -114,7 +114,7 @@
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPasswordUsuarioReg" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextText15" />
 
     <Button
         android:id="@+id/btRegistroUsuario"
@@ -124,7 +124,7 @@
         android:text="@string/Registro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPassword2UsuarioReg" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextText16" />
 
 
 
