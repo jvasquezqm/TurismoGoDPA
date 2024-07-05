@@ -64,4 +64,11 @@ dependencies {
     //Retrofit para consumir API
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    //datastore
+    implementation("androidx.datastore:datastore-preferences:1.1.1")
+
+    //Lifecycle
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.2")
+
 }
