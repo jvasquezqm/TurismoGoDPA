@@ -16,7 +16,7 @@ import com.example.turismogodpa.data.PubResumData
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.firestore.FirebaseFirestore
 
-class PublicacionFragment : Fragment() {
+class PublicacionFragment : Fragment(), PubAdapter.OnImageButtonClickListener {
 
 
     override fun onCreateView(
@@ -41,11 +41,12 @@ class PublicacionFragment : Fragment() {
                     PubResumData(
                         document["image"].toString(),
                         document["titulo"].toString(),
-                        document["description"].toString()
+                        document["description"].toString(),
+                        document.id
 
                     )
                 }
-                rvPublicaciones.adapter = PubAdapter(pubList)
+                rvPublicaciones.adapter = PubAdapter(pubList, this)
                 rvPublicaciones.layoutManager = LinearLayoutManager(requireContext())
             }
 
@@ -59,30 +60,11 @@ class PublicacionFragment : Fragment() {
 
         return view
 
-
-
-    /*private fun PubList(): List<PubResumData>{
-        val lstPub: ArrayList<PubResumData> = ArrayList()
-
-        lstPub.add(
-            PubResumData(R.drawable.paseocaballo
-                , "Paseo a Caballo"
-                , "Disfruta de una emocionante aventura explorando los hermosos paisajes naturales mientras cabalgas a través de senderos escénicos en compañía de majestuosos caballos. Nuestra actividad de \"Paseo en Caballo\" te brinda la oportunidad de experimentar la naturaleza de una manera única y emocionante."
-            )
-        )
-
-        lstPub.add(
-            PubResumData(R.drawable.museolima
-                , "Paseo Museo Lima"
-                , "Sumérgete en un viaje fascinante a través del tiempo con nuestro Paseo Museo Lima. Esta actividad te llevará por los museos más emblemáticos de la ciudad, ofreciéndote una oportunidad única para explorar la rica historia y cultura de Lima.\n" +
-                        "\n"
-            )
-        )
-
-
-        return lstPub*/
-
     }
-
+    override fun onImageButtonClick(documentId: String) {
+        val intent = Intent(requireContext(), UpdatePubEmpActivity::class.java)
+        intent.putExtra("DOCUMENT_ID", documentId)
+        startActivity(intent)
+    }
 
 }
