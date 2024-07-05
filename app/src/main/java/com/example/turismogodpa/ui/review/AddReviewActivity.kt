@@ -35,6 +35,7 @@ class AddReviewActivity : AppCompatActivity() {
         val ivVolver: ImageView = findViewById(R.id.ivVolverReview)
         val tvVolver: TextView = findViewById(R.id.tvVolverReview)
 
+
         /*lifecycleScope.launch(Dispatchers.IO) {
             getUserProfile().map { userProfile ->
                 findViewById<TextView>(R.id.tvNombreUsuario).text = userProfile.name

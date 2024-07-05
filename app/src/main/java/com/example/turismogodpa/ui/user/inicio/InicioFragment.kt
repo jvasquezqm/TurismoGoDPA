@@ -20,6 +20,7 @@ import com.example.turismogodpa.databinding.ActivityInicioGeneralBinding
 import com.example.turismogodpa.databinding.FragmentInicioBinding
 import com.example.turismogodpa.ui.actividadTu.DetalleActividadActivity
 import com.example.turismogodpa.ui.autentication.LoginActivity
+import com.google.firebase.firestore.FirebaseFirestore
 
 class InicioFragment : Fragment() {
     private lateinit var binding: FragmentInicioBinding
@@ -30,97 +31,58 @@ class InicioFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_inicio, container, false)
-    }
+        val View: View= inflater.inflate(R.layout.fragment_inicio, container, false)
+        binding = FragmentInicioBinding.bind(View)
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        binding = FragmentInicioBinding.bind(view)
+        var rvActivides = binding.rvActividadesFiltradas
+        var lstActividades : List<ActividadesHomeModel> = listOf()
+        loadActivityTypes()
 
-        val recyclerView: RecyclerView = binding.rvActividadesFiltradas
-        ArrayAdapter.createFromResource(
-            requireContext(),
-            R.array.actividades_array,
-            android.R.layout.simple_spinner_item
-        ).also { adapter ->
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            binding.spTipoActividad.adapter = adapter
-        }
-        var spActividadValue: String = ""
-        binding.spTipoActividad.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
-                spActividadValue = parent?.getItemAtPosition(position).toString()
+
+
+        val db = FirebaseFirestore.getInstance()
+        db.collection("activitieshome")
+            .addSnapshotListener { value, error ->
+                if (error != null) {
+                    return@addSnapshotListener
+                }
+                lstActividades = value!!.documents.map {
+                    ActividadesHomeModel(
+                        it["image"].toString(),
+                        it["name"].toString(),
+                        it["description"].toString(),
+                        it["date"].toString(),
+                        it["type"].toString()
+                    )
+                }
+                rvActivides.layoutManager = LinearLayoutManager(requireContext())
+                rvActivides.adapter = ActividadHomeAdapter(lstActividades, object : ActividadHomeAdapter.OnItemClickListener {
+                    override fun onItemClick(actividad: ActividadesHomeModel) {
+                        val intent = Intent(requireContext(), DetalleActividadActivity::class.java)
+                        intent.putExtra("imageActivity", actividad.image)
+                        intent.putExtra("nameActivity", actividad.name)
+                        intent.putExtra("descriptionActivity", actividad.description)
+                        intent.putExtra("typeActivity", actividad.type)
+                        intent.putExtra("dateActivity", actividad.date)
+                        requireContext().startActivity(intent)
+
+                    }
+                })
+                val deco = DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL)
+                deco.setDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.divider) ?: requireContext().resources.getDrawable(R.drawable.divider, requireContext().theme))
+                rvActivides.addItemDecoration(deco)
+                events()
             }
 
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-                TODO()
-            }
-        }
 
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        recyclerView.adapter = ActividadHomeAdapter(listActividXades(), object : ActividadHomeAdapter.OnItemClickListener {
-            override fun onItemClick(actividad: ActividadesHomeModel) {
-                val intent = Intent(requireContext(), DetalleActividadActivity::class.java)
-                intent.putExtra("imageActivity", actividad.image)
-                intent.putExtra("nameActivity", actividad.name)
-                intent.putExtra("descriptionActivity", actividad.description)
-                intent.putExtra("typeActivity", actividad.type)
-                intent.putExtra("dateActivity", actividad.date)
-                requireContext().startActivity(intent)
-            }
-        })
-        val deco = DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL)
-        deco.setDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.divider) ?: requireContext().resources.getDrawable(R.drawable.divider, requireContext().theme))
-        recyclerView.addItemDecoration(deco)
-        events()
-
-
+        return View
 
     }
-    private fun listActividXades(): List<ActividadesHomeModel> {
-        val lstActividades = ArrayList<ActividadesHomeModel>()
-        lstActividades.add(
-            ActividadesHomeModel(
-                "R.drawable.img_actvidad01",
-                "Actividad 1",
-                " Deporte de riesgo que consiste en tirarse al vacío desde un puente u " +
-                        "otro lugar elevado, sujetándose con una cuerda elástica",
-                "01/01/2021",
-                "Tipo de actividad 1")
-        )
 
 
-        lstActividades.add(
-            ActividadesHomeModel(
-                "R.drawable.img_actividad02",
-                "Actividad 2",
-                "Machu Picchu es una de las 7 maravillas del mundo más visitadas por los " +
-                        "turistas, posee hermosas construcciones a base de piedras, que fueron " +
-                        "talladas con mucha precisión y detalle, es la obra más importante para los " +
-                        "incas por haber sido construida en una montaña agreste e inaccesible, " +
-                        "dividida en dos grandes sectores, urbano y agrícola separados por una gran " +
-                        "muralla que desciende por la ladera del cerro hasta llegar a las orillas " +
-                        "del rio Vilcanota",
-                "02/01/2021",
-                "Tipo de actividad 2")
-        )
 
-        lstActividades.add(
-            ActividadesHomeModel(
-                "R.drawable.img_actividad03",
-                "Actividad 3",
-                "El Parque Nacional de Huascarán es un área natural protegida del Perú, " +
-                        "ubicada en la Cordillera Blanca, en la región de Áncash. Fue creado el 1 de " +
-                        "julio de 1975 y tiene una extensión de 340 000 hectáreas. El parque " +
-                        "comprende una gran parte de la Cordillera Blanca, la cadena montañosa más " +
-                        "alta de los Andes peruanos y de América tropical. En 1985 fue declarado " +
-                        "Patrimonio de la Humanidad por la Unesco",
-                "03/01/2021",
-                "Tipo de actividad 3")
-        )
-        return lstActividades
 
-    }
+
 
     private fun events() = with(binding) {
 
@@ -130,30 +92,64 @@ class InicioFragment : Fragment() {
             val etFecha = etFechaFiltrada.text.toString()
             val spTipoActividad = spTipoActividad.selectedItem.toString()
             val recyclerView: RecyclerView = rvActividadesFiltradas
-            val lstActividades = listActividXades()
-            val lstActividadesFiltradas = lstActividades.filter {
-                it.name.contains(etBuscar) && it.date.contains(etFecha) && it.type.contains(spTipoActividad)
-            }
-            recyclerView.layoutManager = LinearLayoutManager(requireContext())
-            recyclerView.adapter = ActividadHomeAdapter(lstActividadesFiltradas, object : ActividadHomeAdapter.OnItemClickListener {
-                override fun onItemClick(actividad: ActividadesHomeModel) {
-                    val intent = Intent(requireContext(), DetalleActividadActivity::class.java)
-                    intent.putExtra("imageActivity", actividad.image)
-                    intent.putExtra("nameActivity", actividad.name)
-                    intent.putExtra("descriptionActivity", actividad.description)
-                    intent.putExtra("typeActivity", actividad.type)
-                    intent.putExtra("dateActivity", actividad.date)
-                    requireContext().startActivity(intent)
+            val db = FirebaseFirestore.getInstance()
+            var lstActividadesFiltradas: List<ActividadesHomeModel> = listOf()
+            db.collection("activitieshome")
+                .addSnapshotListener { value, error ->
+                    if (error != null) {
+                        return@addSnapshotListener
+                    }
+                    lstActividadesFiltradas = value!!.documents.map {
+                        ActividadesHomeModel(
+                            it["image"].toString(),
+                            it["name"].toString(),
+                            it["description"].toString(),
+                            it["date"].toString(),
+                            it["type"].toString()
+                        )
+                    }
+                    recyclerView.layoutManager = LinearLayoutManager(requireContext())
+                    recyclerView.adapter = ActividadHomeAdapter(lstActividadesFiltradas.filter { actividad ->
+                        actividad.name.contains(etBuscar, ignoreCase = true) && actividad.date.contains(etFecha, ignoreCase = true) && actividad.type.contains(spTipoActividad, ignoreCase = true)
+                    }, object : ActividadHomeAdapter.OnItemClickListener {
+                        override fun onItemClick(actividad: ActividadesHomeModel) {
+                            val intent = Intent(requireContext(), DetalleActividadActivity::class.java)
+                            intent.putExtra("imageActivity", actividad.image)
+                            intent.putExtra("nameActivity", actividad.name)
+                            intent.putExtra("descriptionActivity", actividad.description)
+                            intent.putExtra("typeActivity", actividad.type)
+                            intent.putExtra("dateActivity", actividad.date)
+                            requireContext().startActivity(intent)
 
+                        }
+                    })
+                    val deco = DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL)
+                    deco.setDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.divider) ?: requireContext().resources.getDrawable(R.drawable.divider, requireContext().theme))
+                    recyclerView.addItemDecoration(deco)
                 }
-            })
-            val deco = DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL)
-            deco.setDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.divider) ?: requireContext().resources.getDrawable(R.drawable.divider, requireContext().theme))
-            recyclerView.addItemDecoration(deco)
+
         }
 
 
 
+    }
+
+    private fun loadActivityTypes() {
+        val db = FirebaseFirestore.getInstance()
+        db.collection("activitieshome")
+            .get()
+            .addOnSuccessListener { documents ->
+                val types = documents.map { it["type"].toString() }.distinct()
+                setupSpinner(types)
+            }
+            .addOnFailureListener { exception ->
+                // Maneja cualquier error aquí
+            }
+    }
+    private fun setupSpinner(types: List<String>) {
+        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, types)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.spTipoActividad.adapter = adapter
     }
 
 

@@ -28,7 +28,7 @@ class DetalleActividadActivity : AppCompatActivity() {
 
 
         val tvRecName: String = intent.extras?.getString("nameActivity").orEmpty()
-        tvNameActividad.text = "Nombre de la actividad: $tvRecName"
+        tvNameActividad.text = "$tvRecName"
 
         val tvRecDesc: String = intent.extras?.getString("descriptionActivity").orEmpty()
         tvDescActividad.text = "Descripción de la actividad: $tvRecDesc"
