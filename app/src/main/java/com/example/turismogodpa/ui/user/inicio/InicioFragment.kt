@@ -81,7 +81,7 @@ class InicioFragment : Fragment() {
         val lstActividades = ArrayList<ActividadesHomeModel>()
         lstActividades.add(
             ActividadesHomeModel(
-                R.drawable.img_actvidad01,
+                "R.drawable.img_actvidad01",
                 "Actividad 1",
                 " Deporte de riesgo que consiste en tirarse al vacío desde un puente u " +
                         "otro lugar elevado, sujetándose con una cuerda elástica",
@@ -92,7 +92,7 @@ class InicioFragment : Fragment() {
 
         lstActividades.add(
             ActividadesHomeModel(
-                R.drawable.img_actividad02,
+                "R.drawable.img_actividad02",
                 "Actividad 2",
                 "Machu Picchu es una de las 7 maravillas del mundo más visitadas por los " +
                         "turistas, posee hermosas construcciones a base de piedras, que fueron " +
@@ -107,7 +107,7 @@ class InicioFragment : Fragment() {
 
         lstActividades.add(
             ActividadesHomeModel(
-                R.drawable.img_actividad03,
+                "R.drawable.img_actividad03",
                 "Actividad 3",
                 "El Parque Nacional de Huascarán es un área natural protegida del Perú, " +
                         "ubicada en la Cordillera Blanca, en la región de Áncash. Fue creado el 1 de " +

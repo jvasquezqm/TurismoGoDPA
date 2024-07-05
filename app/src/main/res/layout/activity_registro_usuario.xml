@@ -11,7 +11,7 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="0dp"
         android:text="@string/TituloRegistroUsuario"
         android:textColor="#000000"
         android:textSize="24sp"
@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/etNameComp"
+        android:id="@+id/etName"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="32dp"
@@ -33,7 +33,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <EditText
-        android:id="@+id/etLastnameComp"
+        android:id="@+id/etLastname"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="15dp"
@@ -42,10 +42,10 @@
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etNameComp" />
+        app:layout_constraintTop_toBottomOf="@+id/etName" />
 
     <EditText
-        android:id="@+id/etDNIComp"
+        android:id="@+id/etDNI"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="15dp"
@@ -54,46 +54,47 @@
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etLastnameComp" />
+        app:layout_constraintTop_toBottomOf="@+id/etLastname" />
 
     <EditText
-        android:id="@+id/etEmailComp"
+        android:id="@+id/etEmaiUs"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="15dp"
         android:ems="10"
         android:hint="@string/Correo"
-        android:inputType="text"
+        android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etDNIComp" />
+        app:layout_constraintTop_toBottomOf="@+id/etDNI" />
 
     <EditText
-        android:id="@+id/editTextText13"
+        android:id="@+id/etPhoneUs"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="15dp"
         android:ems="10"
         android:hint="@string/Telefono"
-        android:inputType="text"
+        android:inputType="phone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEmailComp" />
+        app:layout_constraintTop_toBottomOf="@+id/etEmaiUs" />
 
     <EditText
-        android:id="@+id/editTextText14"
+        android:id="@+id/etFechNac"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="12dp"
         android:ems="10"
         android:hint="@string/FechaNacimiento"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText13" />
+        app:layout_constraintTop_toBottomOf="@+id/etPhoneUs" />
 
     <EditText
-        android:id="@+id/editTextText15"
+        android:id="@+id/etPass1"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="15dp"
@@ -102,10 +103,10 @@
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText14" />
+        app:layout_constraintTop_toBottomOf="@+id/etFechNac" />
 
     <EditText
-        android:id="@+id/editTextText16"
+        android:id="@+id/etPass2"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="15dp"
@@ -114,7 +115,7 @@
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText15" />
+        app:layout_constraintTop_toBottomOf="@+id/etPass1" />
 
     <Button
         android:id="@+id/btRegistroUsuario"
@@ -124,7 +125,7 @@
         android:text="@string/Registro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText16" />
+        app:layout_constraintTop_toBottomOf="@+id/etPass2" />
 
 
 
