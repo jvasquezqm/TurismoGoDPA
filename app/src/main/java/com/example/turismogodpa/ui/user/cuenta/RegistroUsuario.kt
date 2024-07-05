@@ -49,6 +49,7 @@ class RegistroUsuario : AppCompatActivity() {
             val pass2 = etPassEmp2.text.toString()
             val typeuser ="user"
 
+//VALIDACION DE CAMPOS VACIOS -wr
             if (name.isEmpty() || lastname.isEmpty() || dni.isEmpty() || email.isEmpty() || phone.isEmpty() || fechaNac.isEmpty() || pass1.isEmpty() || pass2.isEmpty()) {
                 Toast.makeText(this, "los campos no pueden estar vacíos",
                     Toast.LENGTH_SHORT).show()
