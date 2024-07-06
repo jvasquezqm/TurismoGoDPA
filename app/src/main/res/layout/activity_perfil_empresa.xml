@@ -98,7 +98,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <EditText
-        android:id="@+id/editTextText17"
+        android:id="@+id/etRucPerfilEmpresa"
         android:layout_width="190dp"
         android:layout_height="35dp"
         android:layout_marginTop="40dp"
@@ -113,7 +113,7 @@
         app:layout_constraintTop_toBottomOf="@id/textView7" />
 
     <EditText
-        android:id="@+id/editTextText18"
+        android:id="@+id/etRazonSocialPerfilEmpresa"
         android:layout_width="190dp"
         android:layout_height="35dp"
         android:layout_marginTop="20dp"
@@ -124,10 +124,10 @@
         android:inputType="text"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText17" />
+        app:layout_constraintTop_toBottomOf="@+id/etRucPerfilEmpresa" />
 
     <EditText
-        android:id="@+id/editTextText19"
+        android:id="@+id/etNombreContactoPerfilEmpresa"
         android:layout_width="190dp"
         android:layout_height="35dp"
         android:layout_marginTop="20dp"
@@ -139,10 +139,10 @@
         android:textAlignment="center"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText18" />
+        app:layout_constraintTop_toBottomOf="@+id/etRazonSocialPerfilEmpresa" />
 
     <EditText
-        android:id="@+id/editTextText20"
+        android:id="@+id/etCorreoContactoPerfilEmpresa"
         android:layout_width="190dp"
         android:layout_height="35dp"
         android:layout_marginTop="20dp"
@@ -154,10 +154,10 @@
         android:textAlignment="center"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText19" />
+        app:layout_constraintTop_toBottomOf="@+id/etNombreContactoPerfilEmpresa" />
 
     <EditText
-        android:id="@+id/editTextText21"
+        android:id="@+id/etDireccionPerfilEmpresa"
         android:layout_width="190dp"
         android:layout_height="35dp"
         android:layout_marginTop="20dp"
@@ -169,10 +169,10 @@
         android:textAlignment="center"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText20" />
+        app:layout_constraintTop_toBottomOf="@+id/etCorreoContactoPerfilEmpresa" />
 
     <EditText
-        android:id="@+id/editTextText22"
+        android:id="@+id/etTelefonoPerfilEmpresa"
         android:layout_width="190dp"
         android:layout_height="35dp"
         android:layout_marginTop="20dp"
@@ -184,10 +184,10 @@
         android:textAlignment="center"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText21" />
+        app:layout_constraintTop_toBottomOf="@+id/etDireccionPerfilEmpresa" />
 
     <EditText
-        android:id="@+id/editTextText23"
+        android:id="@+id/etEstadoPerfilEmpresa"
         android:layout_width="190dp"
         android:layout_height="35dp"
         android:layout_marginTop="20dp"
@@ -198,7 +198,7 @@
         android:inputType="text"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText22"
+        app:layout_constraintTop_toBottomOf="@+id/etTelefonoPerfilEmpresa"
         android:textAlignment="center" />
 
     <Button
@@ -215,7 +215,7 @@
         app:cornerRadius="17dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText23" />
+        app:layout_constraintTop_toBottomOf="@+id/etEstadoPerfilEmpresa" />
 
     <Button
         android:id="@+id/DesactivarPerfilEmpresa"
