@@ -65,7 +65,8 @@ class AddReviewActivity : AppCompatActivity() {
     private fun getUserProfile() = dataStore.data.map{preferences ->
         UserProfile(
             name = preferences[stringPreferencesKey("name")].orEmpty(),
-            email = preferences[stringPreferencesKey("email")].orEmpty()
+            email = preferences[stringPreferencesKey("email")].orEmpty(),
+            userId = preferences[stringPreferencesKey("userId")].orEmpty()
         )
 
     }

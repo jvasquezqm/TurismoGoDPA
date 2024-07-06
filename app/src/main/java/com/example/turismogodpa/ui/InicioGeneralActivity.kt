@@ -134,11 +134,14 @@ class InicioGeneralActivity : AppCompatActivity() {
                 }
                 lstActividadesH = snap!!.documents.map{document ->
                     ActividadesHomeModel(
+                        document.id,
                         document["image"].toString(),
                         document["name"].toString(),
                         document["description"].toString(),
                         document["date"].toString(),
-                        document["type"].toString()
+                        document["type"].toString(),
+                        document["price"].toString(),
+                        document["company"].toString()
                     )}
                 rvActividadesH.adapter = ActividadHomeAdapter(lstActividadesH, object : ActividadHomeAdapter.OnItemClickListener {
                     override fun onItemClick(actividad: ActividadesHomeModel) {
@@ -202,7 +205,9 @@ class InicioGeneralActivity : AppCompatActivity() {
     private fun getUserProfile() = dataStore.data.map{preferences ->
         UserProfile(
             name = preferences[stringPreferencesKey("name")].orEmpty(),
-            email = preferences[stringPreferencesKey("email")].orEmpty()
+            email = preferences[stringPreferencesKey("email")].orEmpty(),
+            userId = preferences[stringPreferencesKey("userId")].orEmpty()
+
         )
 
     }
