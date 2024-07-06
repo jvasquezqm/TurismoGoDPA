@@ -85,6 +85,7 @@ class InicioGeneralActivity : AppCompatActivity() {
         }
 
         //Registrar
+        /*
         val collectionDB=firestore.collection("bookings")
         val newBookingData = hashMapOf(
             "name" to "Nombre del nuevo booking",
@@ -97,7 +98,7 @@ class InicioGeneralActivity : AppCompatActivity() {
             .addOnFailureListener { e ->
                 Log.e("Booking", "Error adding document", e)
             }
-
+        */
 
 
 
