@@ -142,4 +142,5 @@
     <string name="tituloActualizaPub">Actualizar Publicación</string>
     <string name="PriceDetPub">Precio: S/.</string>
     <string name="dateDetPub">Fecha:</string>
+    <string name="Celular">Celular</string>
 </resources>

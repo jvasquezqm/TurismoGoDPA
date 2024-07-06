@@ -30,41 +30,28 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView21"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="120dp"
-        android:text="@string/histoUserDNI"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/divider"
-        app:layout_constraintStart_toEndOf="@+id/textView19"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
         android:id="@+id/textView20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
+        android:layout_marginStart="150dp"
         android:layout_marginTop="120dp"
         android:text="@string/histUserCorreo"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/divider"
-        app:layout_constraintStart_toEndOf="@+id/textView21"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/textView19"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
+        android:layout_marginStart="300dp"
         android:layout_marginTop="120dp"
-        android:text="@string/histUserApellido"
+        android:text="@string/Celular"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/divider"
-        app:layout_constraintStart_toEndOf="@+id/textView18"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
@@ -72,7 +59,7 @@
         android:id="@+id/divider"
         android:layout_width="409dp"
         android:layout_height="1dp"
-        android:layout_marginTop="144dp"
+        android:layout_marginTop="140dp"
         android:background="?android:attr/listDivider"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
