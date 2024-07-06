@@ -151,7 +151,7 @@ class ReservarActivity : AppCompatActivity() {
                         "fecha" to spRFechaValue,
                         "hora" to spRHoraValue
                     )
-                    db.collection("reservas")
+                    db.collection("bookings")
                         .add(reserva)
                         .addOnSuccessListener { documentReference ->
                             Log.i("Reserva", "DocumentSnapshot added with ID: ${documentReference.id}")
