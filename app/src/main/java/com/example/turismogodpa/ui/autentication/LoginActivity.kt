@@ -77,7 +77,7 @@ class LoginActivity : AppCompatActivity() {
 
                                         Log.d("USERNAME", result)
                                         lifecycleScope.launch(Dispatchers.IO) {
-                                            saveValues(email, result)
+                                            saveValues(email, result, userId)
                                         }
 
 
@@ -140,10 +140,11 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
-    private suspend fun saveValues(email: String, result: String) {
+    private suspend fun saveValues(email: String, result: String, userId: String){
        dataStore.edit { preferences ->
             preferences[stringPreferencesKey("email")] = email
             preferences[stringPreferencesKey("name")] = result
+            preferences[stringPreferencesKey("userId")] = userId
         }
     }
 }

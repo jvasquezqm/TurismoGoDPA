@@ -35,6 +35,7 @@ class AddReviewActivity : AppCompatActivity() {
         val ivVolver: ImageView = findViewById(R.id.ivVolverReview)
         val tvVolver: TextView = findViewById(R.id.tvVolverReview)
 
+
         /*lifecycleScope.launch(Dispatchers.IO) {
             getUserProfile().map { userProfile ->
                 findViewById<TextView>(R.id.tvNombreUsuario).text = userProfile.name
@@ -64,7 +65,8 @@ class AddReviewActivity : AppCompatActivity() {
     private fun getUserProfile() = dataStore.data.map{preferences ->
         UserProfile(
             name = preferences[stringPreferencesKey("name")].orEmpty(),
-            email = preferences[stringPreferencesKey("email")].orEmpty()
+            email = preferences[stringPreferencesKey("email")].orEmpty(),
+            userId = preferences[stringPreferencesKey("userId")].orEmpty()
         )
 
     }

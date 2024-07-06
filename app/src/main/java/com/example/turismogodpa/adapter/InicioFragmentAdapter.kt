@@ -10,10 +10,10 @@ import com.example.turismogodpa.R
 import com.example.turismogodpa.data.model.ActividadesHomeModel
 import com.squareup.picasso.Picasso
 
-class ActividadHomeAdapter (
+class InicioFragmentAdapter (
     private var lstActividadesH: List<ActividadesHomeModel>,
     private val itemClickListener: OnItemClickListener
-): RecyclerView.Adapter<ActividadHomeAdapter.ViewHolder>(){
+): RecyclerView.Adapter<InicioFragmentAdapter.ViewHolder>(){
 
     interface OnItemClickListener {
         fun onItemClick(actividad: ActividadesHomeModel)
@@ -25,7 +25,6 @@ class ActividadHomeAdapter (
         val tvDescription: TextView = itemView.findViewById(R.id.tvDescActividad)
         val tvDate: TextView = itemView.findViewById(R.id.tvFechaActividad)
         val tvType: TextView = itemView.findViewById(R.id.tvTipoActividad)
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
