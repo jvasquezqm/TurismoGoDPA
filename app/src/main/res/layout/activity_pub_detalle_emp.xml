@@ -8,7 +8,7 @@
     tools:context=".PubDetalleEmpActivity">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/ivActDetImagen"
         android:layout_width="414dp"
         android:layout_height="294dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,7 +27,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.091"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/ivActDetImagen" />
 
     <ImageButton
         android:id="@+id/imbComentPubDet"
@@ -35,13 +35,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="280dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.887"
+        app:layout_constraintHorizontal_bias="0.953"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/ivActDetImagen"
         app:srcCompat="@android:drawable/stat_notify_chat" />
 
     <TextView
-        android:id="@+id/textView22"
+        android:id="@+id/tvActDetTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -62,21 +62,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.051"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView22" />
+        app:layout_constraintTop_toBottomOf="@+id/tvActDetTitulo" />
 
     <TextView
-        android:id="@+id/textView24"
+        android:id="@+id/tvActDetType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="@string/PubDetallActividadEjem"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.068"
         app:layout_constraintStart_toEndOf="@+id/textView23"
-        app:layout_constraintTop_toBottomOf="@+id/textView22" />
+        app:layout_constraintTop_toBottomOf="@+id/tvActDetTitulo" />
 
     <TextView
-        android:id="@+id/textView25"
+        android:id="@+id/tvActDetDescription"
         android:layout_width="375dp"
         android:layout_height="105dp"
         android:layout_marginTop="8dp"
@@ -114,7 +112,7 @@
         android:layout_width="50dp"
         android:layout_height="46dp"
         android:layout_marginTop="12dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imbComentPubDet"
@@ -126,23 +124,63 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="@string/DuraPubDetalle"
+        android:text="@string/dateDetPub"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView25" />
+        app:layout_constraintTop_toBottomOf="@+id/tvActDetDescription" />
 
     <TextView
-        android:id="@+id/textView28"
+        android:id="@+id/tvActDetTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
         android:text="@string/HoraIniFinPubDetEjem"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.015"
         app:layout_constraintStart_toEndOf="@+id/textView27"
-        app:layout_constraintTop_toBottomOf="@+id/textView25" />
+        app:layout_constraintTop_toBottomOf="@+id/tvActDetDescription" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="206dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/PriceDetPub"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textView27"
+        app:layout_constraintTop_toBottomOf="@+id/tvActDetDescription" />
+
+    <TextView
+        android:id="@+id/tvActDetPrecio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textView22"
+        app:layout_constraintTop_toBottomOf="@+id/tvActDetDescription" />
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/direccion"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textView23"
+        app:layout_constraintTop_toBottomOf="@+id/tvActDetTitulo" />
+
+    <TextView
+        android:id="@+id/tvActDetLugar"
+        android:layout_width="104dp"
+        android:layout_height="18dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/textView25"
+        app:layout_constraintTop_toBottomOf="@+id/tvActDetTitulo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

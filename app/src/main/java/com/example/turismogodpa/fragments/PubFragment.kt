@@ -1,5 +1,5 @@
 package com.example.turismogodpa.fragments
-
+/*
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -48,13 +48,13 @@ class PubFragment : Fragment() {
             fragmentContainer.addView(newView)
             fragmentContainer.visibility = View.VISIBLE
             rvPublicaciones.visibility = View.GONE // Ocultar RecyclerView si es necesario
-        }*/
+        }
 
         return view
 
 
     }
-    private fun PubList(): List<PubResumData>{
+    /*private fun PubList(): List<PubResumData>{
         val lstPub: ArrayList<PubResumData> = ArrayList()
 
         lstPub.add(
@@ -74,7 +74,7 @@ class PubFragment : Fragment() {
 
         return lstPub
 
-    }
+    }*/
 
 
-}
+}*/

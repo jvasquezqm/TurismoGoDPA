@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.company.publicacion.UpdatePubEmpActivity">
+
+
+<TextView
+android:id="@+id/textView10"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginTop="4dp"
+android:text="@string/formPubLugar"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintHorizontal_bias="0.019"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toBottomOf="@+id/etDescPubUpd" />
+
+<Spinner
+android:id="@+id/spTipoPubUpd"
+android:layout_width="0dp"
+android:layout_height="wrap_content"
+android:layout_marginTop="7dp"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+<EditText
+android:id="@+id/etPrecioPubUpd"
+android:layout_width="0dp"
+android:layout_height="wrap_content"
+android:ems="10"
+android:inputType="numberDecimal"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+
+<EditText
+android:id="@+id/etTituloPubUpd"
+android:layout_width="0dp"
+android:layout_height="wrap_content"
+android:layout_marginTop="4dp"
+android:ems="10"
+android:inputType="text"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+<EditText
+android:id="@+id/etDescPubUpd"
+android:layout_width="0dp"
+android:layout_height="wrap_content"
+android:layout_marginTop="4dp"
+android:ems="10"
+android:inputType="text"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintHorizontal_bias="0.0"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+<TextView
+android:id="@+id/textView12"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginTop="4dp"
+android:text="@string/formAddFecha"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toBottomOf="@+id/etLugarPubUpd" />
+
+<TextView
+android:id="@+id/textView15"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginTop="4dp"
+android:text="@string/formAddImg"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintHorizontal_bias="0.02"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toBottomOf="@+id/etPrecioPubUpd" />
+
+<TextView
+android:id="@+id/textView14"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginTop="8dp"
+android:text="@string/formAddPrecio"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintHorizontal_bias="0.011"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toBottomOf="@+id/spTipoPubUpd" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/tituloActualizaPub"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btFormPubUpd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="48dp"
+        android:text="@string/UpdatePub"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+<EditText
+android:id="@+id/etFechaPubUpd"
+android:layout_width="179dp"
+android:layout_height="43dp"
+android:layout_marginTop="4dp"
+android:clickable="true"
+android:focusable="false"
+android:hint="Seleccionar Fecha"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+<EditText
+android:id="@+id/etLugarPubUpd"
+android:layout_width="0dp"
+android:layout_height="wrap_content"
+android:layout_marginTop="2dp"
+android:ems="10"
+android:inputType="text"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintHorizontal_bias="0.0"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+<TextView
+android:id="@+id/textView8"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginTop="20dp"
+android:text="@string/formAddPub"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintHorizontal_bias="0.019"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+<TextView
+android:id="@+id/textView9"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginTop="12dp"
+android:text="@string/formAddDesc"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintHorizontal_bias="0.021"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toBottomOf="@+id/etTituloPubUpd" />
+
+<TextView
+android:id="@+id/textView13"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginTop="9dp"
+android:text="@string/formAddTipo"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintHorizontal_bias="0.018"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toBottomOf="@+id/etHoraPubUpd" />
+
+<EditText
+android:id="@+id/etImagePubUpd"
+android:layout_width="0dp"
+android:layout_height="wrap_content"
+android:ems="10"
+android:hint="@string/urlImage"
+android:inputType="text"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+<EditText
+android:id="@+id/etHoraPubUpd"
+android:layout_width="184dp"
+android:layout_height="42dp"
+android:layout_marginStart="22dp"
+android:layout_marginTop="4dp"
+android:clickable="true"
+android:focusable="false"
+android:hint="Seleccionar Hora"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintHorizontal_bias="0.0"
+app:layout_constraintStart_toEndOf="@+id/etFechaPubUpd"
+app:layout_constraintTop_toBottomOf="@+id/textView24" />
+
+<TextView
+android:id="@+id/textView24"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginStart="156dp"
+android:layout_marginTop="4dp"
+android:text="@string/Hora"
+app:layout_constraintStart_toEndOf="@+id/textView12"
+app:layout_constraintTop_toBottomOf="@+id/etLugarPubUpd" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
