@@ -21,12 +21,12 @@
         tools:layout="@layout/fragment_reservas" />
     <fragment
         android:id="@+id/navpubemp"
-        android:name="com.example.turismogodpa.fragments.PubFragment"
+        android:name="com.example.turismogodpa.ui.company.publicacion.PublicacionFragment"
         android:label="fragment_pub"
         tools:layout="@layout/fragment_pub" />
     <fragment
         android:id="@+id/navhistorialemp"
-        android:name="com.example.turismogodpa.fragments.HistorialFragment"
+        android:name="com.example.turismogodpa.ui.company.historial.HistoryeFragment"
         android:label="fragment_historial"
         tools:layout="@layout/fragment_historial" />
     <fragment

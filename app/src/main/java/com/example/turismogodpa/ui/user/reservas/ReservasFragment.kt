@@ -109,7 +109,7 @@ class ReservasFragment : Fragment() {
                                             val intent = Intent(requireContext(), AddReviewActivity::class.java)
                                             intent.putExtra("idactivity", currentItem.id)
                                             requireContext().startActivity(intent)
-                                            Log.e("ID ACTIVITY", "ID ACTIVITY EN RESERVA FRAG: ${currentItem.id}")
+                                            //Log.e("ID ACTIVITY", "ID ACTIVITY EN RESERVA FRAG: ${currentItem.id}")
                                         }
                                     }
                                 })

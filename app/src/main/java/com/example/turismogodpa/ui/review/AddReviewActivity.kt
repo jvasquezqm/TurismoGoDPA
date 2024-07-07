@@ -55,7 +55,7 @@ class AddReviewActivity : AppCompatActivity() {
                             //Recibir idActividad
                             val idAct: String = intent.extras?.getString("idactivity").orEmpty()
 
-                            Log.e("AddReviewActivity", "ID ACTIVIDAD EN ACTIVIDAD REVIEW2: $idAct")
+                            //Log.e("AddReviewActivity", "ID ACTIVIDAD EN ACTIVIDAD REVIEW2: $idAct")
 
                             // Guardar en Firestore
                             val db = FirebaseFirestore.getInstance()
