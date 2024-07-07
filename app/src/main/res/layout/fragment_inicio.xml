@@ -233,7 +233,7 @@
             tools:text="Explora el centro histórico de la ciudad en bicicleta con un guía experto. Visita la Plaza Mayor, la Catedral, y otros lugares emblemáticos mientras conoces su historia." />
 
         <TextView
-            android:id="@+id/tvDuracionActividad"
+            android:id="@+id/tvDuracionActividadD"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -253,7 +253,7 @@
             android:textSize="16dp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvDuracionActividad"
+            app:layout_constraintTop_toBottomOf="@+id/tvDuracionActividadD"
             tools:text="Explora la zona" />
 
         <ImageView

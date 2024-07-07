@@ -4,12 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.RatingBar
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContentProviderCompat.requireContext
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.turismogodpa.R
 import com.example.turismogodpa.ui.user.reservas.ReservarActivity
 import com.squareup.picasso.Picasso
@@ -27,6 +25,8 @@ class DetalleActividadActivity : AppCompatActivity() {
         val ivImagActividad= findViewById<ImageView>(R.id.ivImgActividad)
         val tvPrecioActividad = findViewById<TextView>(R.id.tvPrecio)
         val tvNameEmpresa = findViewById<TextView>(R.id.tvNameEmpresa)
+        val ratingBar = findViewById<RatingBar>(R.id.ratingBar)
+        val tvDuracionActividad= findViewById<TextView>(R.id.tvDuracionActividadD)
         //val tvDateActivity= findViewById<TextView>(R.id.tvDuracionActividad)
 
 
@@ -56,6 +56,9 @@ class DetalleActividadActivity : AppCompatActivity() {
         val idAct = intent.getStringExtra("idActivity")
         println("ID ACTIVIDAD: $idAct")
 
+        val tvRecDuracion = intent.getStringExtra("dateActivity")
+        tvDuracionActividad.text = "Fecha: $tvRecDuracion"
+
         val ivVolverDA: ImageView = findViewById(R.id.ivVolverDA)
         val tvVolverDA: TextView = findViewById(R.id.tvVolverDA)
 
@@ -67,6 +70,8 @@ class DetalleActividadActivity : AppCompatActivity() {
             //Este boton me llavará al activity ReservarActivity.
             val intent = Intent(this, ReservarActivity::class.java)
             intent.putExtra("idActivity", idAct)
+            intent.putExtra("timeActivity", tvRecDuracion)
+
             startActivity(intent)
 
 

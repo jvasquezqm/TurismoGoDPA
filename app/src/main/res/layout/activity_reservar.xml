@@ -158,8 +158,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etRTelefono" />
 
-    <Spinner
-        android:id="@+id/spRFecha"
+    <TextView
+        android:id="@+id/tvRFechad"
         android:layout_width="180dp"
         android:layout_height="30dp"
         android:layout_marginStart="192dp"
@@ -167,14 +167,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spRNumPersonas" />
 
-    <Spinner
-        android:id="@+id/spRHora"
+    <TextView
+        android:id="@+id/tvRHorad"
         android:layout_width="180dp"
         android:layout_height="30dp"
         android:layout_marginStart="192dp"
         android:layout_marginTop="29dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spRFecha" />
+        app:layout_constraintTop_toBottomOf="@+id/tvRFechad" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
