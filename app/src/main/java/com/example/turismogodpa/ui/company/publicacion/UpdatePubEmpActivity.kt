@@ -60,6 +60,8 @@ class UpdatePubEmpActivity : AppCompatActivity() {
         // Get the document ID from the Intent
         documentId = intent.getStringExtra("DOCUMENT_ID") ?: ""
 
+        Log.d("UpdatePubEmpActivity", "Document ID: $documentId")
+
         loadSpinnerData()
         loadActivityData()
 
@@ -90,8 +92,10 @@ class UpdatePubEmpActivity : AppCompatActivity() {
                 val typeAddAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, activities)
                 typeAddAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                 spTipoPubUpd.adapter = typeAddAdapter
+                Log.d("UpdatePubEmpActivity", "Spinner data loaded successfully")
             }
             .addOnFailureListener { exception ->
+                Log.e("UpdatePubEmpActivity", "Error al cargar tipos de actividades: ${exception.message}")
                 Toast.makeText(this, "Error al cargar tipos de actividades: ${exception.message}", Toast.LENGTH_SHORT).show()
             }
     }
@@ -117,12 +121,25 @@ class UpdatePubEmpActivity : AppCompatActivity() {
                     etImagePubUpd.setText(document.getString("image"))
 
                     val type = document.getString("type")
-                    val typeAddAdapter = spTipoPubUpd.adapter as ArrayAdapter<String>
-                    val position = typeAddAdapter.getPosition(type)
-                    spTipoPubUpd.setSelection(position)
+                    val typeAddAdapter = spTipoPubUpd.adapter as? ArrayAdapter<String>
+                    if (typeAddAdapter != null) {
+                        val position = typeAddAdapter.getPosition(type)
+                        if (position >= 0) {
+                            spTipoPubUpd.setSelection(position)
+                        } else {
+                            Log.e("UpdatePubEmpActivity", "Type not found in adapter: $type")
+                        }
+                    } else {
+                        Log.e("UpdatePubEmpActivity", "Adapter is null or not castable to ArrayAdapter<String>")
+                    }
+
+                    Log.d("UpdatePubEmpActivity", "Activity data loaded successfully")
+                } else {
+                    Log.e("UpdatePubEmpActivity", "Document is null")
                 }
             }
             .addOnFailureListener { exception ->
+                Log.e("UpdatePubEmpActivity", "Error al cargar datos: ${exception.message}")
                 Toast.makeText(this, "Error al cargar datos: ${exception.message}", Toast.LENGTH_SHORT).show()
             }
     }
@@ -194,10 +211,12 @@ class UpdatePubEmpActivity : AppCompatActivity() {
 
         db.collection("activities").document(documentId).update(activityData)
             .addOnSuccessListener {
+                Log.d("UpdatePubEmpActivity", "Activity updated successfully")
                 Toast.makeText(this, "Actividad actualizada correctamente", Toast.LENGTH_SHORT).show()
                 finish()
             }
             .addOnFailureListener { exception ->
+                Log.e("UpdatePubEmpActivity", "Error al actualizar actividad: ${exception.message}")
                 Toast.makeText(this, "Error al actualizar actividad: ${exception.message}", Toast.LENGTH_SHORT).show()
             }
     }
