@@ -71,6 +71,7 @@ class PubHistUsuariosEmpActivity : AppCompatActivity() {
                     if (user != null) {
                         Log.d("PubHistUsuariosEmpActivity", "Fetched user details: $user")
                         userList.add(user)
+                        sortUserList()
                         adapter.notifyDataSetChanged()
                     } else {
                         Log.w("PubHistUsuariosEmpActivity", "User details are null for user ID: $userId")
@@ -82,5 +83,8 @@ class PubHistUsuariosEmpActivity : AppCompatActivity() {
             .addOnFailureListener { e ->
                 Log.w("PubHistUsuariosEmpActivity", "Error getting user document", e)
             }
+    }
+    private fun sortUserList() {
+        userList.sortBy { it.name }
     }
 }

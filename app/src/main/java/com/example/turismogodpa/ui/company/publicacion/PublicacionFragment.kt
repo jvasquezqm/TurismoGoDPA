@@ -31,6 +31,7 @@ class PublicacionFragment : Fragment(), PubAdapter.OnImageButtonClickListener {
         var pubList: List<PubResumData>
 
         db.collection("activities")
+            .orderBy("titulo")
             .whereEqualTo("state", "Activo")
             .addSnapshotListener{ snap, error ->
                 if (error!=null){

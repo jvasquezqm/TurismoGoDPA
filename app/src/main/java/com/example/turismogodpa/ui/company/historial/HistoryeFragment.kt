@@ -42,6 +42,7 @@ class HistoryeFragment : Fragment(), PubHistAdapter.OnImageButtonClickListener  
         val db = FirebaseFirestore.getInstance()
 
         db.collection("activities")
+            .orderBy("time") // Ordenar por el campo 'time'
             .addSnapshotListener { snap, error ->
                 if (error != null) {
                     Log.e("ERROR-FIREBASE", "Detalle del error: ${error.message}")

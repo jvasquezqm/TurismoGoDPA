@@ -48,6 +48,7 @@ class ComentPubDiaFragment : DialogFragment() {
         if (activityId != null) {
             val db = FirebaseFirestore.getInstance()
             db.collection("reviews2")
+                .orderBy("time")
                 .whereEqualTo("idactivity", activityId)
                 .get()
                 .addOnSuccessListener { documents ->
