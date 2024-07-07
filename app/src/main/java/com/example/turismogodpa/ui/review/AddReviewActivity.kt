@@ -62,7 +62,7 @@ class AddReviewActivity : AppCompatActivity() {
                             val review2 = hashMapOf(
                                 "titulo" to etTittleReview.text.toString(),
                                 "comment" to etDescriptionReview.text.toString(),
-                                "iduser" to "idUsuario",
+                                "iduser" to it.userId,
                                 "time" to currentDateanTime,
                                 "idactivity" to idAct
                             )
