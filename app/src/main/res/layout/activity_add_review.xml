@@ -63,12 +63,12 @@
         android:textColor="#040303"
         android:textSize="17dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/tvTitleReview"
+        app:layout_constraintBottom_toTopOf="@+id/etTittleReview"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTitle"
         tools:text="Título" />
     <EditText
-        android:id="@+id/tvTitleReview"
+        android:id="@+id/etTittleReview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
@@ -84,7 +84,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvtitleR" />
 
     <EditText
-        android:id="@+id/multiLineEditText"
+        android:id="@+id/etComentario"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginStart="40dp"
@@ -116,7 +116,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/multiLineEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/etComentario" />
     <TextView
         android:id="@+id/tvTitleComen"
         android:layout_width="wrap_content"
@@ -127,7 +127,7 @@
         android:textColor="#040303"
         android:textSize="17dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/multiLineEditText"
+        app:layout_constraintBottom_toTopOf="@+id/etComentario"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitleReview" />
+        app:layout_constraintTop_toBottomOf="@+id/etTittleReview" />
 </androidx.constraintlayout.widget.ConstraintLayout>

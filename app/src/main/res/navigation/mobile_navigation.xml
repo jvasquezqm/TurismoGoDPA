@@ -3,35 +3,4 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/inicioFragment">
-    <fragment
-        android:id="@+id/inicioFragment"
-        android:name="com.example.turismogodpa.ui.user.inicio.InicioFragment"
-        android:label="fragment_inicio"
-        tools:layout="@layout/fragment_inicio" />
-    <fragment
-        android:id="@+id/cuentaFragment"
-        android:name="com.example.turismogodpa.ui.user.cuenta.CuentaFragment"
-        android:label="fragment_cuenta"
-        tools:layout="@layout/fragment_cuenta" />
-    <fragment
-        android:id="@+id/reservasFragment"
-        android:name="com.example.turismogodpa.ui.user.reservas.ReservasFragment"
-        android:label="fragment_reservas"
-        tools:layout="@layout/fragment_reservas" />
-    <fragment
-        android:id="@+id/navpubemp"
-        android:name="com.example.turismogodpa.fragments.PubFragment"
-        android:label="fragment_pub"
-        tools:layout="@layout/fragment_pub" />
-    <fragment
-        android:id="@+id/navhistorialemp"
-        android:name="com.example.turismogodpa.fragments.HistorialFragment"
-        android:label="fragment_historial"
-        tools:layout="@layout/fragment_historial" />
-    <fragment
-        android:id="@+id/navcuentaemp"
-        android:name="com.example.turismogodpa.fragments.CuentaEmpFragment"
-        android:label="fragment_cuenta_emp"
-        tools:layout="@layout/fragment_cuenta_emp" />
 </navigation>
