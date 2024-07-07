@@ -94,6 +94,7 @@
     <string name="Dni">DNI</string>
     <string name="FechaNacimiento">" / /  Fech. Nac."</string>
     <string name="CorreoContacto">Correo Contacto</string>
+    <string name="FechNac">Fecha Nac.</string>
     <string name="Estado">Estado</string>
     <string name="MiPerfil">Mi Perfil</string>
     <string name="Actualizar">Actualizar</string>
