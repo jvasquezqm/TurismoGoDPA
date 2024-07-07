@@ -3,12 +3,14 @@ package com.example.turismogodpa.ui.actividadTu
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.turismogodpa.R
+import com.example.turismogodpa.fragments.ComentPubDiaFragment
 import com.example.turismogodpa.ui.user.reservas.ReservarActivity
 import com.google.firebase.firestore.FirebaseFirestore
 import com.squareup.picasso.Picasso
@@ -28,6 +30,7 @@ class DetalleActividadActivity : AppCompatActivity() {
         val tvNameEmpresa = findViewById<TextView>(R.id.tvNameEmpresa)
         val ratingBar = findViewById<RatingBar>(R.id.ratingBar)
         val tvDuracionActividad= findViewById<TextView>(R.id.tvDuracionActividadD)
+        val review: ImageButton = findViewById(R.id.btnReview)
         //val tvDateActivity= findViewById<TextView>(R.id.tvDuracionActividad)
 
 
@@ -56,6 +59,7 @@ class DetalleActividadActivity : AppCompatActivity() {
 
         val idAct = intent.getStringExtra("idActivity")
         println("ID ACTIVIDAD: $idAct")
+        val idAct2 = idAct.toString()
 
         val tvRecDuracion = intent.getStringExtra("dateActivity")
         tvDuracionActividad.text = "Fecha: $tvRecDuracion"
@@ -84,6 +88,11 @@ class DetalleActividadActivity : AppCompatActivity() {
         }
         tvVolverDA.setOnClickListener {
             onBackPressed()
+        }
+
+        review.setOnClickListener {
+            val dialog = ComentPubDiaFragment.newInstance(idAct2) // Pasar el UID
+            dialog.show(supportFragmentManager, "CommentDialogFragment")
         }
 
     }
