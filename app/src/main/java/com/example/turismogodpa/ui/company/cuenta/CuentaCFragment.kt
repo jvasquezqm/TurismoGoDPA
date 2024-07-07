@@ -41,6 +41,7 @@ class CuentaCFragment : Fragment() {
                 withContext(Dispatchers.Main) {
                     idUser = it.userId
                     //obterner datos del usuario de firestore con el idUser obtenido
+                    idUser?.let { idUser ->
                     db.collection("users").document(idUser!!)
                         .get()
                         .addOnSuccessListener { document ->
@@ -57,6 +58,7 @@ class CuentaCFragment : Fragment() {
                         }
                         .addOnFailureListener { exception ->
                             //Log.e("ERROR-FIREBASE", "Error getting documents: ", exception)
+                        }
                         }
 
 
@@ -109,7 +111,7 @@ class CuentaCFragment : Fragment() {
 
         }
         binding.btCerrarSesionPerfilEmpresa.setOnClickListener{
-            val rootView : View = requireActivity().findViewById(android.R.id.content)
+
 
             // Cerrar sesion
             lifecycleScope.launch {

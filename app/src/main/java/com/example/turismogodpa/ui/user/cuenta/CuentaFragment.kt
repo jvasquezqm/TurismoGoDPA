@@ -56,8 +56,6 @@ class CuentaFragment : Fragment() {
                                 binding.etFechaNacusr.setText(document.getString("fechaNac"))
 
 
-
-
                             }
                         }
                         .addOnFailureListener { exception ->

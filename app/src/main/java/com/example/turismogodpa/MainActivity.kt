@@ -28,22 +28,29 @@ class MainActivity : AppCompatActivity() {
         val userType = intent.getStringExtra("USER_TYPE")
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         navView.menu.clear()
+
+        val appBarConfiguration: AppBarConfiguration
+
         if (userType == "user") {
             navView.inflateMenu(R.menu.menu_cliente)
             navController.setGraph(R.navigation.nav_cliente)
+            appBarConfiguration = AppBarConfiguration(
+                setOf(
+                    R.id.inicioFragment, R.id.reservasFragment, R.id.cuentaFragment
+                )
+            )
         } else if (userType == "company") {
             navView.inflateMenu(R.menu.menu_empresa)
             navController.setGraph(R.navigation.nav_empresa)
+            appBarConfiguration = AppBarConfiguration(
+                setOf(
+                    R.id.publicacionFragment, R.id.historyeFragment, R.id.cuentaCFragment
+                )
+            )
+        } else {
+            throw IllegalStateException("User type not recognized")
         }
 
-
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.inicioFragment, R.id.reservasFragment, R.id.cuentaFragment, // Para cliente
-                R.id.publicacionFragment, R.id.historyeFragment, R.id.cuentaCFragment, // Para empresa
-                R.id.navhistorialemp, R.id.navcuentaemp
-            )
-        )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
@@ -64,9 +71,9 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         return item.onNavDestinationSelected(navController) || super.onOptionsItemSelected(item)
     }
-
 }

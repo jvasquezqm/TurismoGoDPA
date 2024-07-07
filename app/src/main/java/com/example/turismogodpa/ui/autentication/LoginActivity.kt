@@ -122,15 +122,14 @@ class LoginActivity : AppCompatActivity() {
                         }
                     }
                 // Limpiar campos de Login
-                etEMail.text.clear()
-                etPass.text.clear()
+//                etEMail.text.clear()
+//                etPass.text.clear()
             }
             Log.i("RESULTADOFINAL", result.plus(result))
 
 
 
         }
-
 
         tvRegister.setOnClickListener {
             // Registro de usuarios o empresas
