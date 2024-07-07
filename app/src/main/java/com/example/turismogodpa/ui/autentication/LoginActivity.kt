@@ -121,6 +121,9 @@ class LoginActivity : AppCompatActivity() {
                             ).show()
                         }
                     }
+                // Limpiar campos de Login
+                etEMail.text.clear()
+                etPass.text.clear()
             }
             Log.i("RESULTADOFINAL", result.plus(result))
 
