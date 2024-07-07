@@ -10,6 +10,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.turismogodpa.R
 import com.example.turismogodpa.ui.user.reservas.ReservarActivity
+import com.google.firebase.firestore.FirebaseFirestore
 import com.squareup.picasso.Picasso
 
 class DetalleActividadActivity : AppCompatActivity() {
@@ -61,9 +62,10 @@ class DetalleActividadActivity : AppCompatActivity() {
 
         val ivVolverDA: ImageView = findViewById(R.id.ivVolverDA)
         val tvVolverDA: TextView = findViewById(R.id.tvVolverDA)
-
         //val tvRecDate: String = intent.extras?.getString("dateActivity").orEmpty()
         //tvDateActivity.text = "$tvRecDate"
+        //rating bar de la actividad, debe ser un valor entre 0 y 5 estrellas, debe ser el promedio de las calificaciones de los usuarios
+        val db = FirebaseFirestore.getInstance()
 
         btnReservar.setOnClickListener {
 
