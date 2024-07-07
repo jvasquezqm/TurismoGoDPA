@@ -49,7 +49,7 @@ class DetalleActividadActivity : AppCompatActivity() {
             .into(ivImagActividad)
 
         val  tvRecPrecio = intent.getStringExtra("priceActivity")
-        tvPrecioActividad.text = "Precio: S/. $tvRecPrecio"
+        tvPrecioActividad.text = "S/. $tvRecPrecio"
 
         val tvRecNameEmpresa = intent.getStringExtra("companyActivity")
         tvNameEmpresa.text = "$tvRecNameEmpresa"
