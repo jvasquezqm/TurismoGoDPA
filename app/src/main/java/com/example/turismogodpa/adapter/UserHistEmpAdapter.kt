@@ -12,6 +12,7 @@ class UserHistEmpAdapter(private var lstUserEmpHist: MutableList<UserHistEmpData
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val tvNomHistUser: TextView = itemView.findViewById(R.id.tvNomHistUser)
+        val tvApellHistUser: TextView = itemView.findViewById(R.id.tvApellHistUser)
         val tvMailHistUser: TextView = itemView.findViewById(R.id.tvMailHistUser)
         val tvPhoneHistUser: TextView = itemView.findViewById(R.id.tvPhoneHistUser)
 
@@ -30,6 +31,7 @@ class UserHistEmpAdapter(private var lstUserEmpHist: MutableList<UserHistEmpData
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val itemUserHist = lstUserEmpHist[position]
         holder.tvNomHistUser.text = itemUserHist.name
+        holder.tvApellHistUser.text = itemUserHist.lastname
         holder.tvMailHistUser.text = itemUserHist.email
         holder.tvPhoneHistUser.text = itemUserHist.phone
     }

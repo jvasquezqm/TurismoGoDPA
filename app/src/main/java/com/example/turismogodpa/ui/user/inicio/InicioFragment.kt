@@ -211,5 +211,7 @@ class InicioFragment : Fragment() {
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, types)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.spTipoActividad.adapter = adapter
+
+return view
     }
 }

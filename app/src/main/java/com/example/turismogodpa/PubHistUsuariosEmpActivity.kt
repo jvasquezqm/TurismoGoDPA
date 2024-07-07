@@ -42,15 +42,15 @@ class PubHistUsuariosEmpActivity : AppCompatActivity() {
 
     private fun fetchUsers(activityId: String) {
         val db = FirebaseFirestore.getInstance()
-        db.collection("bookings2")
-            .whereEqualTo("idactivity", activityId)
+        db.collection("bookings")
+            .whereEqualTo("actividad", activityId)
             .get()
             .addOnSuccessListener { documents ->
                 if (documents.isEmpty) {
                     Log.d("PubHistUsuariosEmpActivity", "No bookings found for activity ID: $activityId")
                 }
                 for (document in documents) {
-                    val userId = document.getString("iduser")
+                    val userId = document.getString("users")
                     if (userId != null) {
                         Log.d("PubHistUsuariosEmpActivity", "Found booking for user ID: $userId")
                         fetchUserDetails(userId)
