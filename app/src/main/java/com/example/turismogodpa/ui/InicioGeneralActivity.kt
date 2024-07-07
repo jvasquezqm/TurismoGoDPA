@@ -85,6 +85,7 @@ class InicioGeneralActivity : AppCompatActivity() {
 //        }
 
         //Registrar
+
 //        val collectionDB=firestore.collection("bookings")
 //        val newBookingData = hashMapOf(
 //            "name" to "Nombre del nuevo booking",
@@ -97,6 +98,23 @@ class InicioGeneralActivity : AppCompatActivity() {
 //            .addOnFailureListener { e ->
 //                Log.e("Booking", "Error adding document", e)
 //            }
+        /*
+        val collectionDB=firestore.collection("bookings")
+        val newBookingData = hashMapOf(
+            "name" to "Nombre del nuevo booking",
+            "iduser" to FirebaseFirestore.getInstance().document("users/77LhqWOUhXgB1FYz9tUnDoupCO73")  // Reemplaza "userId" con el ID del usuario correspondiente
+        )
+        collectionDB.add(newBookingData)
+            .addOnSuccessListener { documentReference ->
+                Log.i("Booking", "DocumentSnapshot added with ID: ${documentReference.id}")
+            }
+            .addOnFailureListener { e ->
+                Log.e("Booking", "Error adding document", e)
+            }
+        */
+
+
+
 
 
         btBuscar.setOnClickListener {
