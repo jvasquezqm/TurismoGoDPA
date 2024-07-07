@@ -1,6 +1,7 @@
 package com.example.turismogodpa.data.model
 
 data class MisReservasModel(
+    val id : String = "",
     val description: String = "",
     val lugar: String = "",
     val date: String = "",

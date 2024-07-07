@@ -32,7 +32,6 @@ class InicioFragment : Fragment() {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_inicio, container, false)
         binding = FragmentInicioBinding.bind(view)
-
         var rvActivides = binding.rvActividadesFiltradas
         var lstActividades: List<ActividadesHomeModel> = listOf()
         loadActivityTypes()
