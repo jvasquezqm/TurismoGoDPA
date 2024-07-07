@@ -56,35 +56,48 @@ class InicioGeneralActivity : AppCompatActivity() {
         }
 
 
-        val firestore = FirebaseFirestore.getInstance()
+        //val firestore = FirebaseFirestore.getInstance()
         //Traer datos de la base de datos
-        firestore.collection("bookings").document("7eEVWWr2ffQF9CTXEwRw")
-            .get()
-            .addOnSuccessListener {
-            document ->
-            if(document != null) {
-               val reference = document.getDocumentReference("idUser")
-                if(reference!=null)
-                {
-                    reference.get().addOnSuccessListener {
-                        userDoc ->
-                        if(userDoc!=null)
-                        {
-                            Log.i("User Document", "Usuario: ${userDoc.data}")
-                           val maild=userDoc.getString("email")
-                            println(maild)
-                        }
-                        else
-                        {
-                            Log.i("User Document", "No se encontro el usuario")
-                        }
-                    }
-                }
-
-            }
-        }
+//        firestore.collection("bookings").document("7eEVWWr2ffQF9CTXEwRw")
+//            .get()
+//            .addOnSuccessListener {
+//            document ->
+//            if(document != null) {
+//               val reference = document.getDocumentReference("idUser")
+//                if(reference!=null)
+//                {
+//                    reference.get().addOnSuccessListener {
+//                        userDoc ->
+//                        if(userDoc!=null)
+//                        {
+//                            Log.i("User Document", "Usuario: ${userDoc.data}")
+//                           val maild=userDoc.getString("email")
+//                            println(maild)
+//                        }
+//                        else
+//                        {
+//                            Log.i("User Document", "No se encontro el usuario")
+//                        }
+//                    }
+//                }
+//
+//            }
+//        }
 
         //Registrar
+
+//        val collectionDB=firestore.collection("bookings")
+//        val newBookingData = hashMapOf(
+//            "name" to "Nombre del nuevo booking",
+//            "iduser" to FirebaseFirestore.getInstance().document("users/77LhqWOUhXgB1FYz9tUnDoupCO73")  // Reemplaza "userId" con el ID del usuario correspondiente
+//        )
+//        collectionDB.add(newBookingData)
+//            .addOnSuccessListener { documentReference ->
+//                Log.i("Booking", "DocumentSnapshot added with ID: ${documentReference.id}")
+//            }
+//            .addOnFailureListener { e ->
+//                Log.e("Booking", "Error adding document", e)
+//            }
         /*
         val collectionDB=firestore.collection("bookings")
         val newBookingData = hashMapOf(
@@ -99,6 +112,7 @@ class InicioGeneralActivity : AppCompatActivity() {
                 Log.e("Booking", "Error adding document", e)
             }
         */
+
 
 
 

@@ -1,6 +1,7 @@
 package com.example.turismogodpa.ui.user.inicio
 
 import android.content.Intent
+import android.icu.text.SimpleDateFormat
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -18,6 +19,7 @@ import com.example.turismogodpa.databinding.FragmentInicioBinding
 import com.example.turismogodpa.ui.actividadTu.DetalleActividadActivity
 import com.google.android.gms.tasks.Tasks
 import com.google.firebase.firestore.FirebaseFirestore
+import java.util.Locale
 
 class InicioFragment : Fragment() {
     private lateinit var binding: FragmentInicioBinding
@@ -51,12 +53,16 @@ class InicioFragment : Fragment() {
                             // Handle error here
                             ""
                         }
+                        val time = document.getTimestamp("time")?.toDate()
+                        val formattedTime:String = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(time)
+                        //println("TIME: $formattedTime")
+                        //esto es lo que se va a mostrar en la lista
                         ActividadesHomeModel(
                             document.id,
                             document["image"].toString(),
                             document["titulo"].toString(),
                             document["description"].toString(),
-                            document["date"].toString(),
+                            formattedTime,
                             document["type"].toString(),
                             document["price"].toString(),
                             razonSocial
@@ -122,12 +128,15 @@ class InicioFragment : Fragment() {
                             } else {
                                 ""
                             }
+                            val time = document.getTimestamp("time")?.toDate()
+                            val formattedTime:String = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(time)
+                            //la cantidad de esta lista debe ser igual
                             ActividadesHomeModel(
                                 document.id,
                                 document["image"].toString(),
                                 document["titulo"].toString(),
                                 document["description"].toString(),
-                                document["date"].toString(),
+                                formattedTime,
                                 document["type"].toString(),
                                 document["price"].toString(),
                                 razonSocial
@@ -180,7 +189,9 @@ class InicioFragment : Fragment() {
             .get()
             .addOnSuccessListener { documents ->
                 val types = documents.map { it["type"].toString() }.distinct()
-                setupSpinner(types)
+                if (isAdded) { // Check if the Fragment is still attached to its Activity
+                    setupSpinner(types)
+                }
             }
             .addOnFailureListener { exception ->
                 // Handle any error here

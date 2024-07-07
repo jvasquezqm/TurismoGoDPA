@@ -158,16 +158,16 @@
         tools:text="Explora el centro histórico de la ciudad en bicicleta con un guía experto. Visita la Plaza Mayor, la Catedral, y otros lugares emblemáticos mientras conoces su historia." />
 
     <TextView
-        android:id="@+id/tvDuracionActividad"
+        android:id="@+id/tvDuracionActividadD"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="7dp"
         android:textColor="#020202"
+        app:layout_constraintBottom_toTopOf="@+id/tvUbicacionActividadT"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvDescActividad"
-        app:layout_constraintBottom_toTopOf="@+id/tvUbicacionActividadT"
-        android:text="6:00 AM - 12:00 PM" />
+        tools:text="6:00 AM - 12:00 PM" />
 
     <TextView
         android:id="@+id/tvUbicacionActividadT"
@@ -179,7 +179,7 @@
         android:textSize="16dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDuracionActividad"
+        app:layout_constraintTop_toBottomOf="@+id/tvDuracionActividadD"
         app:layout_constraintBottom_toTopOf="@+id/ivMapa"
         android:text="Explora la zona" />
 
