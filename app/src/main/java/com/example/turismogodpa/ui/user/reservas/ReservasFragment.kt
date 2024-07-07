@@ -69,6 +69,7 @@ class ReservasFragment : Fragment() {
                                         ""
                                     }
                                     MisReservasModel(
+                                        document.id,
                                         document["Description"].toString(),
                                         document["Lugar"].toString(),
                                         document["date"].toString(),
@@ -104,9 +105,17 @@ class ReservasFragment : Fragment() {
                                         binding.tvDRNombre.text = currentItem.titulo
                                         binding.tvDRHora.text = currentItem.hora
                                         binding.tvDRFecha.text = currentItem.date
+                                        binding.btDRComentario.setOnClickListener {
+                                            val intent = Intent(requireContext(), AddReviewActivity::class.java)
+                                            intent.putExtra("idactivity", currentItem.id)
+                                            requireContext().startActivity(intent)
+                                            Log.e("ID ACTIVITY", "ID ACTIVITY EN RESERVA FRAG: ${currentItem.id}")
+                                        }
                                     }
                                 })
                                 rvMisReservas.layoutManager = LinearLayoutManager(requireContext())
+
+
                             }
                         }
                 }
@@ -117,10 +126,7 @@ class ReservasFragment : Fragment() {
         deco.setDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.divider) ?: requireContext().resources.getDrawable(R.drawable.divider, requireContext().theme))
         rvMisReservas.addItemDecoration(deco)
 
-        binding.btDRComentario.setOnClickListener {
-            val intent = Intent(requireContext(), AddReviewActivity::class.java)
-            startActivity(intent)
-        }
+
 
         binding.ivVolverDR.setOnClickListener {
             requireActivity().onBackPressedDispatcher.onBackPressed()

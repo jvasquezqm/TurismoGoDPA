@@ -52,13 +52,19 @@ class AddReviewActivity : AppCompatActivity() {
                             //Ajustar fecha
                             val sdf = SimpleDateFormat("dd/MM/yyyy hh:mm:ss", Locale.getDefault())
                             val currentDateanTime = sdf.format(System.currentTimeMillis())
+                            //Recibir idActividad
+                            val idAct: String = intent.extras?.getString("idactivity").orEmpty()
+
+                            Log.e("AddReviewActivity", "ID ACTIVIDAD EN ACTIVIDAD REVIEW2: $idAct")
+
                             // Guardar en Firestore
                             val db = FirebaseFirestore.getInstance()
                             val review2 = hashMapOf(
                                 "titulo" to etTittleReview.text.toString(),
                                 "comment" to etDescriptionReview.text.toString(),
                                 "iduser" to "idUsuario",
-                                "time" to currentDateanTime
+                                "time" to currentDateanTime,
+                                "idactivity" to idAct
                             )
 
                             db.collection("reviews2")
