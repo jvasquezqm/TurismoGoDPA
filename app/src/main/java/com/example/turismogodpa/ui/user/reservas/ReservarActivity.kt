@@ -1,6 +1,8 @@
 package com.example.turismogodpa.ui.user.reservas
 
 import android.annotation.SuppressLint
+import android.app.Dialog
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -125,7 +127,9 @@ class ReservarActivity : AppCompatActivity() {
                             db.collection("activities").document(idAct!!)
                                 .update("users", FieldValue.arrayUnion(idUser))
                                 .addOnSuccessListener {
+
                                     Log.i("Activities", "idUser added to array successfully")
+
                                 }
                                 .addOnFailureListener { e ->
                                     Log.e("Activities", "Error updating document", e)
@@ -134,7 +138,22 @@ class ReservarActivity : AppCompatActivity() {
                         .addOnFailureListener { e ->
                             Log.e("Reserva", "Error adding document", e)
                         }
-                } else {
+                    val dialog = Dialog(this)
+                    dialog.setContentView(R.layout.dialog_reserva_ok) // Use the correct layout for the dialog
+
+                    val btDialogR: Button = dialog.findViewById(R.id.btnOkDialogReserva)
+                    dialog.show()
+
+                    btDialogR.setOnClickListener {
+                        dialog.dismiss()
+                        val intent = Intent(this, ReservarActivity::class.java)
+                        startActivity(intent)
+                    }
+
+
+                }
+
+                else {
                     Log.i("Reserva", "Faltan datos")
                 }
             }
