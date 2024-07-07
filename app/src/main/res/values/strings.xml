@@ -98,7 +98,7 @@
     <string name="Estado">Estado</string>
     <string name="MiPerfil">Mi Perfil</string>
     <string name="Actualizar">Actualizar</string>
-    <string name="DesactivarPerfil">Desactivar mi perfil</string>
+    <string name="DesactivarPerfil">Eliminar cuenta</string>
     <string name="Apellidos">Apellidos</string>
     <string name="btnVerMiReserva">DETALLES</string>
     <string name="tvMRTitle_name">MIS RESERVAS</string>

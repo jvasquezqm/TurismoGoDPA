@@ -2,10 +2,12 @@ package com.example.turismogodpa.ui.user.cuenta
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.lifecycle.lifecycleScope
@@ -14,6 +16,7 @@ import com.example.turismogodpa.data.model.UserProfile
 import com.example.turismogodpa.databinding.FragmentCuentaBinding
 import com.example.turismogodpa.ui.autentication.LoginActivity
 import com.example.turismogodpa.ui.autentication.dataStore
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.map
@@ -78,11 +81,40 @@ class CuentaFragment : Fragment() {
         binding.btActualizarPerfilUsuario.setOnClickListener{
             val rootView : View = requireActivity().findViewById(android.R.id.content)
             //Snackbar.make(rootView, "Perfil Actualizado", Snackbar.LENGTH_LONG).show()
+            //actualizar telefono del usuario en firestore
+            val db = FirebaseFirestore.getInstance()
+            db.collection("users").document(idUser!!)
+                .update("phone", binding.etPhoneusr.text.toString())
+                .addOnSuccessListener {
+                    Toast.makeText(requireContext(), "Telefono actualizado", Toast.LENGTH_LONG).show()
+                }
+                .addOnFailureListener { e ->
+                    Log.w("UPDATE-FIREBASE", "Error updating document", e)
+                }
         }
 
         binding.btDesactivarPerfil.setOnClickListener{
             val rootView : View = requireActivity().findViewById(android.R.id.content)
             //Snackbar.make(rootView, "Perfil Desactivado", Snackbar.LENGTH_LONG).show()
+            //Inactivar usuario en firestore autenticacion y firestore database
+            val auth = FirebaseAuth.getInstance()
+            auth.currentUser?.delete()
+
+            val db = FirebaseFirestore.getInstance()
+            db.collection("users").document(idUser!!)
+                .update("state", false)
+                .addOnSuccessListener {
+                    Toast.makeText(requireContext(), "Perfil Desactivado", Toast.LENGTH_LONG).show()
+                    val intent = Intent(requireContext(), LoginActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                }
+                .addOnFailureListener { e ->
+                    Log.w("UPDATE-FIREBASE", "Error updating document", e)
+                }
+
+
+
+
         }
         binding.btCerrarSesion.setOnClickListener{
             val rootView : View = requireActivity().findViewById(android.R.id.content)

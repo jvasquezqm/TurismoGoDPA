@@ -1,20 +1,137 @@
 package com.example.turismogodpa.ui.company.cuenta
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.stringPreferencesKey
+import androidx.lifecycle.lifecycleScope
 import com.example.turismogodpa.R
+import com.example.turismogodpa.data.model.UserProfile
+import com.example.turismogodpa.databinding.FragmentCuentaCBinding
+import com.example.turismogodpa.ui.autentication.LoginActivity
+import com.example.turismogodpa.ui.autentication.dataStore
+import com.example.turismogodpa.ui.autentication.getUserProfile
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class CuentaCFragment : Fragment() {
+    private lateinit var binding: FragmentCuentaCBinding
+    private var idUser: String? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.activity_perfil_empresa, container, false)
+        val View:View = inflater.inflate(R.layout.fragment_cuenta_c, container, false)
+        binding = FragmentCuentaCBinding.bind(View)
+        val db = FirebaseFirestore.getInstance()
+        lifecycleScope.launch(Dispatchers.IO) {
+            getUserProfile().collect {
+                withContext(Dispatchers.Main) {
+                    idUser = it.userId
+                    //obterner datos del usuario de firestore con el idUser obtenido
+                    db.collection("users").document(idUser!!)
+                        .get()
+                        .addOnSuccessListener { document ->
+                            if (document != null) {
+                                binding.etNombreContactoPerfilEmpresa.setText(document.getString("name"))
+                                binding.etRazonSocialPerfilEmpresa.setText(document.getString("razonSocial"))
+                                binding.etRucPerfilEmpresa.setText(document.getString("ruc"))
+                                binding.etCorreoContactoPerfilEmpresa.setText(document.getString("email"))
+                                binding.etTelefonoPerfilEmpresa.setText(document.getString("phone"))
+                                binding.etDireccionPerfilEmpresa.setText(document.getString("address"))
+                                binding.etEstadoPerfilEmpresa.setText(document.getString("state"))
+
+                            }
+                        }
+                        .addOnFailureListener { exception ->
+                            //Log.e("ERROR-FIREBASE", "Error getting documents: ", exception)
+                        }
+
+
+                }
+            }
+        }
+
+
+        return View
+    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.btActualizarPerfilEmpresa.setOnClickListener{
+            val rootView : View = requireActivity().findViewById(android.R.id.content)
+            //Snackbar.make(rootView, "Perfil Actualizado", Snackbar.LENGTH_LONG).show()
+            //actualizar telefono del usuario en firestore
+            val db = FirebaseFirestore.getInstance()
+            db.collection("users").document(idUser!!)
+                .update("phone", binding.etTelefonoPerfilEmpresa.text.toString())
+                .addOnSuccessListener {
+                    Toast.makeText(requireContext(), "Telefono actualizado", Toast.LENGTH_LONG).show()
+                }
+                .addOnFailureListener { e ->
+                    Log.w("UPDATE-FIREBASE", "Error updating document", e)
+                }
+        }
+
+        binding.btDesactivarPerfilEmpresa.setOnClickListener{
+            val rootView : View = requireActivity().findViewById(android.R.id.content)
+            //Snackbar.make(rootView, "Perfil Desactivado", Snackbar.LENGTH_LONG).show()
+            //Inactivar usuario en firestore autenticacion y firestore database
+            val auth = FirebaseAuth.getInstance()
+            auth.currentUser?.delete()
+
+            val db = FirebaseFirestore.getInstance()
+            db.collection("users").document(idUser!!)
+                .update("state", false)
+                .addOnSuccessListener {
+                    Toast.makeText(requireContext(), "Perfil Desactivado", Toast.LENGTH_LONG).show()
+                    val intent = Intent(requireContext(), LoginActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                }
+                .addOnFailureListener { e ->
+                    Log.w("UPDATE-FIREBASE", "Error updating document", e)
+                }
+
+
+
+
+        }
+        binding.btCerrarSesionPerfilEmpresa.setOnClickListener{
+            val rootView : View = requireActivity().findViewById(android.R.id.content)
+
+            // Cerrar sesion
+            lifecycleScope.launch {
+                requireContext().dataStore.edit { preferences ->
+                    preferences[stringPreferencesKey("userId")] = ""
+                    preferences[stringPreferencesKey("email")] = ""
+                    preferences[stringPreferencesKey("name")] = ""
+                    //cuando se cierre sesion se debe redirigir a la pantalla de login y limpiar el backstack
+//                    val intent = Intent(requireContext(), LoginActivity::class.java)
+//                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                }
+            }
+
+
+        }
+    }
+    private fun getUserProfile() = requireContext().dataStore.data.map { preferences ->
+        UserProfile(
+            name = preferences[stringPreferencesKey("name")].orEmpty(),
+            email = preferences[stringPreferencesKey("email")].orEmpty(),
+            userId = preferences[stringPreferencesKey("userId")].orEmpty()
+        )
     }
 
 }

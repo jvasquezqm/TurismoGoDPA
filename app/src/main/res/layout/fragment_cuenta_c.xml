@@ -8,16 +8,234 @@
 
 
     <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="CUENTA EMPRESA"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/textView8"
+        android:layout_width="130dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/Ruc"
+        android:textColor="#000000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="130dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/Estado"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="130dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/Telefono"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="130dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/Direccion"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="130dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/NombreContacto"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="130dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/CorreoContacto"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="130dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/RazonSocial"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+    <EditText
+        android:id="@+id/etRucPerfilEmpresa"
+        android:layout_width="190dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="25dp"
+        android:background="@drawable/redondearet"
+        android:ems="10"
+        android:inputType="text"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/etRazonSocialPerfilEmpresa"
+        android:layout_width="190dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="25dp"
+        android:background="#ABB6F3"
+        android:ems="10"
+        android:inputType="text"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etRucPerfilEmpresa" />
+
+    <EditText
+        android:id="@+id/etNombreContactoPerfilEmpresa"
+        android:layout_width="190dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="25dp"
+        android:background="@drawable/redondearet"
+        android:ems="10"
+        android:hint="Elias Perez Solano"
+        android:inputType="text"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etRazonSocialPerfilEmpresa" />
+
+    <EditText
+        android:id="@+id/etCorreoContactoPerfilEmpresa"
+        android:layout_width="190dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="25dp"
+        android:background="@drawable/redondearet"
+        android:ems="10"
+        android:hint="Elias@corporacion.com"
+        android:inputType="text"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etNombreContactoPerfilEmpresa" />
+
+    <EditText
+        android:id="@+id/etDireccionPerfilEmpresa"
+        android:layout_width="190dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="25dp"
+        android:background="@drawable/redondearet"
+        android:ems="10"
+        android:hint="Calle Las Flores 123"
+        android:inputType="text"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etCorreoContactoPerfilEmpresa" />
+
+    <EditText
+        android:id="@+id/etTelefonoPerfilEmpresa"
+        android:layout_width="190dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="25dp"
+        android:background="@drawable/redondearet"
+        android:ems="10"
+        android:hint="01 7451545"
+        android:inputType="text"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etDireccionPerfilEmpresa" />
+
+    <EditText
+        android:id="@+id/etEstadoPerfilEmpresa"
+        android:layout_width="190dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="25dp"
+        android:background="@drawable/redondearet"
+        android:ems="10"
+        android:hint="Activo"
+        android:inputType="text"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etTelefonoPerfilEmpresa"
+        android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/btActualizarPerfilEmpresa"
+        android:layout_width="0dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="24dp"
+        android:backgroundTint="@color/verde_app"
+        android:text="@string/Actualizar"
+        android:textColor="@color/azul_app"
+        android:textStyle="bold"
+        app:cornerRadius="17dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btDesactivarPerfilEmpresa"
+        app:layout_constraintTop_toBottomOf="@+id/etEstadoPerfilEmpresa" />
+
+    <Button
+        android:id="@+id/btDesactivarPerfilEmpresa"
+        android:layout_width="0dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:backgroundTint="@color/verde_app"
+        android:text="@string/DesactivarPerfil"
+        android:textColor="@color/azul_app"
+        android:textStyle="bold"
+        app:cornerRadius="17dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btActualizarPerfilEmpresa"
+        app:layout_constraintBottom_toTopOf="@+id/btCerrarSesionPerfilEmpresa"/>
+    <Button
+        android:id="@+id/btCerrarSesionPerfilEmpresa"
+        android:layout_width="0dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="90dp"
+        android:backgroundTint="@color/verde_app"
+        android:text="CERRAR SESION"
+        android:textColor="@color/azul_app"
+        android:textSize="17dp"
+        android:textStyle="bold"
+        app:cornerRadius="17dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btDesactivarPerfilEmpresa"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

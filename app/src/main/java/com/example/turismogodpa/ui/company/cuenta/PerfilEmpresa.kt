@@ -2,19 +2,14 @@ package com.example.turismogodpa.ui.company.cuenta
 
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.turismogodpa.R
-import com.example.turismogodpa.R.id.btActualizarPerfilEmpresa
-import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.FirebaseFirestore
 
 class PerfilEmpresa : AppCompatActivity() {
@@ -38,7 +33,7 @@ class PerfilEmpresa : AppCompatActivity() {
         val etTelefonoPerfilEmpresa: EditText = findViewById(R.id.etTelefonoPerfilEmpresa)
         val etEstadoPerfilEmpresa: EditText = findViewById(R.id.etEstadoPerfilEmpresa)
         val btActualizarPerfilEmpresa : Button = findViewById(R.id.btActualizarPerfilEmpresa)
-        val btDesactivarPerfilEmpresa : Button = findViewById(R.id.DesactivarPerfilEmpresa)
+        val btDesactivarPerfilEmpresa : Button = findViewById(R.id.btDesactivarPerfilEmpresa)
         val db = FirebaseFirestore.getInstance()
         val currentUser = FirebaseAuth.getInstance().currentUser
         val userId = currentUser?.uid
