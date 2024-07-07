@@ -52,6 +52,7 @@ class AddReviewActivity : AppCompatActivity() {
                             //Ajustar fecha
                             val sdf = SimpleDateFormat("dd/MM/yyyy hh:mm:ss", Locale.getDefault())
                             val currentDateanTime = sdf.format(System.currentTimeMillis())
+                            val currentTimestamp = com.google.firebase.Timestamp.now()
                             //Recibir idActividad
                             val idAct: String = intent.extras?.getString("idactivity").orEmpty()
 
@@ -63,7 +64,7 @@ class AddReviewActivity : AppCompatActivity() {
                                 "titulo" to etTittleReview.text.toString(),
                                 "comment" to etDescriptionReview.text.toString(),
                                 "iduser" to it.userId,
-                                "time" to currentDateanTime,
+                                "time" to currentTimestamp,
                                 "idactivity" to idAct
                             )
 
