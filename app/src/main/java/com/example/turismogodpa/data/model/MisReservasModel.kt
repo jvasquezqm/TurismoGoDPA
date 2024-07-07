@@ -11,7 +11,7 @@ data class MisReservasModel(
     val hora: String = "",
     val titulo: String = "",
     val type: String = "",
-    val bookings: String = ""
+    val users: String = ""
 )
 
 /*

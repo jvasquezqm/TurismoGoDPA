@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.datastore.dataStore
@@ -19,13 +20,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.turismogodpa.R
 import com.example.turismogodpa.adapter.MisReservasAdapter
 import com.example.turismogodpa.data.model.ActividadesHomeModel
+import com.example.turismogodpa.data.model.CompanyModel
 import com.example.turismogodpa.data.model.MisReservasModel
+import com.example.turismogodpa.data.model.UserModel
 import com.example.turismogodpa.data.model.UserProfile
 import com.example.turismogodpa.databinding.FragmentReservasBinding
 import com.example.turismogodpa.ui.actividadTu.DetalleActividadActivity
 import com.example.turismogodpa.ui.autentication.dataStore
 import com.example.turismogodpa.ui.review.AddReviewActivity
+import com.google.android.gms.tasks.Tasks
 import com.google.firebase.firestore.FirebaseFirestore
+import com.squareup.picasso.Picasso
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
@@ -83,10 +88,21 @@ class ReservasFragment : Fragment() {
                                 )}
                             Log.e("DATOS-FIREBASE", "FIREBASE CONSULTA: ${misReservasList}")
 
+
                             rvMisReservas.adapter = MisReservasAdapter(misReservasList, object : MisReservasAdapter.OnItemClickListener {
                                 override fun onItemClick(currentItem: MisReservasModel) {
                                     binding.ListaRerserva.visibility = View.GONE
                                     binding.DetalleReserva.visibility = View.VISIBLE
+
+                                    Picasso.get()
+                                        .load(currentItem.image)
+                                        .resize(400, 250)
+                                        .into(binding.ivDetalleReserva)
+                                    binding.tvDREmpresa.text = currentItem.idCompany
+                                    binding.tvDRNombre.text = currentItem.titulo
+                                    binding.tvDRHora.text = currentItem.hora
+                                    binding.tvDRFecha.text = currentItem.date
+
                                 }
                             })
                             rvMisReservas.layoutManager = LinearLayoutManager(requireContext())
@@ -99,6 +115,10 @@ class ReservasFragment : Fragment() {
         val deco = DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL)
         deco.setDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.divider) ?: requireContext().resources.getDrawable(R.drawable.divider, requireContext().theme))
         rvMisReservas.addItemDecoration(deco)
+
+
+
+
 
         binding.btDRComentario.setOnClickListener {
             val intent = Intent(requireContext(), AddReviewActivity::class.java)

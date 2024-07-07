@@ -49,15 +49,3 @@ class MisReservasAdapter(private var misReservasList: List<MisReservasModel>,
     }
 
 }
-/*
-    val description: String = "",
-    val lugar: String = "",
-    val date: String = "",
-    val idCompany: String = "",
-    val image: String = "",
-    val price: String = "",
-    val state: String = "",
-    val hora: String = "",
-    val titulo: String = "",
-    val type: String = ""
- */
