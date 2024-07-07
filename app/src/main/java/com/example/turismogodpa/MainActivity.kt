@@ -2,6 +2,7 @@ package com.example.turismogodpa
 
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.TextView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -45,6 +46,23 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        // En tu método onCreate
+        supportActionBar?.setDisplayShowCustomEnabled(true)
+        supportActionBar?.setCustomView(R.layout.action_bar_layout)
+        val titleView: TextView = supportActionBar?.customView?.findViewById(R.id.action_bar_title) as TextView
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            when (destination.id) {
+                R.id.inicioFragment -> titleView.text = "Bienvenido a Turismo Godpa"
+                R.id.reservasFragment -> titleView.text = "Mis Reservas"
+                R.id.cuentaFragment -> titleView.text = "Mi Cuenta"
+                R.id.publicacionFragment -> titleView.text = "Publicar Actividad"
+                R.id.historyeFragment -> titleView.text = "Historial de Actividades"
+                R.id.cuentaCFragment -> titleView.text = "Mi Cuenta"
+                else -> titleView.text = "Mi Aplicación"
+            }
+        }
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_activity_main)

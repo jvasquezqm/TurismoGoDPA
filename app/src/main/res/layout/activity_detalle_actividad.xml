@@ -10,8 +10,9 @@
         android:id="@+id/ivVolverDA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/ivImgActividad"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/arrow_back_ios" />
@@ -20,17 +21,18 @@
         android:id="@+id/tvVolverDA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="24dp"
         android:text="@string/tvVolver_name"
         android:textColor="@color/azul_app"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/ivImgActividad"
         app:layout_constraintStart_toEndOf="@+id/ivVolverDA"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/ivImgActividad"/>
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/ivImgActividad"
-        android:layout_width="0dp"
-        android:layout_height="224dp"
+        android:layout_width="409dp"
+        android:layout_height="213dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvVolverDA"
         app:srcCompat="@drawable/img_actividad02" />
@@ -39,7 +41,7 @@
         android:id="@+id/ratingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="23dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="64dp"
         android:numStars="5"
         android:rating="4"
@@ -86,7 +88,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:textColor="#020202"
         android:textSize="20dp"
         android:textStyle="bold"
@@ -111,7 +113,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="26dp"
-        android:layout_marginTop="9dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="26dp"
         android:textColor="#020202"
         app:layout_constraintEnd_toEndOf="@+id/ratingBar"
@@ -124,7 +126,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="9dp"
+        android:layout_marginTop="8dp"
         android:text="Tipo de actividad: "
         android:textColor="#020202"
         app:layout_constraintStart_toStartOf="parent"
@@ -146,24 +148,26 @@
         android:id="@+id/tvDescActividad"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="17dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="65dp"
         android:textAlignment="textStart"
         android:textColor="#020202"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTipoActividadT"
         tools:text="Explora el centro histórico de la ciudad en bicicleta con un guía experto. Visita la Plaza Mayor, la Catedral, y otros lugares emblemáticos mientras conoces su historia." />
 
     <TextView
-        android:id="@+id/tvDuracionActividad"
+        android:id="@+id/tvDuracionActividadD"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="7dp"
         android:textColor="#020202"
+        app:layout_constraintBottom_toTopOf="@+id/tvUbicacionActividadT"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvDescActividad"
-        android:text="6:00 AM - 12:00 PM" />
+        tools:text="6:00 AM - 12:00 PM" />
 
     <TextView
         android:id="@+id/tvUbicacionActividadT"
@@ -175,7 +179,8 @@
         android:textSize="16dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDuracionActividad"
+        app:layout_constraintTop_toBottomOf="@+id/tvDuracionActividadD"
+        app:layout_constraintBottom_toTopOf="@+id/ivMapa"
         android:text="Explora la zona" />
 
     <ImageView
@@ -183,18 +188,16 @@
         android:layout_width="160dp"
         android:layout_height="103dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="55dp"
-        android:layout_marginBottom="56dp"
         app:layout_constraintBottom_toBottomOf="@+id/btnReservar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDescActividad"
+        app:layout_constraintTop_toBottomOf="@+id/tvUbicacionActividadT"
         app:srcCompat="@drawable/mapscusco" />
 
     <TextView
         android:id="@+id/tvPrecio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
         android:textColor="#020202"
         android:textSize="20dp"
@@ -212,6 +215,7 @@
         android:layout_marginBottom="28dp"
         android:text="RESERVAR"
         app:cornerRadius="17dp"
+        app:layout_constraintTop_toBottomOf="@+id/ivMapa"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

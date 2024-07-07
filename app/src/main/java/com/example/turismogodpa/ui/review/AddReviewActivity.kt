@@ -2,13 +2,22 @@ package com.example.turismogodpa.ui.review
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.datastore.preferences.core.stringPreferencesKey
+import androidx.lifecycle.lifecycleScope
 import com.example.turismogodpa.R
+import com.example.turismogodpa.data.model.UserProfile
+import com.example.turismogodpa.ui.autentication.dataStore
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class AddReviewActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
@@ -26,11 +35,39 @@ class AddReviewActivity : AppCompatActivity() {
         val ivVolver: ImageView = findViewById(R.id.ivVolverReview)
         val tvVolver: TextView = findViewById(R.id.tvVolverReview)
 
+
+        /*lifecycleScope.launch(Dispatchers.IO) {
+            getUserProfile().map { userProfile ->
+                findViewById<TextView>(R.id.tvNombreUsuario).text = userProfile.name
+                findViewById<TextView>(R.id.tvCorreoUsuario).text = userProfile.email
+            }
+        }*/
+        //Obtener name y email del usuario a partir de getUserProfile
+        lifecycleScope.launch(Dispatchers.IO) {
+            getUserProfile().collect {
+                withContext(Dispatchers.Main) {
+
+                    Log.i("User Profile", "${it.name} - ${it.email}")
+//                    findViewById<TextView>(R.id.tvNombreUsuario).text = it.name
+//                    findViewById<TextView>(R.id.tvCorreoUsuario).text = it.email
+                }
+            }
+        }
+
         ivVolver.setOnClickListener {
             onBackPressed()
         }
         tvVolver.setOnClickListener {
             onBackPressed()
         }
+
+    }
+    private fun getUserProfile() = dataStore.data.map{preferences ->
+        UserProfile(
+            name = preferences[stringPreferencesKey("name")].orEmpty(),
+            email = preferences[stringPreferencesKey("email")].orEmpty(),
+            userId = preferences[stringPreferencesKey("userId")].orEmpty()
+        )
+
     }
 }

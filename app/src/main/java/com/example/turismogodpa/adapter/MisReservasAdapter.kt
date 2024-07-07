@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.turismogodpa.R
 import com.example.turismogodpa.data.model.MisReservasModel
+import com.squareup.picasso.Picasso
 
 class MisReservasAdapter(private var misReservasList: List<MisReservasModel>,
                          private val itemClickListener: OnItemClickListener):
@@ -34,10 +35,13 @@ class MisReservasAdapter(private var misReservasList: List<MisReservasModel>,
     }
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentItem = misReservasList[position]
-        holder.ivImagen.setImageResource(currentItem.imagen)
-        holder.tvName.text = currentItem.name
-        holder.tvFecha.text = currentItem.fecha
-        holder.tvEstado.text = currentItem.estado
+        Picasso.get()
+            .load(currentItem.image)
+            .resize(400, 250)
+            .into(holder.ivImagen)
+        holder.tvName.text = currentItem.titulo
+        holder.tvFecha.text = currentItem.date
+        holder.tvEstado.text = currentItem.state
 
         holder.itemView.setOnClickListener {
             itemClickListener.onItemClick(currentItem)
