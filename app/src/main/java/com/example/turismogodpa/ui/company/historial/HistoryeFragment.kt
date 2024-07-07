@@ -2,6 +2,7 @@ package com.example.turismogodpa.ui.company.historial
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,59 +13,70 @@ import com.example.turismogodpa.PubDetalleEmpActivity
 import com.example.turismogodpa.R
 import com.example.turismogodpa.adapter.PubHistAdapter
 import com.example.turismogodpa.data.PubHistData
-
+import com.example.turismogodpa.data.PubResumData
+import com.google.firebase.firestore.FirebaseFirestore
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class HistoryeFragment : Fragment(), PubHistAdapter.OnImageButtonClickListener  {
+    private lateinit var rvPubHist: RecyclerView
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_historial, container, false)
-        val rvPubHist: RecyclerView = view.findViewById(R.id.rvPubHist)
 
-
+        // Inicializar RecyclerView
+        rvPubHist = view.findViewById(R.id.rvPubHist)
         rvPubHist.layoutManager = LinearLayoutManager(requireContext())
-        rvPubHist.adapter = PubHistAdapter(PubHistList(), this)
 
+        // Cargar datos desde Firestore
+        loadActivitiesFromFirestore()
 
         return view
     }
-    private fun PubHistList(): List<PubHistData>{
-        val lstPubHist: ArrayList<PubHistData> = ArrayList()
 
-        lstPubHist.add(
-            PubHistData( "Paseo Playa"
-                , "01/02/20204"
-                , "Actividad"
-                , "Finalizado"
-            )
-        )
+    private fun loadActivitiesFromFirestore() {
+        val db = FirebaseFirestore.getInstance()
 
-        lstPubHist.add(
-            PubHistData("Visita Ruinas"
-                , "28/05/2024"
-                , "Excursión"
-                , "Activo"
-            )
-        )
+        db.collection("activities")
+            .orderBy("time") // Ordenar por el campo 'time'
+            .addSnapshotListener { snap, error ->
+                if (error != null) {
+                    Log.e("ERROR-FIREBASE", "Detalle del error: ${error.message}")
+                    return@addSnapshotListener
+                }
 
-        lstPubHist.add(
-            PubHistData("Museo Lima"
-                , "01/06/2024"
-                , "Actividad"
-                , "Cancelado"
-            )
-        )
+                val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
 
-        return lstPubHist
+                val pubHistList = snap?.documents?.mapNotNull { document ->
+                    val timestamp = document.getTimestamp("time")
+                    val formattedDate = timestamp?.toDate()?.let { dateFormat.format(it) } ?: ""
+                    val uid = document.id
 
+                    // Crear objeto PubHistData
+                    PubHistData(
+                        document.getString("titulo") ?: "",
+                        formattedDate,
+                        document.getString("type") ?: "",
+                        document.getString("state") ?: "",
+                        uid
+                    )
+                } ?: emptyList()
+
+                // Configurar adaptador para RecyclerView
+                rvPubHist.adapter = PubHistAdapter(pubHistList, this)
+            }
     }
-    // Implementar el método onImageButtonClick en HistorialFragment
-    override fun onImageButtonClick(position: Int) {
-        // Código para abrir PubDetalleEmpActivity
+
+    override fun onImageButtonClick(uid: String) {
+        Log.d("HistoryeFragment", "Clicked UID: $uid")
+
+        // Abrir PubDetalleEmpActivity
         val intent = Intent(requireContext(), PubDetalleEmpActivity::class.java)
+        intent.putExtra("UID", uid)
         startActivity(intent)
     }
-
 }

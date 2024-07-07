@@ -10,54 +10,84 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.turismogodpa.R
 import com.example.turismogodpa.adapter.ComentPubAdapter
 import com.example.turismogodpa.data.ComentPubData
+import com.google.firebase.firestore.FirebaseFirestore
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 class ComentPubDiaFragment : DialogFragment() {
+    private lateinit var adapter: ComentPubAdapter
+    private val commentList = mutableListOf<ComentPubData>()
+
+    companion object {
+        private const val ARG_ACTIVITY_ID = "activity_id"
+
+        fun newInstance(activityId: String): ComentPubDiaFragment {
+            val fragment = ComentPubDiaFragment()
+            val args = Bundle()
+            args.putString(ARG_ACTIVITY_ID, activityId)
+            fragment.arguments = args
+            return fragment
+        }
+    }
+
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflar el diseño del fragmento del diálogo
-        return inflater.inflate(R.layout.fragment_comentpub_dialog, container, false)
-    }
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        val rvComentPubDialog: RecyclerView = view.findViewById(R.id.rvComentPubDialog)
+        val view = inflater.inflate(R.layout.fragment_comentpub_dialog, container, false)
+        val rvComentPubDialog = view.findViewById<RecyclerView>(R.id.rvComentPubDialog)
         rvComentPubDialog.layoutManager = LinearLayoutManager(requireContext())
-        rvComentPubDialog.adapter = ComentPubAdapter(getData())
+        adapter = ComentPubAdapter(commentList)
+        rvComentPubDialog.adapter = adapter
+        fetchComments()
+        return view
     }
-    private fun getData(): List<ComentPubData> {
-        // Aquí puedes obtener y devolver tu lista de datos
-        return listOf(
-            ComentPubData("¡Increíble experiencia! Los caballos eran dóciles y los paisajes impresionantes. Repetiría sin dudarlo."
-            , "Alvaro Díaz"
-            , "2024/02/01"),
-            ComentPubData("Gran paseo a caballo. El guía fue amable y el recorrido espectacular. Muy recomendado."
-            ,"Maria Salas"
-                ,"2024/02/11"),
-            ComentPubData("Gran paseo a caballo. El guía fue amable y el recorrido espectacular. Muy recomendado."
-            ,"Juan Perez"
-            , "2024/02/13"),
-            ComentPubData("Gran paseo a caballo. El guía fue amable y el recorrido espectacular. Muy recomendado."
-                ,"Juan Perez"
-                , "2024/02/13"),
-            ComentPubData("Gran paseo a caballo. El guía fue amable y el recorrido espectacular. Muy recomendado."
-                ,"Juan Perez"
-                , "2024/02/13"),
-            ComentPubData("Gran paseo a caballo. El guía fue amable y el recorrido espectacular. Muy recomendado."
-                ,"Juan Perez"
-                , "2024/02/13"),
-            ComentPubData("Gran paseo a caballo. El guía fue amable y el recorrido espectacular. Muy recomendado."
-                ,"Juan Perez"
-                , "2024/02/13"),
-            ComentPubData("Gran paseo a caballo. El guía fue amable y el recorrido espectacular. Muy recomendado."
-                ,"Juan Perez"
-                , "2024/02/13"),
-            ComentPubData("Gran paseo a caballo. El guía fue amable y el recorrido espectacular. Muy recomendado."
-                ,"Juan Perez"
-                , "2024/02/13")
 
-        )
+    private fun fetchComments() {
+        val activityId = arguments?.getString(ARG_ACTIVITY_ID)
+        if (activityId != null) {
+            val db = FirebaseFirestore.getInstance()
+            db.collection("reviews2")
+                .orderBy("time")
+                .whereEqualTo("idactivity", activityId)
+                .get()
+                .addOnSuccessListener { documents ->
+                    for (document in documents) {
+                        val userId = document.getString("iduser")
+                        val commentText = document.getString("comment")
+                        val timestamp = document.getTimestamp("time")
+
+                        if (userId != null && commentText != null && timestamp != null) {
+                            fetchUserName(userId) { userName ->
+                                val dateFormat = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
+                                val formattedDate = dateFormat.format(timestamp.toDate())
+                                val commentData = ComentPubData(userName, commentText, formattedDate)
+                                commentList.add(commentData)
+                                adapter.notifyDataSetChanged()
+                            }
+                        }
+                    }
+                }
+                .addOnFailureListener { e ->
+                    // Manejar errores de consulta
+                }
+        }
+    }
+
+    private fun fetchUserName(userId: String, callback: (String) -> Unit) {
+        val db = FirebaseFirestore.getInstance()
+        db.collection("users").document(userId)
+            .get()
+            .addOnSuccessListener { document ->
+                if (document != null) {
+                    val userName = document.getString("name")
+                    if (userName != null) {
+                        callback.invoke(userName)
+                    }
+                }
+            }
+            .addOnFailureListener { e ->
+                // Manejar errores de consulta
+            }
     }
 }

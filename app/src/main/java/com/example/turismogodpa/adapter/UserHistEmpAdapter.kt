@@ -8,13 +8,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.turismogodpa.R
 import com.example.turismogodpa.data.UserHistEmpData
 
-class UserHistEmpAdapter(private var lstUserEmpHist: List<UserHistEmpData>): RecyclerView.Adapter<UserHistEmpAdapter.ViewHolder>() {
+class UserHistEmpAdapter(private var lstUserEmpHist: MutableList<UserHistEmpData>): RecyclerView.Adapter<UserHistEmpAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val tvNomHistUser: TextView = itemView.findViewById(R.id.tvNomHistUser)
-        val tvApeHistUser: TextView = itemView.findViewById(R.id.tvApeHistUser)
-        val tvDniHistUser: TextView = itemView.findViewById(R.id.tvDniHistUser)
         val tvMailHistUser: TextView = itemView.findViewById(R.id.tvMailHistUser)
+        val tvPhoneHistUser: TextView = itemView.findViewById(R.id.tvPhoneHistUser)
+
 
     }
 
@@ -29,10 +29,13 @@ class UserHistEmpAdapter(private var lstUserEmpHist: List<UserHistEmpData>): Rec
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val itemUserHist = lstUserEmpHist[position]
-        holder.tvNomHistUser.text = itemUserHist.noUserHist
-        holder.tvApeHistUser.text = itemUserHist.apeUserHist
-        holder.tvDniHistUser.text = itemUserHist.dniUserHist
-        holder.tvMailHistUser.text = itemUserHist.mailUserHist
-
+        holder.tvNomHistUser.text = itemUserHist.name
+        holder.tvMailHistUser.text = itemUserHist.email
+        holder.tvPhoneHistUser.text = itemUserHist.phone
+    }
+    fun updateData(newUsers: List<UserHistEmpData>) {
+        lstUserEmpHist.clear()
+        lstUserEmpHist.addAll(newUsers)
+        notifyDataSetChanged()
     }
 }

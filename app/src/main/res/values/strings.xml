@@ -94,10 +94,11 @@
     <string name="Dni">DNI</string>
     <string name="FechaNacimiento">" / /  Fech. Nac."</string>
     <string name="CorreoContacto">Correo Contacto</string>
+    <string name="FechNac">Fecha Nac.</string>
     <string name="Estado">Estado</string>
     <string name="MiPerfil">Mi Perfil</string>
     <string name="Actualizar">Actualizar</string>
-    <string name="DesactivarPerfil">Desactivar mi perfil</string>
+    <string name="DesactivarPerfil">Eliminar cuenta</string>
     <string name="Apellidos">Apellidos</string>
     <string name="btnVerMiReserva">DETALLES</string>
     <string name="tvMRTitle_name">MIS RESERVAS</string>
@@ -134,4 +135,13 @@
     <string name="DuraPubDetalle">Duración:</string>
     <string name="HoraIniFinPubDetEjem">6:00 AM a 3:00 PM</string>
     <string name="tituloComentariosPubEmp">Comentarios</string>
+    <string name="precio">Precio:</string>
+    <string name="direccion">Dirección:</string>
+    <string name="urlImage">URL Imagen</string>
+    <string name="Hora">Hora:</string>
+    <string name="UpdatePub">ACTUALIZAR</string>
+    <string name="tituloActualizaPub">Actualizar Publicación</string>
+    <string name="PriceDetPub">Precio: S/.</string>
+    <string name="dateDetPub">Fecha:</string>
+    <string name="Celular">Celular</string>
 </resources>

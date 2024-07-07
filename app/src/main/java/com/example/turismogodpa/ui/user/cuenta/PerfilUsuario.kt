@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.turismogodpa.R
-import com.example.turismogodpa.R.id.btDesactivarPerfilUsuario
 import com.google.android.material.snackbar.Snackbar
 
 class PerfilUsuario : AppCompatActivity() {
@@ -24,7 +23,7 @@ class PerfilUsuario : AppCompatActivity() {
         }
 
         val btActualizarPerfilUsuario : Button = findViewById(R.id.btActualizarPerfilUsuario)
-        val btDesactivarPerfilUsuario : Button = findViewById(R.id.btDesactivarPerfilUsuario)
+        val btDesactivarPerfilUsuario : Button = findViewById(R.id.btDesactivarPerfil)
 
 
         btActualizarPerfilUsuario.setOnClickListener{

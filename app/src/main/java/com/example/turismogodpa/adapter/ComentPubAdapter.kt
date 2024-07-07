@@ -23,10 +23,9 @@ class ComentPubAdapter (private val lstComentPub: List<ComentPubData>) : Recycle
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val itemComentPub = lstComentPub[position]
-        holder.tvCommentPub.text = itemComentPub.comentPub
-        holder.tvComentNombPub.text = itemComentPub.comenNomUserPub
-        holder.tvComentFechPub.text = itemComentPub.comentFechaPub
-
+        holder.tvComentNombPub.text = itemComentPub.userName
+        holder.tvCommentPub.text = itemComentPub.commentText
+        holder.tvComentFechPub.text = itemComentPub.timestamp
     }
 
     override fun getItemCount(): Int {
